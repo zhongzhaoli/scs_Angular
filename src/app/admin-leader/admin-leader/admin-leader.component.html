@@ -1,0 +1,22 @@
+<title>负责人管理 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>负责人管理</span>
+</div>
+<!--<div class="add_btn" (click)="add_leader()">-->
+   <!--<i class="material-icons">add</i>-->
+<!--</div>-->
+<div class="leader_list main_div_height">
+  <div class="alert leader_flex_list_div {{ (i?.user?.sex == '女') ? 'alert-danger' : 'alert-primary'}}" role="alert" *ngFor="let i of sj">
+    <div class="leader_name">{{ i?.user?.name }}</div>
+    <div>{{ i?.user?.phone }}</div>
+    <div>{{ i?.user?.class }}</div>
+    <div class="delete_icon" >
+      <i class="fa fa-close"></i>
+    </div>
+  </div>
+  <button class="btn scs-btn add-leader" *ngIf="sj" (click)="add_leader()">增加负责人</button>
+  <div class="footer"></div>
+</div>

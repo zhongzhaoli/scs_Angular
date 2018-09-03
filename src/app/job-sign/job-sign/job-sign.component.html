@@ -1,0 +1,46 @@
+<title>报名学生 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>报名学生</span>
+</div>
+<div class="main_div_min_height admin_sign_job">
+  <div class="btn_div" *ngIf="sj">
+    <div class="all_btn active" (click)="sj_show('examine',$event.currentTarget)">审核中</div>
+    <div class="refuse_btn" (click)="sj_show('adopt',$event.currentTarget)">通过</div>
+    <div class="refuse_btn" (click)="sj_show('refuse',$event.currentTarget)">不通过</div>
+  </div>
+  <div class="admin_text">
+    <div class="user_list have_sj_div" *ngIf="sj">
+      <p *ngIf="show != ''">一共 <span style="color:red">{{ sj_num }}</span> 条数据</p>
+      <p *ngIf="show == ''">暂无数据</p>
+    </div>
+    <div class="user_list" *ngFor="let i of sj">
+      <div>
+        <div><b>姓名：</b>{{ i?.user?.name }}</div>
+        <div><b>身高：</b>{{ i?.user?.height }}</div>
+        <div><b>体重：</b>{{ i?.user?.weight }}</div>
+        <div><b>年龄：</b>{{ i?.user?.age }}</div>
+        <div><b>手机：</b>{{ i?.user?.phone }}</div>
+        <div><b>邮箱：</b>{{ i?.user?.email }}</div>
+        <div><b>学号：</b>{{ i?.user?.schoolcode }}</div>
+        <div><b>班级：</b>{{ i?.user?.class }}</div>
+        <div><b>性别：</b>{{ i?.user?.sex }}</div>
+        <div><b>服务：</b>{{ i?.user?.intention }}</div>
+        <div><b>微信：</b>{{ i?.user?.wechat }}</div>
+        <div><b>发布时间：</b>{{ i?.user?.create_time }}</div>
+        <div style="color:Red;"><b>拒绝理由：</b>{{ i?.refusal }}</div>
+      </div>
+      <div class="img_div">
+        <b>认证：</b>
+        <img src="{{ i.user.prove }}" alt="">
+      </div>
+      <div class="do_btn" *ngIf="show_btn_div">
+        <button type="button" (click)="student_job_sign([ i.user_id ],'adopt',$event.currentTarget)" class="btn btn-success">同意</button>
+        <button type="button" (click)="student_job_sign([ i.user_id ],'refuse',$event.currentTarget)" class="btn btn-danger">拒绝</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer"></div>

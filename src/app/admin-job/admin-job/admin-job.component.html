@@ -1,0 +1,50 @@
+<title>后台 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>兼职信息管理</span>
+</div>
+<div class="admin_main_div main_div_min_height main_div_height">
+  <div class="btn_div" *ngIf="sj">
+    <div class="all_btn active" (click)="sj_show('examine',$event.currentTarget)">审核中</div>
+    <div class="refuse_btn" (click)="sj_show('adopt',$event.currentTarget)">通过</div>
+    <div class="refuse_btn" (click)="sj_show('refuse',$event.currentTarget)">不通过</div>
+  </div>
+  <div class="job_list">
+    <div class="user_list have_sj_div" *ngIf="sj">
+      <p *ngIf="show != ''">一共 <span style="color:red">{{ sj_num }}</span> 条数据</p>
+      <p *ngIf="show == ''">暂无数据</p>
+    </div>
+    <div class="job" *ngFor="let i of sj">
+      <div class="job_body_text">
+        <div><b>兼职标题：</b>{{ i.job_title }}</div>
+        <div><b>兼职简介：</b>{{ i.job_introduce }}</div>
+        <div><b>人数：</b>{{ i.job_num }}</div>
+        <div><b>类型：</b>{{ i.job_type }}</div>
+        <div><b>地点：</b>{{ i.job_place }}</div>
+        <div><b>开始日期：</b>{{ i.job_start_date }}</div>
+        <div><b>开始时间：</b>{{ i.job_start_time }}</div>
+        <div><b>工作时间(<span style="color:red">不包括休息时间</span>)：</b>{{ i.job_rest }}小时</div>
+        <div><b>休息时间：</b>{{ i.job_hour }}小时</div>
+        <div><b>结束日期：</b>{{ i.job_end_date }}</div>
+        <div><b>薪酬（<span style="color:red">每小时</span>）：</b>{{ i.job_money }}</div>
+        <div><b>时间详细规划：</b>{{ i.job_detail_time }}</div>
+        <div><b>内容介绍：</b>{{ i.job_detail_content }}</div>
+        <div><b>补贴介绍：</b>{{ i.job_detail_subsidy }}</div>
+        <div><b>备注：</b>{{ i.job_remarks }}</div>
+        <div><b>发布时间：</b>{{ i.create_time }}</div>
+        <div><b>企业联系电话：</b>{{ i.user.name }}</div>
+      </div>
+      <div class="do_btn" *ngIf="show_btn_div == 0">
+        <button type="button" (click)="examine('ok',[i.id],$event.currentTarget,i)" class="btn btn-success">审核通过</button>
+        <button type="button" (click)="examine('no',[i.id],$event.currentTarget,i)" class="btn btn-danger">审核不通过</button>
+      </div>
+      <div class="do_btn" *ngIf="show_btn_div == 1">
+        <button type="button" class="btn scs-btn" routerLink = "/job-sign/{{ i?.id }}">查看报名学生</button>
+        <button type="button" class="btn scs-btn" (click)="over_job(i?.id)">兼职完结</button>
+        <div *ngIf="i?.status == 'over'" class="enterprise_over_text">企业已完结此兼职</div>
+      </div>
+    </div>
+  </div>
+</div>

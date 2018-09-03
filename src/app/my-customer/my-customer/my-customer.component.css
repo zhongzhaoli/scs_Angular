@@ -1,0 +1,49 @@
+.btn_div {
+    padding: 0.15rem 0.25rem;
+    overflow: hidden;
+    background: white;
+    border-bottom:1px #eaeaea solid;
+}
+.btn_div > div {
+    margin: 0.1rem;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border: 1px #eaeaea solid;
+    padding: 0.1rem 0rem;
+    float: left;
+    cursor: pointer;
+    font-size: 0.3rem;
+    width: 1.7rem;
+    text-align: center;
+}
+.active {
+    background: #2ebdea;
+    color: white;
+}
+.my_customer_div{
+    padding:0rem 0.25rem 0.25rem 0.25rem;
+    width:100%;
+}
+.my_customer{
+    background:white;
+    margin-top:0.25rem;
+    padding:0.15rem;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+}
+.customer_title{
+    font-size:0.3rem;
+}
+.an{
+    color:#777;
+    font-size:0.25rem;
+    margin-top:0.1rem;
+}
+.user_list{
+    margin-top:0.25rem;
+    padding:0.2rem;
+    text-align: center;
+    color:#777;
+    font-size:0.25rem;
+}

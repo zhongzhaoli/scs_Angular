@@ -1,0 +1,28 @@
+<title>客服中心 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>客服中心</span>
+</div>
+<div class="customer_div main_div_height">
+  <div class="btn_div">
+    <div class="job_list active" routerLink="/customer">联系客服</div>
+    <div class="job_send" routerLink="/my-customer">我的提问</div>
+  </div>
+  <div class="customer_text_div">
+    <textarea name="" #text id="" cols="30" rows="10" class="form-control" placeholder="说出你的问题～"></textarea>
+    <button class="btn-success btn" (click)="send_qu(text.value)">提交问题</button>
+  </div>
+  <div class="footer_div">
+    <div class="call_our">
+      <div class="call_our_text">
+        <p>服务热线 13662648176 QQ:525966315</p>
+        <p>服务时间 09:00 - 23:00</p>
+        <div>
+          <span>Copyright © 2015-2018 wxine.com All Rights Reserved</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

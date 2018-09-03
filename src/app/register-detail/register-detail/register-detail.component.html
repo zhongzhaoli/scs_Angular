@@ -1,0 +1,179 @@
+<title>信息填写 - 云屯务集</title>
+<div class="header">
+    <div class="go_back_btn" (click)="back_to_history()">
+        <i class="fa fa-angle-left posi_left"></i>
+    </div>
+    <span>{{ (status == '') ? '填写信息' : '个人信息' }}</span>
+</div>
+<div class="register_meessage" *ngIf="status == '' || status == 'refuse'">
+    <div class="auto_div">
+        <div class="alert alert-danger" *ngIf="status == 'refuse'" role="alert">
+            信息未通过审核
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="nameInput">姓名</label>
+                <input type="text" class="form-control" [(ngModel)]="name" name="name" id="nameInput" placeholder="姓名">
+                <span data-error="name" class="error_text"></span>
+            </div>
+            <div class="form-group">
+                <label for="topInput">身高</label>
+                <span class="pla_text">(cm)</span>
+                <input type="text" class="form-control" name="heigh" [(ngModel)]="height" id="topInput"
+                       placeholder="身高">
+                <span data-error="height" class="error_text"></span>
+            </div>
+            <div class="form-group">
+                <label for="weightInput">体重</label>
+                <span class="pla_text">(kg)</span>
+                <input type="text" class="form-control" name="weigh" [(ngModel)]="weight" id="weightInput"
+                       placeholder="体重">
+                <span data-error="weight" class="error_text"></span>
+            </div>
+            <div class="form-group">
+                <label for="ageInput">年龄</label>
+                <input type="text" class="form-control" name="age" [(ngModel)]="age" id="ageInput" placeholder="年龄">
+                <span data-error="age" class="error_text"></span>
+            </div>
+            <div class="form-group">
+                <label for="emailInput">邮箱</label>
+                <input type="email" class="form-control" name="email" [(ngModel)]="email" id="emailInput"
+                       placeholder="邮箱">
+                <span data-error="email" class="error_text"></span>
+            </div>
+            <div class="form-group">
+                <label for="schoolcodeInput">学号</label>
+                <input type="text" class="form-control" name="schoolcode" [(ngModel)]="schoolcode" id="schoolcodeInput"
+                       placeholder="学号">
+                <span data-error="schoolcode" class="error_text"></span>
+            </div>
+            <div class="form-group">
+                <label for="wechatInput">微信号</label>
+                <!--<span class="pla_text">(审核结果会以微信方式通知)</span>-->
+                <input type="text" class="form-control" name="wechat" [(ngModel)]="wechat" id="wechatInput"
+                       placeholder="微信号">
+                <span data-error="wechat" class="error_text"></span>
+            </div>
+            <div class="form-group">
+                <label for="classInput">班级</label>
+                <input type="text" class="form-control" name="class" [(ngModel)]="class" id="classInput"
+                       placeholder="班级">
+                <span data-error="class" class="error_text"></span>
+            </div>
+            <div class="form-group">
+                <label>性别</label>
+                <br>
+                <label class="radio-inline">
+                    <input type="radio" name="sex" id="inlineRadio1" [(ngModel)]="sex" value="男"> 男
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="sex" id="inlineRadio2" [(ngModel)]="sex" value="女"> 女
+                </label>
+                <span data-error="sex" class="error_text"></span>
+            </div>
+            <div class="form-group">
+                <label>意向兼职类型</label>
+                <!--<select name="intention" [(ngModel)]="intention" class="form-control">-->
+                <!--<option value="专业服务">专业服务(设计,舞蹈,主持人等)</option>-->
+                <!--<option value="非专业服务">非专业服务(服务员,派单等)</option>-->
+                <!--<option value="全部">全部</option>-->
+                <!--</select>-->
+                <div class="check_box_div">
+                    <div>
+                        <input (change)="checkbox_change($event.currentTarget)" name="礼仪/模特" type="checkbox"> 礼仪/模特
+                    </div>
+                    <div>
+                        <input (change)="checkbox_change($event.currentTarget)" name="主持人" type="checkbox"> 主持人
+                    </div>
+                    <div>
+                        <input (change)="checkbox_change($event.currentTarget)" name="活动策划" type="checkbox"> 活动策划
+                    </div>
+                    <div>
+                        <input (change)="checkbox_change($event.currentTarget)" name="推广/派单" type="checkbox"> 推广/派单
+                    </div>
+                    <div>
+                        <input (change)="checkbox_change($event.currentTarget)" name="销售/促销" type="checkbox"> 销售/促销
+                    </div>
+                    <div>
+                        <input (change)="checkbox_change($event.currentTarget)" name="市场/问卷调查" type="checkbox"> 市场/问卷调查
+                    </div>
+                    <div>
+                        <input (change)="checkbox_change($event.currentTarget)" name="助教/家教" type="checkbox"> 助教/家教
+                    </div>
+                    <div>
+                        <input (change)="checkbox_change($event.currentTarget)" name="校园代理" type="checkbox"> 校园代理
+                    </div>
+                    <div>
+                        <input (change)="checkbox_change($event.currentTarget)" name="服务生" type="checkbox"> 服务生
+                    </div>
+                    <div>
+                        <input (change)="checkbox_change($event.currentTarget)" name="其他" type="checkbox"> 其他
+                    </div>
+                </div>
+                <span data-error="intention" class="error_text"></span>
+            </div>
+            <div class="form-group">
+                <label>在校证明</label>
+                <span class="pla_text">(校园卡或学生证)</span>
+                <br>
+                <input type="file" id="school_img" style="display: none;" (change)="img_do($event.currentTarget)">
+                <img class="upload_img_btn" src="../../../assets/images/upload.png" alt="" (click)="upload_img()">
+                <span data-error="prove" class="error_text"></span>
+            </div>
+            <button type="button" (click)="upload_message($event.currentTarget)" class="btn btn-success upload_message">
+                提交信息
+            </button>
+        </form>
+    </div>
+</div>
+<div class="profile" style="display: none;" *ngIf="status != '' && status != 'refuse'">
+    <div class="auto_div">
+        <div class="alert alert-warning" *ngIf="status == 'examine'" role="alert">
+            信息正在审核中
+        </div>
+        <div class="alert alert-success" *ngIf="status == 'adopt'" role="alert">
+            信息已通过审核
+        </div>
+        <div class="form-group">
+            <label for="">姓名：</label>
+            <span>{{ profile?.name }}</span>
+        </div>
+        <div class="form-group">
+            <label for="">身高：</label>
+            <span>{{ profile?.height }}</span>
+        </div>
+        <div class="form-group">
+            <label for="">体重：</label>
+            <span>{{ profile?.weight }}</span>
+        </div>
+        <div class="form-group">
+            <label for="">年龄：</label>
+            <span>{{ profile?.age }}</span>
+        </div>
+        <div class="form-group">
+            <label for="">手机号：</label>
+            <span>{{ profile?.phone }}</span>
+        </div>
+        <div class="form-group">
+            <label for="">邮箱：</label>
+            <span>{{ profile?.email }}</span>
+        </div>
+        <div class="form-group">
+            <label for="">学号：</label>
+            <span>{{ profile?.schoolcode }}</span>
+        </div>
+        <div class="form-group">
+            <label for="">班级：</label>
+            <span>{{ profile?.class }}</span>
+        </div>
+        <div class="form-group">
+            <label for="">服务：</label>
+            <span>{{ profile?.intention }}</span>
+        </div>
+        <div class="form-group">
+            <label for="">认证：</label>
+            <img class="profile_prove" src="{{ profile?.prove }}" alt="">
+        </div>
+        <button class="btn scs-btn again_upload_btn" (click)="again_user()">重新填写个人信息</button>
+    </div>
+</div>

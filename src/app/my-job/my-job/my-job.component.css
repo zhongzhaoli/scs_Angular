@@ -1,0 +1,47 @@
+.my_job_div{
+    width:100%;
+    padding:0 0.25rem 0.25rem 0.25rem;
+}
+.job_div{
+    width:100%;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius:3px;
+    background:white;
+    margin-top:0.25rem;
+    border:1px #eaeaea solid;
+}
+.job_message_div{
+    padding:0.2rem;
+}
+.job_title{
+    font-size:0.35rem;
+    margin-bottom:0.1rem;
+    color:#000000;
+}
+.job_place{
+    color:#777;
+    font-size:0.25rem;
+    margin-bottom:0.1rem;
+}
+.job_money{
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.kz_gn{
+    border-top:1px #eaeaea solid;
+    padding:0.2rem 0;
+    color:#7b7b7b;
+    text-align:center;
+}
+.adopt_center{
+    border-bottom:0;
+}
+.user_list{
+    margin-top:0.25rem;
+    padding:0.2rem;
+    text-align: center;
+    color:#777;
+    font-size:0.25rem;
+}

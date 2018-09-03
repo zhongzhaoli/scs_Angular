@@ -1,0 +1,17 @@
+.function_div{
+    padding:0 0.25rem 0.25rem 0.25rem;
+}
+.function_div > div{
+    width:100%;
+    height:1rem;
+    border-radius: 5px;
+    padding: 0.15rem 0.3rem;
+    color:white;
+    font-size:0.3rem;
+    margin-top:0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background:#2ebdea;
+}

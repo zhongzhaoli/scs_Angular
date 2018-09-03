@@ -1,0 +1,19 @@
+.success_div{
+    margin:auto;
+    text-align: center;
+    margin-top:0.35rem;
+    padding:0 0.35rem;
+    box-sizing:border-box;
+}
+.success_div > .success_img{
+    width:1.2rem;
+    height:1.2rem;
+}
+.success_div > p {
+    font-size:0.4rem;
+    margin-top:0.1rem;
+    line-height: 0.8rem;
+}
+.admin_vrcode{
+    width:4rem;
+}

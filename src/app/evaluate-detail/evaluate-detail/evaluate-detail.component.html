@@ -1,0 +1,16 @@
+<title>评价详细 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>评价详细</span>
+</div>
+<div class="main_div_height detail_div">
+  <div *ngIf="sj">
+    <div class="title">
+      <p>{{ sj?.user_name }}</p>
+    </div>
+    <div class="text_div">{{ sj?.text }}</div>
+    <div class="create_time"><span>{{ sj?.create_time }}</span></div>
+  </div>
+</div>

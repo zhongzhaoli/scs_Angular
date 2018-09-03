@@ -1,0 +1,20 @@
+<title>兼职反馈 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>兼职反馈</span>
+</div>
+<div class="admin_job_feedback">
+  <div class="user_list" *ngIf="sj && sj == ''">
+    <p>暂时没有任何反馈</p>
+  </div>
+  <div class="feedback_div" *ngFor="let i of sj">
+    <p class="job_title">
+      <span>{{ i?.job_title }}</span>
+    </p>
+    <div class="job_feedback_user">反馈用户ID：{{ i?.user_id }}</div>
+    <div class="job_value">反馈内容：{{ i?.value }}</div>
+  </div>
+</div>
+<div class="footer"></div>

@@ -1,0 +1,30 @@
+.main_div_height{
+    background:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bg_div{
+    overflow: hidden;
+    margin: 0.25rem;
+    width: 100%;
+    text-align: center;
+}
+.error_img{
+    width:100%;
+    max-width: 10rem;
+}
+.btn_div{
+    margin-top:0.35rem;
+}
+.error_btn{
+    background:#2ebdea;
+    border-radius: 10px;
+    margin: 0 0.35rem;
+    text-align: center;
+    display: inline-block;
+    padding: 0.1rem 0.2rem;
+    font-size:0.28rem;
+    color:white;
+    border:none;
+}

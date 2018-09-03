@@ -1,0 +1,29 @@
+.admin_login{
+    padding:0.35rem;
+    box-sizing:border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+.form-group{
+    width:80%;
+}
+input{
+    height:0.7rem;
+}
+.login_btn{
+    width: 80%;
+    height: 0.7rem;
+    font-size: 0.35rem;
+}
+.admin_login > p{
+    font-size:0.4rem;
+    margin-bottom:0.3rem;
+}
+input{
+    box-shadow: none !important;
+}
+.main_div_height{
+    background:white;
+}

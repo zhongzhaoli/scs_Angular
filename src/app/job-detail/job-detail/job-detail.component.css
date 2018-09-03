@@ -1,0 +1,89 @@
+.job_detail{
+    padding:0.35rem;
+    background:white;
+    border-bottom:1px #eaeaea solid;
+}
+.job_money{
+    margin:0.2rem 0;
+    color:red;
+    font-weight: bold;
+}
+.job_text_content{
+    display: flex;
+    align-items: center;
+    color:#909090;
+    font-size:0.25rem;
+}
+.job_text_content > span:not(:first-child)::before{
+    content: "|";
+    padding:0 0.2rem;
+    font-size:0.2rem;
+}
+.job_money_detail{
+    margin-top:0.2rem;
+}
+.job_money_detail > div > p{
+    font-size:0.3rem;
+    font-weight: bold;
+    margin-bottom:0.3rem;
+}
+.money_hhh{
+    background:#f3f3f3;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color:#777;
+    padding:0.2rem;
+}
+.job_money_detail hr{
+    margin:0.3rem 0;
+}
+.job_detail_text{
+    color:#777;
+}
+.job_time{
+    margin-top:0.2rem;
+}
+.job_time > p{
+    font-size:0.3rem;
+    font-weight: bold;
+    margin-bottom:0.3rem;
+}
+.job_start_end_date{
+    display: flex;
+    align-items: center;
+}
+.job_start_end_date > span:first-child{
+    color:#777;
+    font-size:0.3rem;
+    width:1.5rem;
+}
+.job_start_end_date > span:nth-child(2){
+    width: 0.27rem;
+    height: 0.27rem;
+    display: block;
+    border: 0.04rem #2ebdea solid;
+    border-radius: 100%;
+    margin-right:0.1rem;
+}
+.time_show{
+    margin:0.15rem 0;
+    color:#777;
+}
+.time_detail_all{
+    width:calc(100% - 1.5rem);
+}
+.job_place{
+    margin-top:0.2rem;
+}
+.job_place > p{
+    font-size: 0.3rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+.job_bm_btn_div{
+    background:white;
+}
+.job_bm_btn_div button{
+    width:100%;
+}

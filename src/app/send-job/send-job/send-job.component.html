@@ -1,0 +1,149 @@
+<title>发布兼职 - 云屯务集</title>
+<div class="header">
+  <span>发布兼职</span>
+</div>
+<div class="send_div">
+  <div class="btn_div" *ngIf="role === 'admin'">
+    <div class="job_list" routerLink="/find-job">兼职列表</div>
+    <div class="job_send active" routerLink="/send-job">发布兼职</div>
+  </div>
+  <div class="enterprise_introduce_div content_div">
+    <div class="enterprise_text">
+      <div class="form-group">
+        <label for="">兼职标题</label>        
+        <input type="text" class="form-control" [(ngModel)]="job_title" id="name" placeholder="兼职标题">
+        <span class="error_text" data-error="job_title"></span>
+      </div>
+      <div class="form-group">
+        <label for="">兼职简介</label>        
+        <input type="text" class="form-control" [(ngModel)]="job_introduce" id="introduce" placeholder="兼职简介">
+        <span class="error_text" data-error="job_introduce"></span>
+      </div>
+    </div>
+  </div>
+  <div class="job_text content_div_last">
+    <div class="form-group">
+      <label for="">兼职人数</label>
+      <input type="number" class="form-control" [(ngModel)]="job_num" oninput="if(value.length>2)value=value.slice(0,2);if(value >= 50){value = 50};if(value < 0){value = 1};if(value == '0'){value = 1}" id="people" placeholder="人数">
+      <span class="error_text" data-error="job_num"></span>
+    </div>
+    <div class="form-group">
+      <label for="">兼职类型</label>
+      <select name="" [(ngModel)]="job_type" class="form-control">
+        <option value="礼仪/模特">礼仪/模特</option>
+        <option value="主持人">主持人</option>
+        <option value="活动策划">活动策划</option>
+        <option value="推广/派单">推广/派单</option>
+        <option value="销售/促销">销售/促销</option>
+        <option value="市场/问卷调查">市场/问卷调查</option>
+        <option value="助教/家教">助教/家教</option>
+        <option value="校园代理">校园代理</option>
+        <option value="服务生">服务生</option>
+        <option value="其他">其他</option>
+      </select>
+      <span class="error_text" data-error="job_type"></span>
+    </div>
+    <div class="form-group Ditumap">
+      <label for="">兼职地点</label>
+      <div class="map_place_search_input">
+        <input id="searchplace" style="width: 100%;margin-right:0.2rem;" class="easyui-textbox-simple form-control job_place" placeholder="输入兼职地点" />
+        <button id="s_p_search_btn" class="easyui-linkbutton btn scs-btn" style="width: 2rem;" iconcls="icon-search">搜索</button>
+      </div>
+      <span class="error_text" data-error="job_place"></span>      
+      <!--<div id="searchlist" style="width: 350px; height: 460px; margin-right:10px; float:left;"></div>-->
+      <div style="width:100%;height:3.5rem;border:none;margin:0.2rem 0;" id="BaiduDitu"></div>
+      <div style="clear:both;"></div>
+      <div id="jwd"></div>
+      <input type="text" class="form-control jwd" disabled placeholder="经纬度（通过地点搜索获取经纬度）">
+      <span class="error_text" data-error="latitude_longitude"></span>
+    </div>
+    <div class="form-group">
+      <label for="">兼职详细地址</label>
+      <input type="text" [(ngModel)]="job_detail_place" class="form-control" id="job_detail_place" placeholder="兼职详细地址（例如：4楼401）">
+      <span class="error_text" data-error="job_detail_place"></span>      
+    </div>
+    <div class="form-group">
+      <label for="">兼职开始日期</label>
+      <input type="date" [(ngModel)]="job_start_date" class="form-control" id="start_date" placeholder="兼职开始日期">
+      <span class="error_text" data-error="job_start_date"></span>
+    </div>
+    <div class="form-group">
+      <label for="">兼职开始时间</label>
+      <input type="time" [(ngModel)]="job_start_time" class="form-control" id="start_time" placeholder="兼职开始时间">
+      <span class="error_text" data-error="job_start_time"></span>
+    </div>
+    <div class="form-group">
+      <label for="">兼职结束日期</label>
+      <input type="date" [(ngModel)]="job_end_date" class="form-control" id="end_date" placeholder="兼职结束日期">
+      <span class="error_text" data-error="job_end_date"></span>
+    </div>
+    <div class="form-group">
+      <label for="">每天兼职时长(不包括休息时间)</label>
+      <select name="" [(ngModel)]="job_hour" id="" class="form-control">
+        <option value="1">1小时</option>
+        <option value="2">2小时</option>
+        <option value="3">3小时</option>
+        <option value="4">4小时</option>
+        <option value="5">5小时</option>
+        <option value="6">6小时</option>
+        <option value="7">7小时</option>
+        <option value="8">8小时</option>
+        <option value="9">9小时</option>
+        <option value="10">10小时</option>
+      </select>
+      <span class="error_text" data-error="job_hour"></span>
+    </div>
+    <div class="form-group">
+      <label for="">兼职中途休息时长</label>
+      <select name="" [(ngModel)]="job_rest" class="form-control">
+        <option value="1">1小时</option>
+        <option value="2">2小时</option>
+        <option value="3">3小时</option>
+        <option value="4">4小时</option>
+      </select>
+      <span class="error_text" data-error="job_rest"></span>
+    </div>
+    <div class="form-group">
+      <label for="">结算方式</label>
+      <select name="" [(ngModel)]="balance_type" class="form-control">
+        <option value="日结">日结</option>
+        <option value="月结">月结</option>
+  
+      </select>
+      <span class="error_text" data-error="balance_type"></span>
+    </div>
+    <div class="form-group">
+      <label for="">兼职时间详细规划（选填）</label>
+      <textarea name="" [(ngModel)]="job_detail_time" class="form-control" cols="30" rows="3" placeholder="例如：每周一至周五要上班，周末双休。"></textarea>
+      <span class="error_text" data-error="job_detail_time"></span>
+    </div>
+    <div class="form-group">
+      <label for="">兼职内容介绍（选填）</label>
+      <textarea name="" [(ngModel)]="job_detail_content" class="form-control" cols="30" rows="3" placeholder="例如：拉小朋友来玩我们的公司制作的玩具。"></textarea>
+      <span class="error_text" data-error="job_detail_content"></span>
+    </div>
+    <div class="form-group">
+      <label for="">薪资及补贴介绍（选填）</label>
+      <textarea name="" [(ngModel)]="job_detail_subsidy" class="form-control" cols="30" rows="3" placeholder="例如：拉访一人补贴50元。"></textarea>
+      <span class="error_text" data-error="job_detail_subsidy"></span>
+    </div>
+    <div class="form-group">
+      <label for="">备注（选填）</label>
+      <textarea name="" [(ngModel)]="job_remarks" class="form-control" cols="30" rows="3" placeholder="例如：一定要穿运动鞋。"></textarea>
+      <span class="error_text" data-error="job_remarks"></span>
+    </div>
+    <div class="form-group">
+      <label for="">兼职<span style="color:red">每小时</span>工资</label>
+      <div class="form-group">
+        <div class="input-group">
+          <input type="number" class="form-control" [(ngModel)]="job_money" placeholder="人名币">
+          <div class="input-group-addon">元</div>
+        </div>
+        <span class="error_text" data-error="job_money"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn scs-btn" (click)="send_job()">提交</button>
+    </div>
+  </div>
+</div>

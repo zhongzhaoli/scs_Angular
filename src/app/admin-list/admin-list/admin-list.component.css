@@ -1,0 +1,40 @@
+.admin_list{
+    padding:0 0.25rem 0.25rem 0.25rem;
+}
+.admin_list > div{
+    width:100%;
+    height:1rem;
+    border-radius: 5px;
+    padding: 0.15rem 0.3rem;
+    color:white;
+    font-size:0.3rem;
+    margin-top:0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.user_mes_personal{
+    background: #2ebdea;
+}
+.job_mes_personal{
+    background:orange;
+}
+.leader_user{
+    background: #e27fad;
+}
+.job_feedback{
+    background:#28d628;
+}
+.customer{
+    background:#dcdc0c;
+}
+.enterprise_mes_personal{
+    background:#ff9e9e;
+}
+.admin_function{
+    background:#777;
+}
+.index_evaluate{
+    background:#5cd683;
+}

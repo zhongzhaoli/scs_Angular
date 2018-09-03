@@ -1,0 +1,114 @@
+<title>首页 - 云屯务集</title>
+<div class="header">
+  <span>首页</span>
+</div>
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <div class="swiper_img_div" style="background-image:url('../../../assets/images/slider/0.jpg')"></div>
+    </div>
+    <div class="swiper-slide">
+      <div class="swiper_img_div" style="background-image:url('../../../assets/images/slider/2.jpg')"></div>
+    </div>
+    <div class="swiper-slide">
+      <div class="swiper_img_div" style="background-image:url('../../../assets/images/slider/3.jpg')"></div>
+    </div>
+  </div>
+  <!-- Add Pagination -->
+  <div class="swiper-pagination"></div>
+</div>
+<div class="job_type_div">
+  <div class="job_type_content">
+    <div class="job_type">
+      <img src="../../../assets/images/job-type/all.png" routerLink="/find-job" alt="">
+      <span>全部</span>
+    </div>
+    <div class="job_type">
+      <img src="../../../assets/images/job-type/ly.png" routerLink="/find-job-type/ceremony" alt="">
+      <span>礼仪模特</span>
+    </div>
+    <div class="job_type">
+      <img src="../../../assets/images/job-type/cx.png" routerLink="/find-job-type/sale" alt="">
+      <span>销售促销</span>
+    </div>
+    <div class="job_type">
+      <img src="../../../assets/images/job-type/zc.png" routerLink="/find-job-type/host" alt="">
+      <span>主持人</span>
+    </div>
+    <div class="job_type">
+      <img src="../../../assets/images/job-type/ch.png" routerLink="/find-job-type/plan" alt="">
+      <span>活动策划</span>
+    </div>
+    <div class="job_type">
+      <img src="../../../assets/images/job-type/jj.png" routerLink="/find-job-type/tutor" alt="">
+      <span>家教</span>
+    </div>
+    <div class="job_type">
+      <img src="../../../assets/images/job-type/fws.png" routerLink="/find-job-type/waiter" alt="">
+      <span>服务生</span>
+    </div>
+    <div class="job_type">
+      <img src="../../../assets/images/job-type/dl.png" routerLink="/find-job-type/agent" alt="">
+      <span>校园代理</span>
+    </div>
+  </div>
+</div>
+<div class="now_job">
+  <div class="now_job_content">
+    <p class="now_job_title">最近兼职</p>
+    <div class="job_content">企业较为急性的兼职需求，近十天内的兼职需求</div>
+    <div class="loading_div" *ngIf="!job_index_sj">
+      <img src="../../../assets/images/loading.gif" alt="">
+    </div>
+    <div class="job_mes" *ngFor="let i of job_index_sj" routerLink="/job-detail/{{ i?.id }}">
+      <img src="{{ i?.user_img }}" alt="">
+      <div class="job_text_mes">
+        <div class="job_text_div col-xs-11">
+          <h4>{{ i?.job_title }}</h4>
+          <span class="job_money">￥{{ i?.admin_change_money * i?.job_hour }}元 / 天</span>
+          <span class="job_number">报名人数：{{ i?.job_has_num }} / {{ i?.job_num }}</span>
+        </div>
+        <div class="col-xs-1 read_btn">
+          <i _ngcontent-c4="" class="fa fa-angle-right posi_left"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="our_cg">
+  <div class="our_cg_content">
+    <!-- Swiper -->
+    <div class="swiper-container2">
+      <div class="swiper-wrapper">
+        <div class="loading_div evaluate_sj_loading" *ngIf="!evaluate_sj">
+          <img src="../../../assets/images/loading.gif" alt="">
+        </div>
+        <div class="swiper-slide cg_card" *ngFor="let i of evaluate_sj">
+          <img class="cg_photo_img" src="{{ i?.user?.user_img }}" alt="">
+          <h5 class="cg_name">{{ i?.user?.name }}</h5>
+          <span class="cg_pl">{{ i?.evaluate?.text }}</span>
+          <button class="btn btn-success" routerLink="/evaluate-detail/{{ i?.evaluate_id }}">查看详细</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="our_team">
+  <div class="our_team_content">
+    <p class="our_team_title">团队介绍</p>
+    <div class="team_content">为深圳市乃至珠三角的中小型企业打造在校大学生专业技术、兼职服务，形成整合式、系统式、现代化的一站式综合商务服务平台。</div>
+    <div class="team_img"></div>
+  </div>
+</div>
+<div class="call_our_div">
+  <div class="call_our">
+    <div class="call_our_text">
+      <p>服务热线 400-023-1111 QQ:800168134</p>
+      <p>服务时间 09:00 - 23:00</p>
+      <div>
+        <span>Copyright © 2015-2018 wxine.com All Rights Reserved</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer"></div>

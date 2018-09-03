@@ -1,0 +1,68 @@
+.send_div{
+    margin-bottom:0.85rem;
+    position: relative;
+}
+.enterprise_introduce_div{
+    display: flex;
+
+}
+.enterprise_introduce_div img{
+    width:1.7rem;
+    height:1.7rem;
+    border:1px #eaeaea solid;
+    margin-right:0.2rem;
+}
+.enterprise_text{
+    width:100%;
+}
+.enterprise_text > div:nth-child(2){
+    margin-bottom:0;
+}
+.job_img_upload{
+    width:1.4rem;
+    height:1.4rem;
+    background:url('../../../assets/images/upload.png');
+    background-size:100% 100%;
+}
+.content_div{
+    padding:0.25rem;
+    background:white;
+}
+.content_div_last{
+    padding:0 0.25rem 0.25rem 0.25rem;
+    background:white;
+}
+.content_div_last > .form-group:last-child{
+    margin-bottom:0;
+}
+.btn{
+    width:100%;
+}
+.btn_div {
+    padding: 0.15rem 0.25rem;
+    overflow: hidden;
+    background: white;
+    border-bottom:1px #eaeaea solid;
+}
+.btn_div > div {
+    margin: 0.1rem;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border: 1px #eaeaea solid;
+    padding: 0.1rem 0rem;
+    float: left;
+    cursor: pointer;
+    font-size: 0.3rem;
+    width: 1.7rem;
+    text-align: center;
+}
+
+.active {
+    background: #2ebdea;
+    color: white;
+}
+.map_place_search_input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

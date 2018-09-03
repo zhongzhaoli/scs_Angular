@@ -1,0 +1,12 @@
+{
+  "name": "prod",
+  "production": false,
+  "url": {
+    "comment":"http://122.152.249.114/scs/public",
+    "jump_login":"http://login.yuntunwj.com"
+  },
+  "url_dev": {
+    "comment":"http://192.168.1.5/oauth/public",
+    "jump_login":"http://192.168.1.5:9995"
+  }
+}

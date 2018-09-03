@@ -1,0 +1,62 @@
+.leader_list{
+    padding:0.25rem;
+    background:white;
+}
+.alert-primary{
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+.leader_flex_list_div{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+.leader_flex_list_div > div{
+    width:calc((100% - 0.5rem - 1.4rem) / 2);
+    display: inline-block;
+    text-align: center;
+    display: -webkit-box;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+.leader_name{
+    width:1.4rem !important;
+    text-align: left !important;
+}
+.delete_icon{
+    text-align: right;
+    width:0.5rem !important;
+    height:0.5rem;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    font-size:0.4rem;
+    cursor: pointer;
+    cursor: pointer;
+}
+.add_btn{
+    width:1rem;
+    height:1rem;
+    background:red;
+    position: fixed;
+    bottom:1.15rem;
+    right:0.3rem;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+.add_btn > i{
+    transition: all 0.3s;
+    color:white;
+}
+.add-leader{
+    width:100%;
+}

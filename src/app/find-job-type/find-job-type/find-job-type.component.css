@@ -1,0 +1,183 @@
+.job_list{
+    width:100%;
+}
+.job_mes{
+    display: flex;
+    align-items: center;
+    padding:0.2rem;
+    border-bottom:1px #eaeaea solid;
+    background:white;
+}
+.job_mes:nth-child(1){
+    border-top:1px #eaeaea solid;
+}
+.job_mes > img{
+    width:1.8rem;
+}
+.job_text_mes{
+    display: flex;
+    margin-left:0.2rem;
+    width:100%;
+}
+.job_text_mes > div{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+.job_text_div{
+    margin-right:0.2rem;
+    padding:0;
+}
+.job_money{
+    padding:0.1rem 0;
+    font-size:0.32rem;
+    color:red;
+}
+.job_introduce{
+    padding: 0.1rem 0;
+    color: #9c9c9c;
+    font-size: 0.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    overflow: hidden;
+}
+.job_number{
+    color:#9c9c9c;
+    font-size:0.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.read_btn{
+    padding:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.read_btn > i{
+    color:#686868;
+}
+.job_title{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    overflow: hidden;
+}
+.job_text_div > h4{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.job_has_num{
+    padding:0.2rem;
+    width:100%;
+    text-align: center;
+    color:#9c9c9c;
+}
+.btn_div {
+    padding: 0.15rem 0.25rem;
+    overflow: hidden;
+    background: white;
+    border-bottom:1px #eaeaea solid;
+}
+.btn_div > div {
+    margin: 0.1rem;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border: 1px #eaeaea solid;
+    padding: 0.1rem 0rem;
+    float: left;
+    cursor: pointer;
+    font-size: 0.3rem;
+    width: 1.7rem;
+    text-align: center;
+}
+
+.active {
+    background: #2ebdea;
+    color: white;
+}
+.job_bz{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.job_bz > span{
+    font-size: 0.2rem !important;
+    border: 1px #eaeaea solid;
+    border-radius: 3px;
+    display: flex;
+    padding: 0.03rem 0.07rem;
+    justify-content: center;
+    align-items: center;
+}
+.job_bz > span:not(:last-child){
+    margin-right:0.1rem;
+}
+
+
+.custom-select {
+    position: relative;
+    background:white;
+    padding:0.1rem 0;
+}
+.custom-select select {
+    width:100%;
+    margin:0;
+    background:none;
+    border: 1px solid transparent;
+    outline: none;
+    /* Prefixed box-sizing rules necessary for older browsers */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* Remove select styling */
+    appearance: none;
+    -webkit-appearance: none;
+    /* Font size must the 16px or larger to prevent iOS page zoom on focus */
+    /* General select styles: change as needed */
+    font-family: helvetica, sans-serif;
+    font-weight: bold;
+    color: #444;
+    padding: .6em 1.9em .5em .8em;
+    line-height:1.3;
+    background:white;
+}
+.custom-select::after {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: 50%;
+    right: 8px;
+    margin-top:-4px;
+    border:8px solid #929497;
+    border-width: 8px 5px 8px;
+    border-color: #929497 transparent transparent transparent;
+    z-index: 2;
+    pointer-events:none;
+}
+.custom-select option {
+    font-weight:normal;
+}
+x:-o-prefocus, .custom-select::after {
+    display:none;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .custom-select select::-ms-expand {
+        display: none;
+    }
+    .custom-select select:focus::-ms-value {
+        background: transparent;
+        color: #222;
+    }
+}
+.custom-select select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}

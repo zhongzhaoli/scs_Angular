@@ -1,0 +1,29 @@
+<title>评论 - 云屯务集</title>
+<div class="header">
+    <div class="go_back_btn" (click)="back_to_history()">
+        <i class="fa fa-angle-left posi_left"></i>
+    </div>
+    <span>评论与展示</span>
+</div>
+<div class="admin-evaluate" *ngIf="sj && choose">
+    <p class="title_">展示评价</p>
+    <div *ngFor="let i of choose" class="evaluate_div choose_div">
+        <img src="../../../assets/images/good.png" alt="" *ngIf="i?.type == 'good'"><img src="../../../assets/images/bad.png" alt="" *ngIf="i?.type == 'bad'">&nbsp;&nbsp;{{ i?.text }}
+        <div class="gn_div del_show" (click)="add_del_do('del', i)">删除此展示</div>
+    </div>
+    <div class="no_sj" *ngIf="!choose || choose == ''">
+        暂无数据
+    </div>
+    <hr>
+    <p class="title_">其他评价</p>
+    <div *ngFor="let j of sj" class="evaluate_div sj_div">
+        <img src="../../../assets/images/good.png" alt="" *ngIf="j?.type == 'good'"><img src="../../../assets/images/bad.png" alt="" *ngIf="j?.type == 'bad'">&nbsp;&nbsp;{{ j?.text }}
+        <div class="gn_div add_show" (click)="add_del_do('add', j)">添加此展示</div>
+    </div>
+    <div class="no_sj" *ngIf="!sj || sj == ''">
+        暂无数据
+    </div>
+    <hr>
+    <button class="btn btn-success save_btn" (click)="change_save()">保存配置</button>
+</div>
+<div class="footer"></div>

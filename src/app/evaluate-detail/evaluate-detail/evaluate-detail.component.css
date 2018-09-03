@@ -1,0 +1,33 @@
+.detail_div{
+    background:white;
+    padding:0.3rem;
+    margin:auto;
+}
+.title{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+.title > p{
+    font-size:0.35rem;
+    margin:0.1rem 0;
+    font-weight:500;
+}
+.text_div{
+    text-align: center;
+    margin-top:0.25rem;
+    line-height:30px;
+}
+.create_time{
+    margin-top:0.25rem;
+    text-align: center;
+}
+.user_img{
+    width:0.8rem;
+    height:0.8rem;
+    border:1px #eaeaea solid;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+    margin-right:0.2rem;
+}

@@ -1,0 +1,14 @@
+<title>登陆 - 云屯务集</title>
+<div class="header">
+  <span>管理员登陆</span>
+</div>
+<div class="admin_login main_div_height">
+  <p>管理员登陆</p>
+  <div class="form-group">
+    <input type="text" class="form-control" #phone name="phone" id="phone" placeholder="手机号">
+  </div>
+  <div class="form-group">
+    <input type="password" class="form-control" #password name="password" id="password" placeholder="密码">
+  </div>
+  <button type="button" (click)="login(phone.value,password.value)" class="btn btn-success login_btn">登陆</button>
+</div>

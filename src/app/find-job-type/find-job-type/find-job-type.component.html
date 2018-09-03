@@ -1,0 +1,48 @@
+<title>找兼职 - 云屯务集</title>
+<div class="header">
+  <span>找兼职</span>
+</div>
+<div class="job_list">
+  <div class="job_type custom-select">
+    <select name="" (change)="type_change($event.currentTarget)" class="form-control job_type">
+      <option value="all">全部类型</option>
+      <option value="ceremony">礼仪/模特</option>
+      <option value="host">主持人</option>
+      <option value="plan">活动策划</option>
+      <option value="extension">推广/派单</option>
+      <option value="sale">销售/促销</option>
+      <option value="investigation">市场/问卷调查</option>
+      <option value="tutor">助教/家教</option>
+      <option value="agent">校园代理</option>
+      <option value="waiter">服务生</option>
+      <option value="other">其他</option>
+    </select>
+  </div>
+  <div *ngIf="job">
+    <div class="job_mes" *ngFor="let sj of job" routerLink="/job-detail/{{ sj.id }}">
+      <div class="job_text_mes">
+        <div class="job_text_div col-xs-12">
+          <h4>
+            <span class="job_title">{{ sj.job_title }}</span>
+            <span class="job_money">￥{{ sj.admin_change_money * sj?.job_hour }} / 天</span>
+          </h4>
+          <div class="job_introduce">{{ sj.job_place }}</div>
+          <div class="job_number">
+            <span>报名人数：{{ sj.job_has_num }} / {{ sj.job_num }}</span>
+            <div class="job_bz">
+              <span>企业认证</span>
+              <span>{{ sj?.balance_type }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="job_has_num" *ngIf="job_length && job_length != 'none'">
+    <span *ngIf="job_length != 0">一共 {{ job_length }} 条数据</span>
+  </div>
+  <div class="job_has_num" *ngIf="job_length && job_length == 'none' && job_length != ''">
+    <span>暂无数据</span>
+  </div>
+</div>
+<div class="footer"></div>

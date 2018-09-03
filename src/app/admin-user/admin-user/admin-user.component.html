@@ -1,0 +1,59 @@
+<title>信息管理 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>个人信息管理</span>
+</div>
+<div class="admin_main_div main_div_min_height">
+  <div class="btn_div" *ngIf="sj">
+    <div class="all_btn active" (click)="sj_show('examine','examine',$event.currentTarget)">审核中</div>
+    <div class="refuse_btn" (click)="sj_show('adopt','adopt',$event.currentTarget)">通过</div>
+    <div class="refuse_btn" (click)="sj_show('refuse','refuse',$event.currentTarget)">不通过</div>
+  </div>
+  <div class="admin_text">
+    <div class="search_div" *ngIf="show">
+      <select name="select_search_type" id="">
+        <option value="all">全部</option>
+        <option value="schoolcode">学号</option>
+        <option value="name">姓名</option>
+        <option value="phone">手机</option>
+        <option value="wechat">微信</option>
+        <option value="class">班级</option>
+        <option value="intention">职位</option>
+      </select>
+      <input type="text" #search_input placeholder="输入你要查找的数据">
+      <div (click)="search_click_btn(search_input.value)">
+        <span class="glyphicon glyphicon-search"></span>
+      </div>
+    </div>
+    <div class="user_list have_sj_div" *ngIf="show">
+      <p *ngIf="show != ''">一共 <span style="color:red">{{ show_num }}</span> 条数据</p>
+      <p *ngIf="show == ''">暂无数据</p>
+    </div>
+    <div class="user_list" *ngFor="let i of show">
+      <div>
+        <div><b>姓名：</b>{{ i.name }}</div>
+        <div><b>身高：</b>{{ i.height }}</div>
+        <div><b>体重：</b>{{ i.weight }}</div>
+        <div><b>年龄：</b>{{ i.age }}</div>
+        <div><b>手机：</b>{{ i.phone }}</div>
+        <div><b>邮箱：</b>{{ i.email }}</div>
+        <div><b>学号：</b>{{ i.schoolcode }}</div>
+        <div><b>班级：</b>{{ i.class }}</div>
+        <div><b>性别：</b>{{ i.sex }}</div>
+        <div><b>服务：</b>{{ i.intention }}</div>
+        <div style="color:red"><b>微信：</b>{{ i.wechat }}</div>
+        <div><b>发布时间：</b>{{ i.create_time }}</div>
+      </div>
+      <div class="img_div">
+        <b>认证：</b>
+        <img src="{{ i.prove }}" alt="">
+      </div>
+      <div class="do_btn" *ngIf="show_btn_div">
+        <button type="button" (click)="examine('ok',[i.id],$event.currentTarget,i)" class="btn btn-success">审核通过</button>
+        <button type="button" (click)="examine('no',[i.id],$event.currentTarget,i)" class="btn btn-danger">审核不通过</button>
+      </div>
+    </div>
+  </div>
+</div>

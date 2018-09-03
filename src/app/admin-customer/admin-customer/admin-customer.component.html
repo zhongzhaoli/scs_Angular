@@ -1,0 +1,29 @@
+<title>客服回答 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>客服回答</span>
+</div>
+<div class="customer_div">
+  <div class="my_customer_div">
+    <div class="user_list" *ngIf="sj && sj == ''">
+      <p>暂时没人提出问题</p>
+    </div>
+    <div class="my_customer" *ngFor="let i of sj">
+      <p class="customer_title">{{ i?.text }}</p>
+      <div class="an" *ngIf="i?.an != ''">客服回答：{{ i?.an?.text }}</div>
+      <div class="an" *ngIf="i?.an == ''">客服暂未回答</div>
+      <div class="create_time an">提问时间：{{ i?.create_time }}</div>
+      <div class="text_div dis_none" *ngIf="i?.an == ''">
+        <textarea name="" class="form-control" #text placeholder="回复" id="" cols="30" rows="3"></textarea>
+        <button class="btn btn-success" (click)="an_customer(text.value,i?.id)">提交</button>
+      </div>
+      <div class="input_div" *ngIf="i?.an == ''">
+        <button class="btn btn-warning" (click)="show_text_div($event.currentTarget)">回复</button>
+        <button class="btn scs-btn" (click)="alert_personal(i?.user)">提问者个人信息</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer_div"></div>
+</div>

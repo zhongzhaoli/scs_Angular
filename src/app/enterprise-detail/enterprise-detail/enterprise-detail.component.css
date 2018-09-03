@@ -1,0 +1,45 @@
+.form-group > label{
+    font-size:0.3rem;
+}
+.form-group > input {
+    height: 0.8rem;
+}
+.register_meessage{
+    background:white;
+    margin-bottom:0.85rem;
+}
+.profile{
+    background:white;
+    margin-bottom:0.85rem;
+}
+.profile_prove{
+    width:100%;
+}
+.upload_message{
+    width:100%;
+}
+.pla_text{
+    padding-left:0.1rem;
+    color:#767676;
+}
+.upload_img_btn{
+    width:1.4rem;
+    height:1.4rem;
+    background-size:cover;
+    display: block;
+    cursor: pointer;
+}
+.warning_text{
+    color:red;
+    font-size:0.25rem;
+}
+.check_box_div > div{
+    border-top:1px #eaeaea solid;
+    padding:0.1rem 0;
+}
+.check_box_div > div:last-child{
+    border-bottom:1px #eaeaea solid;
+}
+.again_upload_btn{
+    width:100%;
+}

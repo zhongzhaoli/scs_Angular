@@ -1,0 +1,16 @@
+.leader{
+    width:100%;
+    padding:0 0.25rem;
+}
+.leader_div{
+    width:100%;
+    background:white;
+    padding:0.2rem;
+    margin-top:0.25rem;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius:3px;
+}
+.leader_div > div{
+    padding:0.15rem 0;
+}

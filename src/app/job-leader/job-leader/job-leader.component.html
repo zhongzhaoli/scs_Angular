@@ -1,0 +1,15 @@
+<title>兼职负责人 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>兼职负责人</span>
+</div>
+<div class="leader" *ngIf="sj">
+  <div class="leader_div">
+    <div>姓名：{{ sj?.name }}</div>
+    <div>性别：{{ sj?.sex }}</div>
+    <div>联系电话：{{ sj?.phone }}</div>
+    <div>微信：{{ sj?.wechat }}</div>
+  </div>
+</div>

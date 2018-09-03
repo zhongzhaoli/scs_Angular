@@ -1,0 +1,116 @@
+.admin_text{
+    padding:0.15rem 0.35rem 0.35rem 0.35rem;
+    min-height:100%;
+    position: relative;
+}
+.user_list:not(:first-child){
+    margin-top:0.25rem;
+}
+.user_list{
+    background:white;
+    padding:0.2rem;
+    border:1px #eaeaea solid;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    font-size:0.25rem;
+}
+.admin_main_div{
+    margin-bottom:0.85rem;
+}
+.user_list > div{
+    flex: 1;
+}
+.img_div{
+    overflow: hidden;
+}
+.img_div > img{
+    margin-top:0.1rem;
+    width:100%;
+}
+.do_btn{
+    text-align: center;
+    margin-top:0.2rem;
+}
+.do_btn > button{
+    margin:0 0.1rem;
+}
+.btn_div{
+    padding:0.15rem 0.25rem 0rem 0.25rem;
+    overflow: hidden;
+}
+.btn_div > div{
+    margin:0.1rem;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border:1px #eaeaea solid;
+    padding:0.1rem 0.2rem;
+    float:left;
+    cursor: pointer;
+    font-size:0.3rem
+}
+.active{
+    background:#2ebdea;
+    color:white;
+}
+.no_sj{
+    border:none;
+}
+
+.search_div > select{
+    padding:0 0.2rem;
+    background-color:transparent;
+    border-color:transparent;
+    -webkit-appearance: none;
+    outline: none;
+    box-sizing:border-box;
+    border-right:1px #eaeaea solid;
+    border-radius: 0;
+}
+
+.cl_btn{
+    text-align: center;
+    margin-top:0.2rem;
+}
+.cl_text{
+    color: #a1a1a1;
+    text-align: center;
+    font-size: 0.25rem;
+    margin-top:0.2rem;
+}
+.search_div{
+    background: white;
+    padding: 0.2rem 0 0.2rem 0;
+    border: 1px #eaeaea solid;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+}
+.search_div > input{
+    border:none;
+    outline: none;
+    width:calc(100% - 1rem - 0.4rem);
+    font-size:0.25rem;
+    text-indent:0.2rem;
+}
+.search_div > div{
+    width:1rem;
+    border-left:1px #eaeaea solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search_div > div > span{
+    font-size:0.3rem;
+    color:#979797;
+}
+.admin_main_div{
+    background:white;
+}
+.user_list > div > div{
+    margin:0.1rem 0;
+}

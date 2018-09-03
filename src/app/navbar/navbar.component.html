@@ -1,0 +1,32 @@
+<div class="bottom_navbar">
+    <ul>
+        <li (click)="to_router('/index')">
+            <span class="glyphicon glyphicon-home"></span>
+            <span>首页</span>
+        </li>
+        <li *ngIf="role == 'enterprise'" (click)="to_router('/send-job')">
+            <span class="glyphicon glyphicon-briefcase"></span>
+            <span>兼职</span>
+        </li>
+        <li *ngIf="role == 'student'" (click)="to_router('/find-job')">
+            <span class="glyphicon glyphicon-briefcase"></span>
+            <span>兼职</span>
+        </li>
+        <li *ngIf="!role">
+            <span class="glyphicon glyphicon-briefcase"></span>
+            <span>兼职</span>
+        </li>
+        <li *ngIf="role == 'admin'" (click)="to_router('/find-job')">
+            <span class="glyphicon glyphicon-briefcase"></span>
+            <span>兼职</span>
+        </li>
+        <li (click)="to_router('/demand')">
+            <span class="glyphicon glyphicon-eye-open"></span>
+            <span>动态</span>
+        </li>
+        <li (click)="to_router('/profile')">
+            <span class="glyphicon glyphicon-user"></span>
+            <span>我的</span>
+        </li>
+    </ul>
+</div>

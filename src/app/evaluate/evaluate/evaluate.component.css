@@ -1,0 +1,44 @@
+.job_feedback{
+    background:white;
+    padding:0.35rem;
+    width:100%;
+}
+.feedback_textarea{
+    margin-top:0.35rem;
+}
+.feedback_button{
+    margin-top:0.35rem;
+    width:100%;
+}
+.type_div{
+    display: flex;
+    width:100%;
+    margin-top:0.35rem;
+}
+.type_div > div{
+    width:100%;
+    border:1px #eaeaea solid;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    padding:0.1rem 0;
+    cursor:pointer;
+    transition: all .2s;
+    background:white;
+}
+.type_div > div > img{
+    width:20px;
+    margin-right:0.1rem;
+}
+.good{
+    margin-right:0.1rem;
+}
+.bad{
+    margin-left:0.1rem;
+}
+.active{
+    background:#e3f8ff !important;
+}

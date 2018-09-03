@@ -1,0 +1,34 @@
+<title>后台 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>后台管理</span>
+</div>
+<div class="admin_list" *ngIf="status == 'ok'">
+  <div class="admin_function" routerLink="/admin-function">
+    管理员功能
+  </div>
+  <div class="user_mes_personal" routerLink="/admin-user">
+    个人信息审核
+  </div>
+  <div class="enterprise_mes_personal" routerLink="/admin-enterprise">
+    企业信息审核
+  </div>
+  <div class="job_mes_personal" routerLink="/admin-job">
+    兼职信息审核
+  </div>
+  <div class="leader_user" routerLink="/admin-leader">
+    负责人管理
+  </div>
+  <div class="job_feedback" routerLink="/admin-job-feedback">
+    兼职反馈
+  </div>
+  <div class="customer" routerLink="/admin-customer">
+    客服中心
+  </div>
+  <div class="index_evaluate" routerLink="/admin-evaluate">
+    首页评价展示
+  </div>
+</div>
+<div class="footer"></div>

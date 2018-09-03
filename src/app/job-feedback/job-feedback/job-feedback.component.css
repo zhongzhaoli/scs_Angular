@@ -1,0 +1,12 @@
+.job_feedback{
+    background:white;
+    padding:0.35rem;
+    width:100%;
+}
+.feedback_textarea{
+    margin-top:0.35rem;
+}
+.feedback_button{
+    margin-top:0.35rem;
+    width:100%;
+}

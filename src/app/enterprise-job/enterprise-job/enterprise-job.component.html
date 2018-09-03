@@ -1,0 +1,34 @@
+<title>我的兼职 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>我的兼职</span>
+</div>
+<div class="my_job_div">
+  <div class="user_list" *ngIf="sj && sj == ''">
+    <p>你还没有发布任何兼职</p>
+  </div>
+  <div class="job_div" *ngFor="let i of sj">
+    <div class="job_message_div">
+      <p class="job_title">{{ i?.job_title }}</p>
+      <div class="job_place">
+        {{ i?.job_place }}
+      </div>
+      <div class="job_money">
+        <span>
+          <span style="color:red;font-weight: bold;font-size:0.3rem;">{{ i?.job_money }}</span><span style="letter-spacing: 2px;font-size:0.25rem;"> 元/天</span>
+        </span>
+        <span *ngIf="i?.status == 'adopt'" style="color:#3ee62c">审核通过</span>
+        <span *ngIf="i?.status == 'refuse'" style="color:red">审核不通过</span>
+        <span *ngIf="i?.status == 'examine'" style="color:#ffb328">审核中</span>
+        <span *ngIf="i?.status == 'over' || i?.status == 'admin_over'" style="color:#2ebdea">已完结</span>
+      </div>
+    </div>
+    <div class="refuse_div kz_gn" *ngIf="i?.status == 'adopt'" routerLink="/job-sign/{{ i?.id }}">查看报名学生</div>
+    <div class="adopt_div kz_gn adopt_center" *ngIf="i?.status == 'adopt'" routerLink="/job-leader/{{ i?.id }}">查看负责人信息</div>
+    <div class="over_job kz_gn" *ngIf="i?.status == 'adopt'" (click)="job_over(i?.id)">兼职完结</div>
+    <div class="kz_gn evaluate" routerLink="/evaluate/{{ i?.id }}" *ngIf="i?.status == 'over' || i?.status == 'admin_over'">对云务兼职做出评价</div>
+  </div>
+  <div class="footer"></div>
+</div>

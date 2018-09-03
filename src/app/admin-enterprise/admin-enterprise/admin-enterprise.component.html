@@ -1,0 +1,38 @@
+<title>信息管理 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>企业信息管理</span>
+</div>
+<div class="admin_main_div main_div_min_height">
+  <div class="btn_div" *ngIf="sj">
+    <div class="all_btn active" (click)="sj_show('examine','examine',$event.currentTarget)">审核中</div>
+    <div class="refuse_btn" (click)="sj_show('adopt','adopt',$event.currentTarget)">通过</div>
+    <div class="refuse_btn" (click)="sj_show('refuse','refuse',$event.currentTarget)">不通过</div>
+  </div>
+  <div class="admin_text">
+    <div class="user_list have_sj_div" *ngIf="show">
+      <p *ngIf="show != ''">一共 <span style="color:red">{{ show_num }}</span> 条数据</p>
+      <p *ngIf="show == ''">暂无数据</p>
+    </div>
+    <div class="user_list" *ngFor="let i of show">
+      <div>
+        <div><b>企业名：</b>{{ i?.name }}</div>
+        <div><b>办公地：</b>{{ i?.place }}</div>
+        <div><b>信用代码或注册号：</b>{{ i?.code }}</div>
+        <div><b>手机：</b>{{ i?.phone }}</div>
+        <div><b>邮箱：</b>{{ i?.email }}</div>
+        <div><b>发布时间：</b>{{ i.create_time }}</div>
+      </div>
+      <div class="img_div">
+        <b>认证：</b>
+        <img src="{{ i.prove }}" alt="">
+      </div>
+      <div class="do_btn" *ngIf="show_btn_div">
+        <button type="button" (click)="examine('ok',[i?.id],$event.currentTarget,i)" class="btn btn-success">审核通过</button>
+        <button type="button" (click)="examine('no',[i?.id],$event.currentTarget,i)" class="btn btn-danger">审核不通过</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -26,6 +26,7 @@ export class RegisterDetailComponent implements OnInit {
 
     status: string;
     profile: any;
+    o_user: any;
 
     constructor(private apise: ApiService, private router: Router) {
     }
@@ -57,6 +58,7 @@ export class RegisterDetailComponent implements OnInit {
             if(t.user){
                 this.status = t.user.status;
                 this.profile = t.user;
+                this.o_user = t.o_user;
                 $(".profile").show();
             }
             else{

@@ -170,6 +170,24 @@
             <label for="">服务：</label>
             <span>{{ profile?.intention }}</span>
         </div>
+        <hr>
+        <div class="form-group" style="color:red;">
+            <label for="">信用：</label>
+            <span>{{ o_user?.credit }}</span>
+        </div>
+        <div class="form-group" style="color:red;">
+            <label for="">等级：</label>
+            <span>Lv{{ o_user?.level }}</span>
+        </div>
+        <div class="form-group" style="color:red;">
+            <label for="">经验：</label>
+            <span>{{ o_user?.experience }}</span>
+        </div>
+        <div class="form-group" style="color:red;">
+            <label for="">积分：</label>
+            <span>{{ o_user?.integral }}</span>
+        </div>
+        <hr>
         <div class="form-group">
             <label for="">认证：</label>
             <img class="profile_prove" src="{{ profile?.prove }}" alt="">

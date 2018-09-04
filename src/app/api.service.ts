@@ -205,9 +205,9 @@ export class ApiService {
         var url = environment.url.comment + "/enterprise/job/" + job_id + "/over";
         return this.http.get(url);
     }
-    enterprise_evaluate(job_id,type,text){
+    enterprise_evaluate(job_id,type,text,type_good,type_bad,type_review){
         var url = environment.url.comment + "/enterprise/evaluate/" + job_id;
-        return this.http.post(url,{"type": type, "text": text});
+        return this.http.post(url,{"type": type, "text": text, "good": type_good, "bad": type_bad, "review": type_review});
     }
     admin_index_evaluate(){
         var url = environment.url.comment + "/admin/index_evaluate";
@@ -231,6 +231,10 @@ export class ApiService {
     }
     admin_treated(){
         var url = environment.url.comment + "/admin/treated";
+        return this.http.get(url);
+    }
+    enterprise_all_student(job_id){
+        var url = environment.url.comment + "/enterprise/evaluate/job/student/" + job_id;
         return this.http.get(url);
     }
 }

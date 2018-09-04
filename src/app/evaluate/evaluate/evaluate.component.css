@@ -42,3 +42,31 @@
 .active{
     background:#e3f8ff !important;
 }
+.title_:first-child{
+    margin-top:0;
+}
+.title_{
+    text-align: center;
+    margin:0.25rem 0;
+    font-size:0.3rem;
+    font-weight: 500;
+}
+.children_for{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.children_for > span{
+    width:calc(100% - 5rem);
+    display: block;
+}
+.children_for > div{
+    width:5rem;
+    margin-top:0;
+}
+.children_for:first-child{
+    margin-top:0;
+}
+.children_for{
+    margin:0.1rem 0;
+}

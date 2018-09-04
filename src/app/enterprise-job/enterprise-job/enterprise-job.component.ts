@@ -17,7 +17,6 @@ export class EnterpriseJobComponent implements OnInit {
     this.apise.enterprise_job().subscribe(t => {
       close_dialog();
       this.sj = t;
-      console.log(this.sj);
     },error => {
       close_dialog();
       scs_alert(error.error.message);

@@ -7,19 +7,38 @@
 </div>
 <!-- 把反馈模板拉了过来 所以class没有改 -->
 <div class="main_div_height job_feedback">
-  <div class="job_feedback_div" *ngIf="sj">
-    <input class="form-control" id="job_title" name="job_title" placeholder="兼职" disabled type="text" value="{{ sj?.job_title }}">
+  <div class="job_feedback_div" *ngIf="job">
+    <p class="title_">对平台做出评价</p>
+    <input class="form-control" id="job_title" name="job_title" placeholder="兼职" disabled type="text" value="{{ job?.job_title }}">
     <div class="type_div">
-      <div class="good active" (click)="qh_active('good')">
+      <div class="good active" (click)="qh_active('good',$event.currentTarget)">
         <img src="../../../assets/images/good.png" alt="">
         <span>好评</span>
       </div>
-      <div class="bad" (click)="qh_active('bad')">
+      <div class="bad" (click)="qh_active('bad',$event.currentTarget)">
         <img src="../../../assets/images/bad.png" alt="">
         <span>差评</span>
       </div>
     </div>
     <textarea name="" id="" cols="30" rows="10" class="form-control feedback_textarea" #value placeholder="尽情的说吧～"></textarea>
-    <button class="feedback_button btn scs-btn" (click)="upload_text(value.value,sj?.id)">提交评价</button>
+    <p class="title_" *ngIf="student">对学生做出评价</p>
+    <div class="children_for" *ngFor="let i of student">
+      <span>{{ i?.user?.name }}</span>
+      <div class="type_div">
+        <div class="good active" (click)="type_for_children('good',i?.user?.user_id,$event.currentTarget)">
+          <img src="../../../assets/images/good.png" alt="">
+          <span>好评</span>
+        </div>
+        <div class="review" (click)="type_for_children('review',i?.user?.user_id,$event.currentTarget)">
+          <img src="../../../assets/images/good.png" alt="">
+          <span>中评</span>
+        </div>
+        <div class="bad" (click)="type_for_children('bad',i?.user?.user_id,$event.currentTarget)">
+          <img src="../../../assets/images/bad.png" alt="">
+          <span>差评</span>
+        </div>
+      </div>
+    </div>
+    <button class="feedback_button btn scs-btn" (click)="upload_text(value.value,job?.id)">提交评价</button>
   </div>
 </div>

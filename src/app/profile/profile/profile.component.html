@@ -21,7 +21,16 @@
         <!--<i class="fa fa-sign-out"></i>-->
       <!--</div>-->
       <div class="user_text_div">
-        <img (click)="update_user_img()" src="{{ o_user?.user_img }}" alt="">
+        <div class="le_div">
+          <span class="lev_text">Lv{{ o_user?.level }}</span>
+          <img (click)="update_user_img()" src="{{ o_user?.user_img }}" alt="">
+        </div>
+        <div class="integral_text">
+          <div class="integral_div">
+            <span>{{ o_user?.experience }}/{{ o_user?.level * 100 }}</span>
+            <div class="integral_k" [ngStyle]="{'width':100 / ((o_user?.level * 100) / o_user?.experience) + '%'}"></div>
+          </div>
+        </div>
         <p class="user_nickname">{{ o_user?.nickname }}</p>
         <div style="display: none;" class="change_input_div">
           <input type="text" class="change_nickname_input" #nickname value="{{ o_user?.nickname }}" maxlength="15">

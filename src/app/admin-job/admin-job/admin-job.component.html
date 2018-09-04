@@ -42,7 +42,7 @@
       </div>
       <div class="do_btn" *ngIf="show_btn_div == 1">
         <button type="button" class="btn scs-btn" routerLink = "/job-sign/{{ i?.id }}">查看报名学生</button>
-        <button type="button" class="btn scs-btn" (click)="over_job(i?.id)">兼职完结</button>
+        <button type="button" class="btn scs-btn" (click)="over_job(i?.id,i)">兼职完结</button>
         <div *ngIf="i?.status == 'over'" class="enterprise_over_text">企业已完结此兼职</div>
       </div>
     </div>

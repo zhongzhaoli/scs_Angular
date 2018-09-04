@@ -116,9 +116,11 @@ export class AdminJobComponent implements OnInit {
   back_to_history() {
       window.history.back();
   }
-  over_job(job_id){
+  over_job(job_id,ii){
       this.apise.admin_over_job(job_id).subscribe(t => {
           scs_alert("完结成功");
+          this.sj.remove(ii);
+          this.sj_num = this.sj_num - 1;
       },error => {
           scs_alert(error.error.message);
       });

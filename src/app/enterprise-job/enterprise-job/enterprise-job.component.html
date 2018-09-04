@@ -28,7 +28,8 @@
     <div class="refuse_div kz_gn" *ngIf="i?.status == 'adopt'" routerLink="/job-sign/{{ i?.id }}">查看报名学生</div>
     <div class="adopt_div kz_gn adopt_center" *ngIf="i?.status == 'adopt'" routerLink="/job-leader/{{ i?.id }}">查看负责人信息</div>
     <div class="over_job kz_gn" *ngIf="i?.status == 'adopt'" (click)="job_over(i?.id)">兼职完结</div>
-    <div class="kz_gn evaluate" routerLink="/evaluate/{{ i?.id }}" *ngIf="i?.status == 'over' || i?.status == 'admin_over'">对兼职学生和平台做出评价</div>
+    <div class="kz_gn evaluate" routerLink="/evaluate/{{ i?.id }}" *ngIf="(i?.status == 'over' || i?.status == 'admin_over') && !i?.evaluate_status">对兼职学生和平台做出评价</div>
+    <div class="kz_gn" *ngIf="i?.evaluate_status">已评价</div>
   </div>
   <div class="footer"></div>
 </div>

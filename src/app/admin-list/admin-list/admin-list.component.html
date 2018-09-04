@@ -11,21 +11,26 @@
   </div>
   <div class="user_mes_personal" routerLink="/admin-user">
     个人信息审核
+    <span class="scs_le_red">{{ admin_treated_num?.user }}</span>
   </div>
   <div class="enterprise_mes_personal" routerLink="/admin-enterprise">
     企业信息审核
+    <span class="scs_le_red">{{ admin_treated_num?.enterprise }}</span>
   </div>
   <div class="job_mes_personal" routerLink="/admin-job">
     兼职信息审核
+    <span class="scs_le_red">{{ admin_treated_num?.job }}</span>
   </div>
   <div class="leader_user" routerLink="/admin-leader">
     负责人管理
   </div>
   <div class="job_feedback" routerLink="/admin-job-feedback">
     兼职反馈
+    <span class="scs_le_red">{{ admin_treated_num?.feedback }}</span>
   </div>
   <div class="customer" routerLink="/admin-customer">
     客服中心
+    <span class="scs_le_red">{{ admin_treated_num?.customer }}</span>
   </div>
   <div class="index_evaluate" routerLink="/admin-evaluate">
     首页评价展示

@@ -11,7 +11,8 @@ import { NoopInterceptor } from '../http-interceptor/api-interceptor'
 @NgModule({
   imports: [
     CommonModule,
-    AdminListRoutingModule
+    AdminListRoutingModule,
+    HttpClientModule
   ],
   declarations: [AdminListComponent],
   providers: [

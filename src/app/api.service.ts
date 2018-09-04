@@ -229,4 +229,8 @@ export class ApiService {
         var url = environment.url.comment + "/admin/over_job/" + job_id;
         return this.http.post(url,{});
     }
+    admin_treated(){
+        var url = environment.url.comment + "/admin/treated";
+        return this.http.get(url);
+    }
 }

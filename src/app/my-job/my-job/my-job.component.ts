@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
+import { environment } from '../../../environments/environment'
 
 declare var $, scs_alert, scs_confirm, scs_loading, close_dialog: any;
 @Component({
@@ -12,13 +13,22 @@ export class MyJobComponent implements OnInit {
   constructor(private apise: ApiService) { }
 
   sj: any;
+
+  jump_url: any;
   ngOnInit() {
     scs_loading();
+    this.jump_url = environment.url.jump_login;
     this.apise.my_job().subscribe(t => {
-      this.sj = t;
-      close_dialog();
+        this.sj = t;
+        close_dialog();
     },error => {
-      scs_alert(error.error.message);
+        close_dialog();
+        if(error.status == 401) {
+            window.location.href = this.jump_url;
+        }
+        else {
+            scs_alert(error.error.message);
+        }
     });
   }
   back_to_history() {

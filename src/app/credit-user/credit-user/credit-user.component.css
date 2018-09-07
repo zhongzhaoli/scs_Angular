@@ -1,0 +1,65 @@
+.credit_user{
+    width:100%;
+    background:white;
+}
+.my_credit{
+    text-align: center;
+    padding:0.5rem 0 0 0;
+}
+.credit_big_div{
+    width:2rem;
+    height:2rem;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border:1px #2ebdea solid;
+    margin:auto;
+    position: relative;
+    background:white;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.credit_color_div{
+    background:#2ebdea;
+    position: absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    transition: all .5s;
+    height:0;
+}
+.credit_mb{
+    width:1.6rem;
+    height:1.6rem;
+    background:#fff;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    position: relative;
+    z-index: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:0.5rem;
+    font-family: "Microsoft YaHei";
+    font-weight: bold;
+    border:1px #2ebdea solid;
+}
+.credit_text{
+    display: block;
+    margin-top:0.2rem;
+}
+.credit_rude{
+    padding: 0 0.25rem 0.25rem 0.25rem;
+}
+.credit_rude .title{
+    text-align: center;
+    font-size:0.35rem;
+    margin-bottom:0.25rem;
+}
+.rude_text{
+    color:#777;
+    line-height:25px;
+}

@@ -19,7 +19,6 @@ import { JobLeaderModule } from './job-leader/job-leader.module';
 import { JobFeedbackModule } from './job-feedback/job-feedback.module';
 import { AdminJobFeedbackModule } from './admin-job-feedback/admin-job-feedback.module';
 import { CustomerModule } from './customer/customer.module';
-import { MyCustomerModule } from './my-customer/my-customer.module';
 import { AdminCustomerModule } from './admin-customer/admin-customer.module';
 import { EnterpriseJobModule } from './enterprise-job/enterprise-job.module';
 import { EnterpriseDetailModule } from './enterprise-detail/enterprise-detail.module';
@@ -29,6 +28,12 @@ import { AdminFunctionModule } from './admin-function/admin-function.module';
 import { EvaluateModule } from './evaluate/evaluate.module';
 import { AdminEvaluateModule } from './admin-evaluate/admin-evaluate.module';
 import { EvaluateDetailModule } from './evaluate-detail/evaluate-detail.module'
+import { CreditUserModule } from './credit-user/credit-user.module';
+import { AdminOverJobModule } from './admin-over-job/admin-over-job.module';
+import { AdminEventModule } from './admin-event/admin-event.module';
+import { UserBillModule } from './user-bill/user-bill.module';
+import { IntegralShopModule } from './integral-shop/integral-shop.module';
+import { AdminCustomerDetailModule } from './admin-customer-detail/admin-customer-detail.module';
 const routes: Routes = [
     {
         path: 'register-detail',
@@ -103,11 +108,6 @@ const routes: Routes = [
         loadChildren: './customer/customer.module#CustomerModule'
     },
     {
-        path: 'my-customer',
-        loadChildren: './my-customer/my-customer.module#MyCustomerModule'
-
-    },
-    {
         path: 'admin-customer',
         loadChildren: './admin-customer/admin-customer.module#AdminCustomerModule'
     },
@@ -142,6 +142,30 @@ const routes: Routes = [
     {
         path: 'evaluate-detail/:id',
         loadChildren: './evaluate-detail/evaluate-detail.module#EvaluateDetailModule'
+    },
+    {
+        path: 'credit-user',
+        loadChildren: './credit-user/credit-user.module#CreditUserModule'
+    },
+    {
+        path: 'admin-over-job',
+        loadChildren: './admin-over-job/admin-over-job.module#AdminOverJobModule'
+    },
+    {
+        path: 'admin-event',
+        loadChildren: './admin-event/admin-event.module#AdminEventModule'
+    },
+    {
+        path: 'user-bill',
+        loadChildren: './user-bill/user-bill.module#UserBillModule'
+    },
+    {
+        path: 'integral-shop',
+        loadChildren: './integral-shop/integral-shop.module#IntegralShopModule'
+    },
+    {
+        path: 'admin-customer-detail/:id',
+        loadChildren: './admin-customer-detail/admin-customer-detail.module#AdminCustomerDetailModule'
     },
     {
         path: '',

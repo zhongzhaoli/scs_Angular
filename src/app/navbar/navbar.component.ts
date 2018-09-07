@@ -19,19 +19,10 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
       this.url = environment.url.jump_login;
-      this.get_user_role();
+      this.role = getCookie("role");
   }
   to_router(url){
       this.router.navigate([url]);
-  }
-  get_user_role(){
-    this.apise.get_user_role().subscribe(t => {
-        this.role = t.role;
-        setCookie("role",this.role);
-    },error => {
-        this.role = "student";
-        setCookie("role",this.role);
-    })
   }
 }
 

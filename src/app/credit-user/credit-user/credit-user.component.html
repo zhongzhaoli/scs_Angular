@@ -1,0 +1,32 @@
+<title>我的信用 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>我的信用</span>
+</div>
+<div class="credit_user main_div_height" *ngIf="sj">
+  <div class="my_credit">
+    <div class="credit_big_div">
+      <div class="credit_mb">{{ sj?.credit }}</div>
+      <div class="credit_color_div"></div>
+      <!--[ngStyle]="{'height':sj?.credit + '%'}"-->
+    </div>
+    <div class="credit_text">
+      <span *ngIf="sj?.credit == 100">您的信用表现良好，继续保持!</span>
+      <span *ngIf="sj?.credit != 100">您的信用表现差，请重视!</span>
+    </div>
+  </div>
+  <hr>
+  <div class="credit_rude">
+    <p class="title">信用规则</p>
+    <div class="rude_text">
+      <div>1.对于学生：信用直接决定企业选人优先级，对于企业：信用直接决定学生报名人数。</div>
+      <div>2.对于信用值为0的企业或学生，多次警告未改，平台将注销此用户或企业。</div>
+      <div>3.学生在一次兼职中没有逃单现象，则加10信用值，最高100信用值。</div>
+      <div>4.学生逃单一次，扣20 - 30信用值，视情况而定。</div>
+      <div>5.企业在逃单情况下，会适当减少10 - 30信用值，视情况而定。</div>
+    </div>
+  </div>
+</div>
+<div class="footer"></div>

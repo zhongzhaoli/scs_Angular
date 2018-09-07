@@ -18,10 +18,10 @@
 .user_mes_personal{
     background: #2ebdea;
 }
-.job_mes_personal{
+.job_mes_personal, .job_over_evaluate_student{
     background:orange;
 }
-.leader_user{
+.leader_user, .event{
     background: #e27fad;
 }
 .job_feedback{
@@ -30,7 +30,7 @@
 .customer{
     background:#dcdc0c;
 }
-.enterprise_mes_personal{
+.enterprise_mes_personal, .job_over{
     background:#ff9e9e;
 }
 .admin_function{

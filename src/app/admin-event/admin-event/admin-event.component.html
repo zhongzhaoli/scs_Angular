@@ -1,0 +1,17 @@
+<title>活动开关 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>活动开关</span>
+</div>
+<div class="event_div" *ngIf="sj">
+  <div class="one_event" *ngFor="let i of sj">
+    <p class="event_name">{{ i?.event_name }}</p>
+    <div class="toggle-button-wrapper" (click)="btn_on_off(i)">
+      <label class="button-label {{ (i?.type == 'on') ? 'on' : '' }}">
+        <span class="circle"></span>
+      </label>
+    </div>
+  </div>
+</div>

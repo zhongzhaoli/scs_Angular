@@ -1,0 +1,32 @@
+<title>兼职及评价 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>兼职及评价</span>
+</div>
+<div class="job_over" *ngIf="sj">
+  <div class="job_div" *ngFor="let i of sj">
+    <div class="job_message_div">
+      <p class="job_title">{{ i?.job_title }}</p>
+      <div class="job_place">
+        {{ i?.job_place }}
+      </div>
+      <hr>
+      <div class="pt_evaluate">
+        <span>云务兼职</span>
+        <span style="color:#3ee62c" *ngIf="i?.evaluate?.type == 'good'">好评</span>
+        <span style="color:red" *ngIf="i?.evaluate?.type == 'bad'">差评</span>
+      </div>
+      <p><span style="color:#777">评语：</span>{{ i?.evaluate?.text }}</p>
+      <hr>
+      <div class="evaluate_student" *ngFor="let j of i?.user">
+        <span>{{ j?.user?.name }}</span>
+        <span style="color:#3ee62c" *ngIf="j?.type == 'good'">好评</span>
+        <span style="color:#2ebdea" *ngIf="j?.type == 'review'">中评</span>
+        <span style="color:red" *ngIf="j?.type == 'bad'">差评</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer"></div>

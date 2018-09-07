@@ -1,0 +1,24 @@
+<title>我的账单 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>我的账单</span>
+</div>
+<div class="bill_div">
+  <div class="user_list" *ngIf="sj && sj == ''">
+    <p>你还没任何账单记录</p>
+  </div>
+  <div class="bill" *ngFor="let i of sj">
+    <div class="bill_header">
+      <span class="text">{{ i?.text }}</span>
+      <span class="create_time">{{ i?.create_time }}</span>
+    </div>
+    <div class="bill_body">
+      <div style="color:orange">积分：{{ i?.integral }}</div>
+      <div style="color:#2ebdea">信用：{{ i?. credit }}</div>
+      <div style="color:red">经验：{{ i?.experience }}</div>
+    </div>
+  </div>
+</div>
+<div class="footer"></div>

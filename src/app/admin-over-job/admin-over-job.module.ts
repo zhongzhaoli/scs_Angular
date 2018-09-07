@@ -1,22 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MyCustomerRoutingModule } from './my-customer-routing.module';
-import { MyCustomerComponent } from './my-customer/my-customer.component';
+import { AdminOverJobRoutingModule } from './admin-over-job-routing.module';
+import { AdminOverJobComponent } from './admin-over-job/admin-over-job.component';
 import { ApiService } from '../api.service';
-
 import { HttpClientModule,HttpClient,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NoopInterceptor } from '../http-interceptor/api-interceptor'
 @NgModule({
   imports: [
     CommonModule,
-    MyCustomerRoutingModule,
+    AdminOverJobRoutingModule,
     HttpClientModule
   ],
-  declarations: [MyCustomerComponent],
+  declarations: [AdminOverJobComponent],
   providers: [
-    ApiService,
-    { provide: HTTP_INTERCEPTORS, useClass: NoopInterceptor, multi: true }
+      ApiService,
+      { provide: HTTP_INTERCEPTORS, useClass: NoopInterceptor, multi: true }
   ]
 })
-export class MyCustomerModule { }
+export class AdminOverJobModule { }

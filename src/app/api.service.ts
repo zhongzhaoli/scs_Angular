@@ -157,10 +157,6 @@ export class ApiService {
         var url = environment.url.comment + "/admin/job-feedback";
         return this.http.get(url);
     }
-    user_personal_del(){
-        var url = environment.url.comment + "/user_personal_del";
-        return this.http.post(url,{});
-    }
     send_qu(text){
         var url = environment.url.comment + "/customer";
         return this.http.post(url,{"text": text});
@@ -173,9 +169,9 @@ export class ApiService {
         var url = environment.url.comment + "/admin/customer";
         return this.http.get(url);
     }
-    admin_an_customer(text,qu_id){
+    admin_an_customer(text,qu_user_id){
         var url = environment.url.comment + "/admin/customer-an";
-        return this.http.post(url,{"text": text, "qu_id": qu_id});
+        return this.http.post(url,{"text": text, "qu_user_id": qu_user_id,});
     }
     enterprise_job(){
         var url = environment.url.comment + "/enterprise/job";
@@ -188,10 +184,6 @@ export class ApiService {
     upload_personal_enterprise(data){
         var url = environment.url.comment + "/personal_enterprise";
         return this.http.post(url,data);
-    }
-    enterprise_personal_del(){
-        var url = environment.url.comment + "/personal_enterprise_del";
-        return this.http.post(url,{});
     }
     admin_all_enterprise(){
         var url = environment.url.comment + "/admin/enterprise";
@@ -235,6 +227,34 @@ export class ApiService {
     }
     enterprise_all_student(job_id){
         var url = environment.url.comment + "/enterprise/evaluate/job/student/" + job_id;
+        return this.http.get(url);
+    }
+    user_enterprise_my_credit(){
+        var url = environment.url.comment + "/my-credit";
+        return this.http.get(url);
+    }
+    admin_over_job_student(){
+        var url = environment.url.comment + "/admin/over-job/evaluate";
+        return this.http.get(url);
+    }
+    admin_all_event(){
+        var url = environment.url.comment + "/admin/event";
+        return this.http.get(url);
+    }
+    admin_change_event(id,type){
+        var url = environment.url.comment + "/admin/change_event/" + id;
+        return this.http.post(url,{"type": type})
+    }
+    user_my_bill(){
+        var url = environment.url.comment + "/my-bill";
+        return this.http.get(url);
+    }
+    user_my_integral(){
+        var url = environment.url.comment + "/my-integral";
+        return this.http.get(url);
+    }
+    admin_show_customer(user_id){
+        var url = environment.url.comment + "/admin/customer_all/" + user_id;
         return this.http.get(url);
     }
 }

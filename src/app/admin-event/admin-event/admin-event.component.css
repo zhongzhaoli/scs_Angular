@@ -1,0 +1,53 @@
+.event_div{
+    width:100%;
+    background:white;
+}
+.event_name{
+    font-size:0.35rem;
+}
+.one_event{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    border-bottom:1px #eaeaea solid;
+    padding:0.25rem 0;
+}
+#toggle-button{ display: none; }
+.button-label{
+    position: relative;
+    display: inline-block;
+    width: 1rem;
+    height: 0.4rem;
+    background-color: #ccc;
+    box-shadow: #ccc 0px 0px 0px 2px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+.circle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background-color: #fff;
+}
+.button-label .text {
+    line-height: 30px;
+    font-size: 18px;
+    text-shadow: 0 0 2px #ddd;
+}
+.toggle-button-wrapper{
+    margin-top:0.2rem;
+}
+.button-label .circle{
+    left: 0;
+    transition: all 0.3s;
+}
+.on .circle{
+    left: 0.6rem;
+}
+.on{
+    background-color: #51ccee;
+}

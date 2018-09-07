@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {ApiService} from '../../api.service';
+import { environment } from '../../../environments/environment'
 
 
 declare var $, bind_foces, scs_alert, close_dialog, scs_loading: any;
@@ -28,6 +29,8 @@ export class RegisterDetailComponent implements OnInit {
     profile: any;
     o_user: any;
 
+    jump_url: any;
+
     constructor(private apise: ApiService, private router: Router) {
     }
 
@@ -35,6 +38,7 @@ export class RegisterDetailComponent implements OnInit {
         this.intention = [];
         bind_foces();
         this.get_user();
+        this.jump_url = environment.url.jump_login;
     }
     checkbox_change(a){
         if(a.checked){
@@ -59,13 +63,27 @@ export class RegisterDetailComponent implements OnInit {
                 this.status = t.user.status;
                 this.profile = t.user;
                 this.o_user = t.o_user;
-                $(".profile").show();
             }
             else{
                 this.status = "";
+                this.profile = "";
             }
+            setTimeout(() => {
+                if(this.profile != "" && this.status != 'refuse'){
+                    $(".profile").show();
+                }
+                else{
+                    $(".register_meessage").show();
+                }
+            },0);
         },error => {
-            scs_alert(error.error.message);
+            close_dialog();
+            if(error.status == 401) {
+                window.location.href = this.jump_url;
+            }
+            else{
+                scs_alert(error.error.message);
+            }
         })
     }
 
@@ -127,14 +145,18 @@ export class RegisterDetailComponent implements OnInit {
     again_user(){
         var that = this;
         this.scs_confirm("提示","确定要重新填写个人信息吗？（需要审核）",function(){
-            scs_loading();
-            that.apise.user_personal_del().subscribe(t => {
-                close_dialog();
-                window.location.reload();
-            },error => {
-                close_dialog();
-                scs_alert("重新填写个人信息失败");
-            })
+            $(".register_meessage").show();
+            $(".profile").hide();
+            that.name = that.profile.name;
+            that.height = that.profile.height;
+            that.weight = that.profile.weight;
+            that.age = that.profile.age;
+            that.email = that.profile.email;
+            that.schoolcode = that.profile.schoolcode;
+            that.class = that.profile.class;
+            that.sex = that.profile.sex;
+            that.intention = that.profile.intention;
+            that.wechat = that.profile.wechat;
         });
     }
 
@@ -164,15 +186,20 @@ export class RegisterDetailComponent implements OnInit {
         }
         this.apise.upload_personal(a).subscribe(t => {
             this.scs_alert_do("已提交审核,请耐心等待",function(){
-                that.router.navigate(['/profile']);
+                window.location.reload();
                 close_dialog();
             });
         }, error => {
             close_dialog();
-            scs_alert("填写信息有误");
-            var error = error.error;
-            for (var i in error) {
-                $("[data-error=" + i + "]").html(error[i][0]);
+            if(error.status == 401) {
+                window.location.href = this.jump_url;
+            }
+            else {
+                scs_alert("填写信息有误");
+                var error = error.error;
+                for (var i in error) {
+                    $("[data-error=" + i + "]").html(error[i][0]);
+                }
             }
         })
     }

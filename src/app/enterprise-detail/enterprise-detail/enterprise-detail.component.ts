@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {ApiService} from '../../api.service';
+import { environment } from '../../../environments/environment'
 
 declare var $, bind_foces, scs_alert, close_dialog, scs_loading: any;
 
@@ -21,9 +22,13 @@ export class EnterpriseDetailComponent implements OnInit {
 
   status: string;
   profile: any;
+  credit: any;
 
-  ngOnInit(){
-    this.get_enterprise();
+  jump_url: any;
+
+    ngOnInit(){
+        this.jump_url = environment.url.jump_login;
+        this.get_enterprise();
   }
   back_to_history() {
     window.history.back();
@@ -32,14 +37,31 @@ export class EnterpriseDetailComponent implements OnInit {
     scs_loading();
     this.apise.find_enterprise_detail().subscribe(t => {
       close_dialog();
+      this.credit = t.o_user;
       if(t.user){
         this.status = t.user.status;
         this.profile = t.user;
-        $(".profile").show();
       }
       else{
         this.status = "";
+          this.profile = "";
       }
+      setTimeout(() => {
+          if(this.profile != "" && this.status != 'refuse'){
+              $(".profile").show();
+          }
+          else{
+              $(".register_meessage").show();
+          }
+      },0);
+    },error => {
+        close_dialog();
+        if(error.status == 401) {
+            window.location.href = this.jump_url;
+        }
+        else {
+          scs_alert(error.error.message);
+        }
     });
   }
   upload_img() {
@@ -113,24 +135,28 @@ export class EnterpriseDetailComponent implements OnInit {
       });
     }, error => {
       close_dialog();
-      scs_alert("填写信息有误");
-      var error = error.error;
-      for (var i in error) {
-        $("[data-error=" + i + "]").html(error[i][0]);
-      }
+        if(error.status == 401) {
+            window.location.href = this.jump_url;
+        }
+        else {
+            scs_alert("填写信息有误");
+            var error = error.error;
+            for (var i in error) {
+                $("[data-error=" + i + "]").html(error[i][0]);
+            }
+        }
     })
   }
   again_enterprise(){
     var that = this;
-    this.scs_confirm("提示","确定要重新填写个人信息吗？（需要审核）",function(){
-      scs_loading();
-      that.apise.enterprise_personal_del().subscribe(t => {
+    this.scs_confirm("提示","确定要重新填写企业信息吗？（需要审核）",function(){
         close_dialog();
-        window.location.reload();
-      },error => {
-        close_dialog();
-        scs_alert("重新填写个人信息失败");
-      })
+        $(".register_meessage").show();
+        $(".profile").hide();
+        that.name = that.profile.name;
+        that.code = that.profile.code;
+        that.place = that.profile.place;
+        that.email = that.profile.email;
     });
   }
   scs_confirm(title,val,fun_a){

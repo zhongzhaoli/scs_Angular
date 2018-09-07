@@ -28,7 +28,7 @@ export class AdminCustomerDetailComponent implements OnInit {
       close_dialog();
       this.sj = t;
         setTimeout(() => {
-            document.body.scrollTop = document.body.scrollHeight;
+            $("html").get(0).scrollTop = $("html").get(0).scrollHeight;
         }, 0);
     },error => {
         if(error.status == 401) {

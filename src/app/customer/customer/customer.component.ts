@@ -32,6 +32,9 @@ export class CustomerComponent implements OnInit {
         }
         this.sj.push(new_data);
         $("input").val("");
+        setTimeout(() => {
+            $("html").get(0).scrollTop = $("html").get(0).scrollHeight;
+        },0)
     },error => {
         close_dialog();
         if(error.status == 401) {
@@ -50,7 +53,7 @@ export class CustomerComponent implements OnInit {
             close_dialog();
             this.sj = t;
             setTimeout(() => {
-                document.body.scrollTop = document.body.scrollHeight;
+                $("html").get(0).scrollTop = $("html").get(0).scrollHeight;
             }, 0);
         },error => {
             close_dialog();

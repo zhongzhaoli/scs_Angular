@@ -5,3 +5,72 @@
   </div>
   <span>积分商城</span>
 </div>
+<div class="integral_shop" *ngIf="(user || user == '0') && gift">
+  <div class="integral_blue_big_div">
+    <div class="integral_blue_div">
+      <div class="integral_value_div">
+        <span>当前可用积分：</span>
+        <img class="integral_help_img" src="../../../assets/images/integral_help.png" alt="">
+      </div>
+      <div class="integral_num_div">
+        <span>{{ user }}</span>
+        <div class="integral_bill" routerLink="/user-bill">
+          <span>积分账单</span>
+          <i class="fa fa-angle-right"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="integral_gift">
+    <div class="gift_list">
+      <div class="active" data-type="1" (click)="list_qh($event.currentTarget)">午餐交通补贴</div>
+      <div data-type="2" (click)="list_qh($event.currentTarget)">薪酬增益</div>
+      <div data-type="3" (click)="list_qh($event.currentTarget)">礼品保险</div>
+    </div>
+    <div class="gift_all" *ngIf="show_type != 3">
+      <div class="user_list" *ngIf="show_gift && show_gift == ''">
+        <p>没有此类型的礼品</p>
+      </div>
+      <div class="gift_one" *ngFor="let i of show_gift">
+        <div class="gift_text">
+          {{ i?.num }}
+          <span class="small_text">{{ i?.name }}</span>
+        </div>
+        <div class="gift_integral">
+          <span class="need_integral">需扣积分：{{ i?.integral }}</span>
+          <div class="plane_btn" *ngIf="user >= i?.integral" (click)="exchange_voucher(i?.id,i?.integral)">兑换</div>
+          <div class="plane_btn cant_click" *ngIf="user < i?.integral">兑换</div>
+        </div>
+      </div>
+    </div>
+    <div class="gift_all_big" *ngIf="show_type == 3">
+      <div class="user_list" *ngIf="show_gift && show_gift == ''">
+        <p>没有此类型的礼品</p>
+      </div>
+      <div class="gift_for_img_one" *ngFor="let i of show_gift">
+        <img src="{{ i?.img }}" alt="">
+        <p class="gift_name">{{ i?.name }}</p>
+        <span class="need_integral">需扣积分：{{ i?.integral }}</span>
+        <br>
+        <div class="plane_btn_big" *ngIf="user >= i?.integral" (click)="exchange_voucher(i?.id,i?.integral)">兑换</div>
+        <div class="plane_btn_big cant_click" *ngIf="user < i?.integral">兑换</div>
+      </div>
+    </div>
+  </div>
+  <div class="my_voucher">
+    <button class="btn scs-btn" routerLink="/my-voucher">查看我兑换的券</button>
+  </div>
+  <div class="integral_help">
+    <p>积分说明</p>
+    <div>
+      1.积分是由做兼职得来的，一次兼职积分在5-10点左右。<br>
+      2.薪酬增益券可在结算工资时使用。<br>
+      3.一类券分为：交通券，餐券，节日券。一次兼职可选择两张券一起使用，但两张不能一样。<br>
+      4.二类券分为：薪酬增益券。一次兼职只可选择一张使用。<br>
+      5.餐券最高20元，交通券最高15元。<br>
+      6.兑换实物礼品，持券二维码到天工楼301处兑换。<br>
+    </div>
+  </div>
+  <div class="call_customer" routerLink="/customer">联系客服</div>
+</div>
+<div class="footer"></div>

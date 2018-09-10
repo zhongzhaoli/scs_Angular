@@ -29,7 +29,9 @@ export class IndexComponent implements OnInit {
       this.apise.evaluate_show_index().subscribe(t => {
           this.evaluate_sj = t;
           setTimeout(function(){
-              $(".swiper-wrapper")[1].style.transform = "translate3d(0px, 0px, 0px)";
+              if($(".swiper-wrapper")[1]) {
+                  $(".swiper-wrapper")[1].style.transform = "translate3d(0px, 0px, 0px)";
+              }
           },0);
       })
   }

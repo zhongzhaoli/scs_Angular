@@ -34,6 +34,8 @@ import { AdminEventModule } from './admin-event/admin-event.module';
 import { UserBillModule } from './user-bill/user-bill.module';
 import { IntegralShopModule } from './integral-shop/integral-shop.module';
 import { AdminCustomerDetailModule } from './admin-customer-detail/admin-customer-detail.module';
+import { AdminGiftModule } from './admin-gift/admin-gift.module';
+import { MyVoucherModule } from './my-voucher/my-voucher.module';
 const routes: Routes = [
     {
         path: 'register-detail',
@@ -166,6 +168,14 @@ const routes: Routes = [
     {
         path: 'admin-customer-detail/:id',
         loadChildren: './admin-customer-detail/admin-customer-detail.module#AdminCustomerDetailModule'
+    },
+    {
+        path: 'admin-gift',
+        loadChildren: './admin-gift/admin-gift.module#AdminGiftModule'
+    },
+    {
+        path: 'my-voucher',
+        loadChildren: './my-voucher/my-voucher.module#MyVoucherModule'
     },
     {
         path: '',

@@ -5,6 +5,7 @@ import { Login } from './entity/Login';
 import { Profile } from './entity/profile';
 import { Role } from './entity/role';
 import { Leader } from './entity/Leader';
+import { Message } from './entity/Message';
 declare var getCookie:any;
 @Injectable({
   providedIn: 'root'
@@ -255,6 +256,22 @@ export class ApiService {
     }
     admin_show_customer(user_id){
         var url = environment.url.comment + "/admin/customer_all/" + user_id;
+        return this.http.get(url);
+    }
+    admin_add_gift(data){
+        var url = environment.url.comment + "/admin/gift";
+        return this.http.post(url,data);
+    }
+    all_gift(){
+        var url = environment.url.comment + "/gift";
+        return this.http.get(url);
+    }
+    exchange_voucher(id){
+        var url = environment.url.comment + "/user/exchange_voucher/" + id;
+        return this.http.post<Message>(url,{});
+    }
+    user_my_voucher(){
+        var url = environment.url.comment + "/my-voucher";
         return this.http.get(url);
     }
 }

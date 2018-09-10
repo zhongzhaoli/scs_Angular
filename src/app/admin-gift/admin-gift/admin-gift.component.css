@@ -1,52 +1,17 @@
-.integral_shop{
+.add_gift_div{
     width:100%;
-}
-.integral_blue_big_div{
-    width:100%;
-    padding:0.25rem;
     background:white;
-}
-.integral_blue_div{
-    width:100%;
-    background:#2ebdea;
     padding:0.25rem;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
 }
-.integral_value_div{
+.upload_img_btn{
+    width:1.4rem;
+    height:1.4rem;
+    background-size:cover;
+    display: block;
+    cursor: pointer;
+}
+.upload_btn{
     width:100%;
-    display: flex;
-    color:white;
-    justify-content: space-between;
-    align-items: center;
-}
-.integral_num_div{
-    font-size:0.7rem;
-    color:white;
-    margin-top:0.15rem;
-    padding:0 0 0 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-.integral_help_img{
-    width:0.4rem;
-}
-.integral_bill{
-    font-size:0.27rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.integral_bill > i{
-    font-size:0.35rem;
-    padding-left:0.15rem;
-    margin-bottom:0.1rem;
-}
-.integral_num_div > span{
-    position: relative;
-    top:0.1rem;
 }
 .integral_gift{
     margin-top:0.2rem;
@@ -118,57 +83,17 @@
     padding:0.07rem 0.17rem;
     cursor: pointer;
 }
-.plane_btn_big{
-    color:white;
-    display: inline-block;
-    background:#2ebade;
-    font-size:0.25rem;
-    padding:0.07rem 0.17rem;
-    cursor: pointer;
-    position: relative;
-    top:0.05rem;
-}
 .gift_one:not(:first-child){
     margin-top:0.2rem;
 }
 .cant_click{
     background:silver !important;
 }
-.integral_help{
-    background:white;
-    padding:0.3rem 0.25rem;
-    margin-top:0.2rem;
-}
-.integral_help > p{
-    text-align: center;
-    font-size:0.35rem;
-    margin-bottom:0.25rem;
-}
-.call_customer{
-    border-top:1px #eaeaea solid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding:0.2rem 0;
-    background:white;
-    font-size:0.29rem;
-    cursor: pointer;
-    border-bottom:1px #eaeaea solid;
-}
 .user_list{
     padding:0.2rem;
     text-align: center;
     color:#777;
     font-size:0.25rem;
-}
-.my_voucher{
-    margin-top:0.2rem;
-    background:white;
-    padding:0.25rem;
-    text-align: center;
-}
-.my_voucher > button{
-    margin:auto;
 }
 .gift_for_img_one{
     background:white;

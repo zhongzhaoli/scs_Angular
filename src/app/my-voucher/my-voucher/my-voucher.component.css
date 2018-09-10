@@ -1,0 +1,92 @@
+.gift_all{
+    background:white;
+    padding:0.35rem 0.25rem;
+    overflow: hidden;
+}
+.gift_all_big{
+    background:white;
+    padding:0.15rem 0.25rem 0.35rem 0.25rem;
+    overflow: hidden;
+}
+.gift_one{
+    border: 1px #eaeaea solid;
+    padding:0.15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gift_text{
+    font-size:0.3rem;
+    flex:1;
+    border-right:1px #eaeaea dashed;
+    text-indent: 15px;
+    padding:0.06rem 0;
+}
+.gift_integral{
+    flex:1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.06rem 0.09rem 0.06rem 0.2rem;
+}
+.gift_integral_big{
+    display: flex;
+    flex-flow: column;
+}
+.small_text{
+    font-size:0.2rem;
+}
+.need_integral{
+    color:#777;
+    font-size:0.23rem;
+}
+.plane_btn{
+    color:white;
+    display: flex;
+    background:#2ebade;
+    font-size:0.25rem;
+    padding:0.07rem 0.17rem;
+    cursor: pointer;
+}
+.voucher_div{
+    background:white;
+    width:100%;
+    padding:0.25rem;
+}
+.cant_click{
+    background:silver !important;
+}
+.user_list{
+    padding:0.2rem;
+    text-align: center;
+    color:#777;
+    font-size:0.25rem;
+}
+.gift_for_img_one{
+    background:white;
+    border: 1px #eaeaea solid;
+    padding:0.15rem;
+    width:calc(50% - 0.2rem);
+    text-align: center;
+    float:left;
+    margin:0 0.1rem;
+}
+.gift_for_img_one img{
+    width:100%;
+}
+.gift_for_img_one{
+    margin-top:0.2rem;
+}
+.plane_btn_big{
+    color:white;
+    display: inline-block;
+    background:#2ebade;
+    font-size:0.25rem;
+    padding:0.07rem 0.17rem;
+    cursor: pointer;
+    position: relative;
+    top:0.05rem;
+}
+.gift_name{
+    padding-top:0.15rem;
+}

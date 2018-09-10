@@ -1,0 +1,104 @@
+<title>积分礼品 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>积分礼品</span>
+</div>
+<div class="add_gift_div main_div_height">
+  <div class="form-group">
+    <label for="">类型</label>
+    <select name="" [(ngModel)]="type" class="form-control" id="">
+      <option value="1">午餐补贴</option>
+      <option value="2">交通补贴</option>
+      <option value="3">节日补贴</option>
+      <option value="4">薪酬增益</option>
+      <option value="5">实物礼品</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="">礼品名称</label>
+    <input type="text" class="form-control" [(ngModel)]="name" name="name" id="nameInput" placeholder="礼品名称：午餐补贴">
+    <span data-error="name" class="error_text"></span>
+  </div>
+  <div class="form-group" *ngIf="type != 5">
+    <label for="">数值</label>
+    <input type="text" class="form-control" [(ngModel)]="num" name="num" id="numInput" placeholder="数值：7%">
+    <span data-error="name" class="error_text"></span>
+  </div>
+  <div class="form-group">
+    <label for="">所需积分</label>
+    <input type="text" class="form-control" name="integral" [(ngModel)]="integral" id="topInput"
+           placeholder="所需积分：10">
+  </div>
+  <div class="form-group" *ngIf="type == 5">
+    <label for="">礼品图片</label>
+    <br>
+    <input type="file" id="gift_img" style="display: none;" (change)="img_do($event.currentTarget)">
+    <img class="upload_img_btn" src="../../../assets/images/upload.png" alt="" (click)="upload_img()">
+  </div>
+  <button class="btn scs-btn upload_btn" (click)="add_gift()">提交</button>
+
+  <div class="integral_gift">
+    <div class="gift_list">
+      <div class="active" data-type="1" (click)="list_qh($event.currentTarget)">午餐交通补贴</div>
+      <div data-type="2" (click)="list_qh($event.currentTarget)">薪酬增益</div>
+      <div data-type="3" (click)="list_qh($event.currentTarget)">礼品保险</div>
+    </div>
+    <div class="gift_all" *ngIf="show_type != 3">
+      <div class="user_list" *ngIf="show_gift && show_gift == ''">
+        <p>没有此类型的礼品</p>
+      </div>
+      <div class="gift_one" *ngFor="let i of show_gift">
+        <div class="gift_text">
+          {{ i?.num }}
+          <span class="small_text">{{ i?.name }}</span>
+        </div>
+        <div class="gift_integral">
+          <span class="need_integral">需扣积分：{{ i?.integral }}</span>
+          <div class="plane_btn" *ngIf="user >= i?.integral" (click)="exchange_voucher(i?.id,i?.integral)">兑换</div>
+          <div class="plane_btn cant_click" *ngIf="user < i?.integral">兑换</div>
+        </div>
+      </div>
+    </div>
+    <div class="gift_all_big" *ngIf="show_type == 3">
+      <div class="user_list" *ngIf="show_gift && show_gift == ''">
+        <p>没有此类型的礼品</p>
+      </div>
+      <div class="gift_for_img_one" *ngFor="let i of show_gift">
+        <img src="{{ i?.img }}" alt="">
+        <p class="gift_name">{{ i?.name }}</p>
+        <span class="need_integral">需扣积分：{{ i?.integral }}</span>
+        <br>
+        <div class="plane_btn_big" *ngIf="user >= i?.integral" (click)="exchange_voucher(i?.id,i?.integral)">兑换</div>
+        <div class="plane_btn_big cant_click" *ngIf="user < i?.integral">兑换</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer"></div>
+<!--图片裁剪框 start-->
+<div style="display: none" class="tailoring-container">
+  <div class="black-cloth" onclick="closeTailor(this)"></div>
+  <div class="tailoring-content">
+    <div class="tailoring-content-one">
+      <label title="上传图片" for="chooseImg" class="l-btn choose-btn">
+        <input type="file" accept="image/jpg,image/jpeg,image/png" name="file" id="chooseImg" class="hidden" onchange="selectImg(this)">
+        选择图片
+      </label>
+      <div class="close-tailoring"  onclick="closeTailor(this)">×</div>
+    </div>
+    <div class="tailoring-content-two">
+      <div class="tailoring-box-parcel">
+        <img id="tailoringImg">
+      </div>
+    </div>
+    <div class="tailoring-content-three">
+      <button class="l-btn cropper-reset-btn qp_btn">复位</button>
+      <button class="l-btn cropper-rotate-btn qp_btn">旋转</button>
+      <button class="l-btn cropper-scaleX-btn qp_btn">换向</button>
+      <button class="l-btn sureCut" id="sureCut">确定</button>
+    </div>
+  </div>
+</div>
+<!--图片裁剪框 end-->

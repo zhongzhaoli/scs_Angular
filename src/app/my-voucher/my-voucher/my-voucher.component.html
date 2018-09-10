@@ -1,0 +1,109 @@
+<title>我的券 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>我的券</span>
+</div>
+<div class="voucher_div main_div_height" *ngIf="sj">
+  <div class="form-group">
+    <label for="">午餐补贴</label>
+    <div class="gift_all">
+      <div class="user_list" *ngIf="type_sj_1 && type_sj_1 == ''">
+        <p>没有此类型的礼品</p>
+      </div>
+      <div class="gift_one" *ngFor="let i of type_sj_1">
+        <div class="gift_text">
+          {{ i?.voucher?.num }}
+          <span class="small_text">{{ i?.voucher?.name }}</span>
+        </div>
+        <div class="gift_integral">
+          <span class="need_integral" style="color:#ffb328" *ngIf="i?.status == 'not'">待使用</span>
+          <span class="need_integral" style="color:red" *ngIf="i?.status == 'yes'">已使用</span>
+          <div class="plane_btn" *ngIf="i?.status == 'not'" (click)="use_vo(i?.id)">使用</div>
+          <div class="plane_btn cant_click" *ngIf="i?.status == 'yes'">使用</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">交通补贴</label>
+    <div class="gift_all">
+      <div class="user_list" *ngIf="type_sj_2 && type_sj_2 == ''">
+        <p>没有此类型的礼品</p>
+      </div>
+      <div class="gift_one" *ngFor="let i of type_sj_2">
+        <div class="gift_text">
+          {{ i?.voucher?.num }}
+          <span class="small_text">{{ i?.voucher?.name }}</span>
+        </div>
+        <div class="gift_integral">
+          <span class="need_integral" style="color:#ffb328" *ngIf="i?.status == 'not'">待使用</span>
+          <span class="need_integral" style="color:red" *ngIf="i?.status == 'yes'">已使用</span>
+          <div class="plane_btn" *ngIf="i?.status == 'not'" (click)="use_vo(i?.id)">使用</div>
+          <div class="plane_btn cant_click" *ngIf="i?.status == 'yes'">使用</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">节日补贴</label>
+    <div class="gift_all">
+      <div class="user_list" *ngIf="type_sj_3 && type_sj_3 == ''">
+        <p>没有此类型的礼品</p>
+      </div>
+      <div class="gift_one" *ngFor="let i of type_sj_3">
+        <div class="gift_text">
+          {{ i?.voucher?.num }}
+          <span class="small_text">{{ i?.voucher?.name }}</span>
+        </div>
+        <div class="gift_integral">
+          <span class="need_integral" style="color:#ffb328" *ngIf="i?.status == 'not'">待使用</span>
+          <span class="need_integral" style="color:red" *ngIf="i?.status == 'yes'">已使用</span>
+          <div class="plane_btn" *ngIf="i?.status == 'not'" (click)="use_vo(i?.id)">使用</div>
+          <div class="plane_btn cant_click" *ngIf="i?.status == 'yes'">使用</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">薪酬增益</label>
+    <div class="gift_all">
+      <div class="user_list" *ngIf="type_sj_4 && type_sj_4 == ''">
+        <p>没有此类型的礼品</p>
+      </div>
+      <div class="gift_one" *ngFor="let i of type_sj_4">
+        <div class="gift_text">
+          {{ i?.voucher?.num }}
+          <span class="small_text">{{ i?.voucher?.name }}</span>
+        </div>
+        <div class="gift_integral">
+          <span class="need_integral" style="color:#ffb328" *ngIf="i?.status == 'not'">待使用</span>
+          <span class="need_integral" style="color:red" *ngIf="i?.status == 'yes'">已使用</span>
+          <div class="plane_btn" *ngIf="i?.status == 'not'" (click)="use_vo(i?.id)">使用</div>
+          <div class="plane_btn cant_click" *ngIf="i?.status == 'yes'">使用</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">实物礼品</label>
+    <div class="gift_all_big">
+      <div class="user_list" *ngIf="type_sj_5 && type_sj_5 == ''">
+        <p>没有此类型的礼品</p>
+      </div>
+      <div class="gift_for_img_one" *ngFor="let i of type_sj_5">
+        <img src="{{ i?.voucher?.img }}" alt="">
+        <p class="gift_name">{{ i?.voucher?.name }}</p>
+        <div class="gift_integral_big">
+          <span class="need_integral" style="color:#ffb328" *ngIf="i?.status == 'not'">待使用</span>
+          <span class="need_integral" style="color:red" *ngIf="i?.status == 'yes'">已使用</span>
+          <div class="plane_btn_big" *ngIf="i?.status == 'not'" (click)="use_vo(i?.id)">使用</div>
+          <div class="plane_btn_big cant_click" *ngIf="i?.status == 'yes'">使用</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="qrcode" style="display: none;"></div>
+<div class="footer"></div>

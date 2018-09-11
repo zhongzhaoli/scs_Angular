@@ -19,6 +19,8 @@ export class AdminGiftComponent implements OnInit {
   type: any;
   img: any;
   num: any;
+  notes: any;
+
   show_type: any;
   gift_type_1: any;
   gift_type_2: any;
@@ -53,9 +55,9 @@ export class AdminGiftComponent implements OnInit {
     this.scs_confirm("提示","确认要添加<span style='color:red'>" + name + "</span>这个券吗？",function(){
       close_dialog();
       scs_loading();
-      that.apise.admin_add_gift({"name": that.name,"integral": that.integral, "type": that.type, "img": that.img, "num": that.num}).subscribe(t => {
+      that.apise.admin_add_gift({"name": that.name,"integral": that.integral, "type": that.type, "img": that.img, "num": that.num, "notes": that.notes}).subscribe(t => {
           close_dialog();
-          that.scs_alert("添加成功",function(){
+          that.scs_alert("提示","添加成功",function(){
               window.location.reload();
           });
       },error => {
@@ -148,8 +150,8 @@ export class AdminGiftComponent implements OnInit {
   scs_confirm(title,val,fun_a){
       $.DialogByZ.Confirm({Title: title, Content: val,FunL:fun_a,FunR:close_dialog()})
   }
-  scs_alert(title,val){
-      $.DialogByZ.Alert({Title: title, Content: val,BtnL:"确定",FunL:close_dialog()});
+  scs_alert(title,val,fun_a){
+      $.DialogByZ.Alert({Title: title, Content: val,BtnL:"确定",FunL:fun_a});
   }
   gift_init(){
       this.gift_type_1 = [];
@@ -188,7 +190,7 @@ export class AdminGiftComponent implements OnInit {
       },error => {
           close_dialog();
           if(error.status == 401) {
-              // window.location.href = this.jump_url;
+              window.location.href = this.jump_url;
           }
           else {
               this.route.navigate(['/admin-login'])
@@ -207,5 +209,21 @@ export class AdminGiftComponent implements OnInit {
                this.gift_type_3.push(val);
            }
        })
+   }
+   del_gift(id,i){
+        scs_loading();
+        this.apise.admin_delete_gift(id).subscribe(t => {
+            close_dialog();
+            scs_alert("删除成功");
+            this.show_gift.remove(i);
+        },error => {
+            close_dialog();
+            if(error.status == 401) {
+                window.location.href = this.jump_url;
+            }
+            else {
+                this.route.navigate(['/admin-login'])
+            }
+        });
    }
 }

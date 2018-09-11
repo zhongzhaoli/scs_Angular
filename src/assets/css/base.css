@@ -98,3 +98,18 @@ input[type="text"],input[type="email"],input[type="password"],input[type="number
 textarea{
     -webkit-appearance: none;
 }
+.add_demand{
+    width:0.8rem;
+    height:0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    right:0;
+    position: absolute;
+    font-size:0.4rem;
+    cursor: pointer;
+}
+.add_demand > i{
+    color:white;
+}

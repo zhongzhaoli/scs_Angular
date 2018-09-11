@@ -286,5 +286,13 @@ export class ApiService {
         var url = environment.url.comment + "/admin/exchange/code/" + user_id;
         return this.http.post(url,data);
     }
+    admin_delete_gift(id){
+        var url = environment.url.comment + "/admin/gift/del/" + id;
+        return this.http.get(url);
+    }
+    demand_index(page){
+        var url = environment.url.comment + "/demand?page=" + page;
+        return this.http.get(url);
+    }
 }
 

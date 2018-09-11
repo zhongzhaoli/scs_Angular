@@ -79,7 +79,7 @@
 }
 .gift_all_big{
     background:white;
-    padding:0.15rem 0.25rem 0.35rem 0.25rem;
+    padding:0.15rem 0.25rem;
     overflow: hidden;
 }
 .gift_one{
@@ -94,7 +94,10 @@
     flex:1;
     border-right:1px #eaeaea dashed;
     text-indent: 15px;
-    padding:0.06rem 0;
+    padding:0.06rem 0.2rem 0.06rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .gift_integral{
     flex:1;
@@ -185,4 +188,12 @@
 }
 .gift_name{
     padding-top:0.15rem;
+}
+.gift_notes{
+    width:0.35rem;
+    height:0.35rem;
+    cursor: pointer;
+}
+.integral_notes{
+    line-height: 25px;
 }

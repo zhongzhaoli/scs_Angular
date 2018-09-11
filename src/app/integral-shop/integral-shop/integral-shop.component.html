@@ -33,8 +33,11 @@
       </div>
       <div class="gift_one" *ngFor="let i of show_gift">
         <div class="gift_text">
+          <span>
           {{ i?.num }}
           <span class="small_text">{{ i?.name }}</span>
+            </span>
+          <img class="gift_notes" (click)="alert_notes($event.currentTarget)" alt="{{ i?.notes }}" src="../../../assets/images/help_red.png" alt="">
         </div>
         <div class="gift_integral">
           <span class="need_integral">需扣积分：{{ i?.integral }}</span>
@@ -62,13 +65,13 @@
   </div>
   <div class="integral_help">
     <p>积分说明</p>
-    <div>
+    <div class="integral_notes">
       1.积分是由做兼职得来的，一次兼职积分在5-10点左右。<br>
-      2.薪酬增益券可在结算工资时使用。<br>
-      3.一类券分为：交通券，餐券，节日券。一次兼职可选择两张券一起使用，但两张不能一样。<br>
+      2.兑换券可在结算工资时使用。<br>
+      3.一类券分为：交通券，餐券，节日券。一次兼职可选择两张券一起使用，同类券里的同种券在本次里不得叠加使用。<br>
       4.二类券分为：薪酬增益券。一次兼职只可选择一张使用。<br>
-      5.餐券最高20元，交通券最高15元。<br>
-      6.兑换实物礼品，持券二维码到天工楼301处兑换。<br>
+      5.一类券（该类券）单次里不得与二类券同时使用<br>
+      6.兑换后，请持该券二维码到（深圳技师学院）天工楼301处兑换。<br>
     </div>
   </div>
   <div class="call_customer" routerLink="/customer">联系客服</div>

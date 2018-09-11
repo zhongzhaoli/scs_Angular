@@ -19,12 +19,14 @@
   <div class="form-group">
     <label for="">礼品名称</label>
     <input type="text" class="form-control" [(ngModel)]="name" name="name" id="nameInput" placeholder="礼品名称：午餐补贴">
-    <span data-error="name" class="error_text"></span>
   </div>
   <div class="form-group" *ngIf="type != 5">
     <label for="">数值</label>
     <input type="text" class="form-control" [(ngModel)]="num" name="num" id="numInput" placeholder="数值：7%">
-    <span data-error="name" class="error_text"></span>
+  </div>
+  <div class="form-group" *ngIf="type != 5">
+    <label for="">注释</label>
+    <input type="text" class="form-control" [(ngModel)]="notes" name="notes" id="notesInput" placeholder="注释：单次兼职报酬的百分之五，不超过二十元。">
   </div>
   <div class="form-group">
     <label for="">所需积分</label>
@@ -56,8 +58,7 @@
         </div>
         <div class="gift_integral">
           <span class="need_integral">需扣积分：{{ i?.integral }}</span>
-          <div class="plane_btn" *ngIf="user >= i?.integral" (click)="exchange_voucher(i?.id,i?.integral)">兑换</div>
-          <div class="plane_btn cant_click" *ngIf="user < i?.integral">兑换</div>
+          <div class="plane_btn" style="background:red" (click)="del_gift(i?.id,i)">删除</div>
         </div>
       </div>
     </div>
@@ -70,8 +71,7 @@
         <p class="gift_name">{{ i?.name }}</p>
         <span class="need_integral">需扣积分：{{ i?.integral }}</span>
         <br>
-        <div class="plane_btn_big" *ngIf="user >= i?.integral" (click)="exchange_voucher(i?.id,i?.integral)">兑换</div>
-        <div class="plane_btn_big cant_click" *ngIf="user < i?.integral">兑换</div>
+        <div class="plane_btn" style="background:red" (click)="del_gift(i?.id,i)">删除</div>
       </div>
     </div>
   </div>

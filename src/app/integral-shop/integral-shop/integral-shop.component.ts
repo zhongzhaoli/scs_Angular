@@ -109,4 +109,10 @@ export class IntegralShopComponent implements OnInit {
           }
       });
   }
+    scs_alert(title,val,fun_a){
+        $.DialogByZ.Alert({Title: title, Content: val,BtnL:"确定",FunL:fun_a});
+    }
+  alert_notes(a){
+      this.scs_alert("注释",$(a).attr("alt"),close_dialog());
+  }
 }

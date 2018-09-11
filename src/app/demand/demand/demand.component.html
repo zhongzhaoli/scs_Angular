@@ -7,9 +7,26 @@
   </div>
   <span>动态</span>
 </div>
-<div class="demand_div">
-  <div class="demand" *ngFor="let j of show_sj">
-    {{ j?.id }}
+<div class="demand_div" *ngIf="show_sj && show_sj != ''">
+  <div class="demand" *ngFor="let i of show_sj">
+    <div class="demand_header">
+      <img class="user_img" src="{{ i?.user_img }}" alt="">
+      <span>{{ i?.user_nickname }}</span>
+    </div>
+    <div class="demand_body">
+      {{ i?.text }}
+    </div>
+    <div class="demand_create_time">
+      <span>{{ i?.create_time }}</span>
+      <div class="demand_z">
+        <i class="fa fa-heart-o"></i>
+        <span style="padding-left:0.13rem">{{ i?.like }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="loading_div evaluate_sj_loading">
+    <img src="../../../assets/images/loading.gif" *ngIf="!no_sj" alt="">
+    <span *ngIf="no_sj">已经是最底部了</span>
   </div>
 </div>
 <div class="footer"></div>

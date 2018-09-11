@@ -71,6 +71,9 @@ export class MyVoucherComponent implements OnInit {
           }
       })
   }
+  scs_alert(title,val){
+      $.DialogByZ.Alert({Title: title, Content: val,BtnL:"确定",FunL:close_dialog()});
+  }
   use_vo(vou_id){
       scs_loading();
       $("#qrcode").html("");
@@ -84,7 +87,7 @@ export class MyVoucherComponent implements OnInit {
           qrcode.makeCode("http://www.yuntunwj.com/#/admin-exchange/" + vou_id + "/user/" + this.user_id);
           setTimeout(() => {
             let base64 = $("#qrcode").find("img")[0].src;
-            scs_alert("<img src="+ base64 +"><br><span>请持二维码到天工楼301领取</span>");
+            this.scs_alert("<span>请持二维码到（深圳技师学院）天工楼301领取</span>","<img src="+ base64 +">");
           },0)
       })
   }

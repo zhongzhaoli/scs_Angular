@@ -1,6 +1,8 @@
 export interface Profile{
-    "o_user":{},
+    "o_user":{
+        "id":string,
+    },
     "user":{
-        "status":string
+        "status":string,
     }
 }

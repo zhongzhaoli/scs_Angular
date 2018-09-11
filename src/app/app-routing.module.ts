@@ -36,6 +36,7 @@ import { IntegralShopModule } from './integral-shop/integral-shop.module';
 import { AdminCustomerDetailModule } from './admin-customer-detail/admin-customer-detail.module';
 import { AdminGiftModule } from './admin-gift/admin-gift.module';
 import { MyVoucherModule } from './my-voucher/my-voucher.module';
+import { AdminExchangeModule } from './admin-exchange/admin-exchange.module';
 const routes: Routes = [
     {
         path: 'register-detail',
@@ -176,6 +177,10 @@ const routes: Routes = [
     {
         path: 'my-voucher',
         loadChildren: './my-voucher/my-voucher.module#MyVoucherModule'
+    },
+    {
+        path: 'admin-exchange/:vouid/user/:id',
+        loadChildren: './admin-exchange/admin-exchange.module#AdminExchangeModule'
     },
     {
         path: '',

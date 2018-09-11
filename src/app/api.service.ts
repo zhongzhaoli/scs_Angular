@@ -274,4 +274,17 @@ export class ApiService {
         var url = environment.url.comment + "/my-voucher";
         return this.http.get(url);
     }
+    admin_exchange_user(vo_id,user_id){
+        var url = environment.url.comment + "/admin/exchange/"+ vo_id +"/user/" + user_id;
+        return this.http.get(url);
+    }
+    admin_exchange_code(user_id){
+        var url = environment.url.comment + "/admin/exchange/code/" + user_id;
+        return this.http.get(url);
+    }
+    admin_exchange_yz_code(data,user_id){
+        var url = environment.url.comment + "/admin/exchange/code/" + user_id;
+        return this.http.post(url,data);
+    }
 }
+

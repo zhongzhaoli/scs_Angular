@@ -23,7 +23,7 @@ export class AdminLoginComponent implements OnInit {
           delCookie("role");
           setCookie("api_token",t.success.token);
           setCookie("role","admin");
-          this.router.navigate(['/profile']);
+          window.history.back();
       },error => {
           close_dialog();
           scs_alert(error.error.message);

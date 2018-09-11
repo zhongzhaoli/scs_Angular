@@ -1,0 +1,27 @@
+.exchange_div{
+    width:100%;
+    padding:0.25rem;
+}
+.exchange{
+    width:100%;
+    padding:0.25rem;
+    background:white;
+    border:1px #eaeaea solid;
+}
+.exchange p{
+    text-align: center;
+    font-size:0.35rem;
+    margin-bottom:0.25rem;
+    font-weight: bold;
+}
+.success_div{
+    text-align: center;
+}
+.success_div > img{
+    width:1rem;
+    margin-top:0.2rem;
+}
+.success_div > div{
+    font-size:0.4rem;
+    margin-top:0.15rem;
+}

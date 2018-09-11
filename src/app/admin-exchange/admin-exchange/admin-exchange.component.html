@@ -1,0 +1,56 @@
+<title>兑换 - 云屯务集</title>
+<div class="header">
+  <span>兑换</span>
+</div>
+<div class="success_div" *ngIf="success">
+  <img src="../../../assets/images/success.png" alt="">
+  <div>领取成功</div>
+</div>
+<div class="success_div" *ngIf="error_text && error_text != ''">
+  <img src="../../../assets/images/help_or.png" alt="">
+  <div>{{ error_text }}</div>
+</div>
+<div class="exchange_div" *ngIf="sj">
+  <div class="exchange" *ngIf="sj?.type != 5 && !success && !error_text">
+    <p>{{ sj?.voucher?.num }}{{ sj?.voucher?.name }}</p>
+    <div class="form-group">
+      <label for="">兑换用户姓名：</label>
+      <span>{{ sj?.user?.name }}</span>
+    </div>
+    <div class="form-group">
+      <label for="">兑换用户手机号：</label>
+      <span>{{ sj?.user?.phone }}</span>
+    </div>
+    <div class="form-group">
+      <label for="">获得券时间：</label>
+      <span>{{ sj?.create_time }}</span>
+    </div>
+    <div class="form-group">
+      <label for="">券类型：</label>
+      <span>{{ sj?.type }}</span>
+    </div>
+    <button class="btn scs-btn" (click)="admin_exchange(sj?.id,sj?.user?.user_id)">兑换</button>
+  </div>
+  <div class="exchange" *ngIf="sj?.type == 5 && !success && !error_text">
+    <p>{{ sj?.voucher?.num }}{{ sj?.voucher?.name }}</p>
+    <img src="{{ sj?.voucher?.img }}" width="100%" alt="" style="margin-bottom:0.25rem;">
+    <div class="form-group">
+      <label for="">兑换用户姓名：</label>
+      <span>{{ sj?.user?.name }}</span>
+    </div>
+    <div class="form-group">
+      <label for="">兑换用户手机号：</label>
+      <span>{{ sj?.user?.phone }}</span>
+    </div>
+    <div class="form-group">
+      <label for="">获得券时间：</label>
+      <span>{{ sj?.create_time }}</span>
+    </div>
+    <div class="form-group">
+      <label for="">券类型：</label>
+      <span>{{ sj?.type }}</span>
+    </div>
+    <button class="btn scs-btn" (click)="admin_exchange(sj?.id,sj?.user?.user_id)">兑换</button>
+  </div>
+</div>
+<div class="footer"></div>

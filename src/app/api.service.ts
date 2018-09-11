@@ -6,6 +6,7 @@ import { Profile } from './entity/profile';
 import { Role } from './entity/role';
 import { Leader } from './entity/Leader';
 import { Message } from './entity/Message';
+import { Demand } from './entity/Demand';
 declare var getCookie:any;
 @Injectable({
   providedIn: 'root'
@@ -292,7 +293,7 @@ export class ApiService {
     }
     demand_index(page){
         var url = environment.url.comment + "/demand?page=" + page;
-        return this.http.get(url);
+        return this.http.get<Demand>(url);
     }
 }
 

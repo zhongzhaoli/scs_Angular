@@ -72,6 +72,7 @@ export class AdminExchangeComponent implements OnInit {
             close_dialog();
             that.scs_alert_do("提示","领取成功",function(){
                 that.success = true;
+                close_dialog();
             });
         },error => {
             close_dialog();

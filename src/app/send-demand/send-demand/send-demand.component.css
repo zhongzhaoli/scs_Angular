@@ -1,0 +1,89 @@
+.send_div{
+    background: white;
+    width:100%;
+    padding:0.25rem;
+}
+.send_header > img{
+    width:0.7rem;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.send_header > span{
+    padding-left:0.2rem;
+}
+.send_body{
+    margin-top:0.15rem;
+    margin-left:0.9rem;
+}
+.send_body > textarea{
+    font-size:0.27rem;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    resize: none;
+    text-indent: 0;
+    padding:0;
+}
+.uplopad_file{
+    width:1.2rem;
+    height:1.2rem;
+    background:silver;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float:left;
+    margin:0.1rem;
+}
+.uplopad_file > i{
+    color:white;
+    font-size:0.7rem;
+}
+.send_media{
+    margin-left:0.8rem;
+    margin-top:0.35rem;
+    overflow: hidden;
+    width:4.2rem;
+}
+.send_btn{
+    margin-top:0.25rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    float:right;
+}
+.send_btn > button:nth-child(1){
+    margin-right:0.1rem;
+}
+.ri_media{
+    width:1.2rem;
+    height:1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float:left;
+    margin:0.1rem;
+}
+.ri_media_video{
+}
+.two_status{
+    display: flex;
+    align-items: center;
+    margin-top:0.35rem;
+    margin-left:0.9rem;
+}
+.two_status > div{
+    border:1px #eaeaea solid;
+    padding:0.1rem 0.3rem;
+    transition: all .2s;
+}
+.two_status > div:last-child{
+    margin-left:0.2rem;
+}
+.two_status > .active{
+    background:#2ebdea;
+    color:white;
+}

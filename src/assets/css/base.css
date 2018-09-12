@@ -1,5 +1,6 @@
 body,html{
     font-size:0.27rem;
+    position:sticky;
 }
 ul,li,p,h1,h2,h3,h4,h5{
     margin:0;
@@ -107,9 +108,9 @@ textarea{
     color:white;
     right:0;
     position: absolute;
-    font-size:0.4rem;
     cursor: pointer;
 }
 .add_demand > i{
     color:white;
+    font-size: 0.5rem;
 }

@@ -295,5 +295,9 @@ export class ApiService {
         var url = environment.url.comment + "/demand?page=" + page;
         return this.http.get<Demand>(url);
     }
+    send_demand(fd){
+        var url = environment.url.comment + "/demand";
+        return this.http.post(url,fd);
+    }
 }
 

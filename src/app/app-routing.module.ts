@@ -38,6 +38,7 @@ import { AdminGiftModule } from './admin-gift/admin-gift.module';
 import { MyVoucherModule } from './my-voucher/my-voucher.module';
 import { AdminExchangeModule } from './admin-exchange/admin-exchange.module';
 import { DemandModule } from './demand/demand.module';
+import { SendDemandModule } from './send-demand/send-demand.module';
 const routes: Routes = [
     {
         path: 'register-detail',
@@ -186,6 +187,10 @@ const routes: Routes = [
     {
         path: 'demand',
         loadChildren: './demand/demand.module#DemandModule'
+    },
+    {
+        path: 'send-demand',
+        loadChildren: './send-demand/send-demand.module#SendDemandModule'
     },
     {
         path: '',

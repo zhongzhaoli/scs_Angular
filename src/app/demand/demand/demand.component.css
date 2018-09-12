@@ -27,12 +27,12 @@
     border-radius: 50%;
 }
 .demand_body{
-    margin-top:0.2rem;
+    margin-top:0.15rem;
     margin-left:0.9rem;
 }
 .demand_create_time{
     margin-top:0.3rem;
-    font-size:0.2rem;
+    font-size:0.25rem;
     margin-left:0.9rem;
     color:#777;
     display: flex;
@@ -41,4 +41,33 @@
 }
 .demand_z{
     font-size:0.3rem;
+}
+.demand_media{
+    overflow: hidden;
+    margin-left:0.8rem;
+    width:4.8rem;
+    margin-top:0.15rem;
+}
+.media_div_s{
+    width:1.2rem;
+    height:1.2rem;
+    float:left;
+    margin:0.1rem;
+}
+.new_img_div{
+    width:1.4rem;
+    height:1.4rem;
+    float:left;
+    margin:0.1rem;
+}
+.is_down{
+    color:silver;
+    font-size:0.25rem;
+}
+.user_list{
+    margin-top:0.25rem;
+    padding:0.2rem;
+    text-align: center;
+    color:#777;
+    font-size:0.25rem;
 }

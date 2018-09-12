@@ -1,0 +1,35 @@
+<title>发送动态 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>发送动态</span>
+</div>
+<div class="send_div main_div_height" *ngIf="user">
+  <div class="send_header">
+    <img src="{{ user?.o_user?.user_img }}" alt="">
+    <span>{{ user?.o_user?.nickname }}</span>
+  </div>
+  <div class="send_body">
+    <textarea name="" placeholder="此时此刻的想法～" class="form-control" #text rows="3"></textarea>
+  </div>
+  <div class="two_status">
+    <div class="active" (click)="two_status($event.currentTarget,'photo')">图片</div>
+    <div (click)="two_status($event.currentTarget,'video')">视频</div>
+  </div>
+  <div class="send_media">
+    <div class="uplopad_file" data-list="1">
+      <i class="material-icons">
+        add
+      </i>
+    </div>
+  </div>
+  <div class="send_btn">
+    <button class="scs-btn btn" (click)="send(text.value)">发送</button>
+  </div>
+  <div class="form_div" style="display: none;">
+    <form>
+    </form>
+  </div>
+</div>
+<div class="footer"></div>

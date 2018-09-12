@@ -15,12 +15,12 @@ export class DemandComponent implements OnInit {
   show_sj: any;
   can_get: boolean;
   no_sj: boolean;
-  ngOnInit() {
+attr_ng: any;
+    ngOnInit() {
     this.page = 1;
     this.show_sj = [];
     this.no_sj = false;
     let that = this;
-
     scs_loading();
     this.get_sj(this.page);
 
@@ -31,9 +31,8 @@ export class DemandComponent implements OnInit {
   }
   loadmore(obj){
     var scrollHeight = $("html").get(0).scrollHeight;
-    var scrollTop =  Math.ceil($("html").get(0).scrollTop);
+    var scrollTop =  Math.ceil($(obj).scrollTop());
     var windowHeight = $(obj).height();
-
 
     if (scrollTop + windowHeight >= scrollHeight && this.can_get) {
       this.page = this.page + 1;
@@ -48,8 +47,26 @@ export class DemandComponent implements OnInit {
         close_dialog();
         this.new_sj = t;
         for (let i = 0; i < t.data.length; i++) {
+            t.data[i].media_arr = JSON.parse(t.data[i].media_arr);
             this.show_sj.push(t.data[i]);
         }
+        setTimeout(() => {
+            this.attr_ng = $(".header").html().split("_ngcontent-")[1].split('="" ')[0];
+            $(".media_div").map((val,item) => {
+                let par = $(item).parent()[0];
+                $(item).children().map((val,items) => {
+                    if($(items).attr("data-type") === "image"){
+                        let img_div = $("<div _ngcontent-"+ this.attr_ng +" class='new_img_div'></div>").appendTo(par);
+                        img_div[0].style.background = "url("+ $(items).attr("src") +")";
+                        img_div[0].style.backgroundSize = "cover";
+                        img_div[0].style.backgroundPosition = "center center";
+                    }
+                    if($(items).attr("data-type") === "video"){
+                        let video_div = $("<video width='100%' controls='controls' src="+ $(items).attr("src") +">").appendTo(par);
+                    }
+                })
+            });
+        },0);
         this.can_get = true;
         if(t.last_page != t.current_page){
             setTimeout(() => {

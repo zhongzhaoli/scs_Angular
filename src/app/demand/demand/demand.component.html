@@ -1,11 +1,14 @@
 <title>动态 - 云屯务集</title>
 <div class="header">
-  <div class="add_demand posi_left">
+  <div class="add_demand posi_left" routerLink="/send-demand">
     <i class="material-icons">
       add
     </i>
   </div>
   <span>动态</span>
+</div>
+<div class="user_list" *ngIf="show_sj && show_sj == ''">
+  <p>暂时没有动态</p>
 </div>
 <div class="demand_div" *ngIf="show_sj && show_sj != ''">
   <div class="demand" *ngFor="let i of show_sj">
@@ -13,8 +16,14 @@
       <img class="user_img" src="{{ i?.user_img }}" alt="">
       <span>{{ i?.user_nickname }}</span>
     </div>
-    <div class="demand_body">
+    <div class="demand_body" *ngIf="i?.text">
       {{ i?.text }}
+    </div>
+    <div class="demand_media" *ngIf="i?.media_arr != ''">
+      <div class="media_div" *ngFor="let media of i?.media_arr" style="display: none;">
+        <img data-type="image" *ngIf="media?.type == 'image'" style="display: none;" src="{{ media?.path }}" alt="">
+        <video data-type="video" *ngIf="media?.type == 'video'" style="display: none;" src="{{ media?.path }}"></video>
+      </div>
     </div>
     <div class="demand_create_time">
       <span>{{ i?.create_time }}</span>
@@ -26,7 +35,7 @@
   </div>
   <div class="loading_div evaluate_sj_loading">
     <img src="../../../assets/images/loading.gif" *ngIf="!no_sj" alt="">
-    <span *ngIf="no_sj">已经是最底部了</span>
+    <span class="is_down" *ngIf="no_sj">已经是最底部了</span>
   </div>
 </div>
 <div class="footer"></div>

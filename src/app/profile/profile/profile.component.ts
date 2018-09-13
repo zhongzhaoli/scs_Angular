@@ -37,6 +37,7 @@ export class ProfileComponent implements OnInit {
         var _this = this;
         scs_confirm("确认退出登录吗？", function () {
             delCookie("api_token");
+            delCookie("role");
             jump_login(_this.url);
         })
     }

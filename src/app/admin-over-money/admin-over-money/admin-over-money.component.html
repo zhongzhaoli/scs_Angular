@@ -1,0 +1,33 @@
+<title>完结明细 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>完结明细</span>
+</div>
+<div class="over_div main_div_height" *ngIf="sj">
+  <p class="job_title">{{ sj?.job_title }}</p>
+  <p class="admin_change_money">({{ sj?.admin_change_money }}元/小时)</p>
+  <div class="student_div">
+    <div *ngFor="let i of sj?.student" class="student_div">
+      <input type="text" class="form-control" disabled value="{{ i?.user?.name }}">
+      <div class="input-group group_money">
+        <input class="form-control ng-untouched ng-pristine ng-valid" placeholder="人名币" value="{{ sj?.admin_change_money * sj?.job_hour }}" type="number">
+        <div class="input-group-addon">元</div>
+      </div>
+    </div>
+    <div class="place">
+      <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="结算地址"></textarea>
+    </div>
+    <div class="leader">
+      <label for="">负责人</label>
+      <div>
+        <input type="text" disabled placeholder="结算负责人姓名" class="form-control" value="{{ sj?.leader?.name }}">
+        <input type="text" disabled placeholder="结算负责人手机号" class="form-control" value="{{ sj?.leader?.phone }}">
+      </div>
+  </div>
+    <div class="over_btn">
+      <button class="btn scs-btn" (click)="over_job()">完结</button>
+    </div>
+  </div>
+</div>

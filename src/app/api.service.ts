@@ -299,5 +299,21 @@ export class ApiService {
         var url = environment.url.comment + "/demand";
         return this.http.post(url,fd);
     }
+    like_demand(id){
+        var url = environment.url.comment + "/demand/like/" + id;
+        return this.http.post(url,{});
+    }
+    my_demand(page){
+        var url = environment.url.comment + "/my-demand?page=" + page;
+        return this.http.get<Demand>(url);
+    }
+    del_demand(id){
+        var url = environment.url.comment + "/demand/del/" + id;
+        return this.http.get(url);
+    }
+    admin_over_money(id){
+        var url = environment.url.comment + "/admin/admin_over_money/" + id;
+        return this.http.get(url);
+    }
 }
 

@@ -1,0 +1,45 @@
+.over_div{
+    background:white;
+    padding:0.25rem;
+}
+.job_title{
+    font-size:0.5rem;
+    text-align: center;
+    width:100%;
+    padding:0.2rem 0;
+}
+.admin_change_money{
+    font-size:0.4rem;
+    color:red;
+    width:100%;
+    text-align: center;
+}
+.student_div{
+    width:100%;
+    margin-top:0.2rem;
+    overflow: hidden;
+}
+.student_div > input, .group_money{
+    float:left;
+    width:calc(50% - 0.05rem);
+}
+.group_money{
+    margin-left:0.1rem;
+}
+.place, .leader{
+    margin-top:0.2rem;
+    overflow: hidden;
+}
+.leader > div > input{
+    width:calc(50% - 0.05rem);
+    float:left;
+}
+.leader > div > input:nth-child(2){
+    margin-left:0.1rem;
+}
+.over_btn{
+    margin-top:0.2rem;
+}
+.over_btn > button{
+    width:100%;
+}

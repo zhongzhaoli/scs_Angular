@@ -19,6 +19,8 @@ export class SendDemandComponent implements OnInit {
   sj: any;
   attr_ng: any;
   upload_type: any;
+  set_Inter: any;
+  loading: any;
   ngOnInit() {
     this.get_user();
     this.upload_type = "photo"
@@ -63,8 +65,40 @@ export class SendDemandComponent implements OnInit {
       }
       this.new_change();
   }
+  loading_inter(){
+      $(".loading_div div")[0].style.width = this.loading + "%";
+  }
   send(text){
-      scs_loading();
+      if($(".form_div form").children().length == 0 && text == ""){
+          scs_alert("请编辑你要发的动态");
+          return;
+      }
+      $(".bg_mb").show('fast');
+      this.loading = 1;
+      this.loading_inter();
+      let speed;
+      if(this.upload_type === "video"){
+          let size = $("#now_list1")[0].files[0].size / 1024 / 1024;
+          if(size <= 10){
+              speed = 40;
+          }
+          else if(10 < size && size <= 20){
+              speed = 80;
+          }
+          else{
+              speed = 120;
+          }
+      }
+      else{
+          speed = 30;
+      }
+      this.set_Inter = setInterval(() => {
+          this.loading ++;
+          this.loading_inter();
+          if(this.loading >= 95){
+              clearInterval(this.set_Inter);
+          }
+      },speed);
       var fd = new FormData();
       fd.append("text",text);
       $("input[type='file']").map((val,item) => {
@@ -79,8 +113,18 @@ export class SendDemandComponent implements OnInit {
           fd.append(fd_name,item.files[0]);
       });
       this.apise.send_demand(fd).subscribe(t => {
-          close_dialog();
-          this.route.navigate(["/demand"]);
+          clearInterval(this.set_Inter);
+          let new_inter;
+          new_inter = setInterval(() => {
+              this.loading +=2;
+              this.loading_inter();
+              if(this.loading >= 100){
+                  clearInterval(new_inter);
+                  setTimeout(() => {
+                    this.route.navigate(["/demand"]);
+                  },500);
+              }
+          },20);
       },error => {
           close_dialog();
           scs_alert(error.error.message);
@@ -120,6 +164,7 @@ export class SendDemandComponent implements OnInit {
               if(this.files[0].size / 1024 / 1024 > 30){
                   close_dialog();
                   scs_alert("文件不得大于30MB");
+                  $(this).remove();
                   return;
               }
               let id_name_num = id_name.split("now_list")[1];

@@ -39,6 +39,8 @@ import { MyVoucherModule } from './my-voucher/my-voucher.module';
 import { AdminExchangeModule } from './admin-exchange/admin-exchange.module';
 import { DemandModule } from './demand/demand.module';
 import { SendDemandModule } from './send-demand/send-demand.module';
+import { MyDemandModule } from './my-demand/my-demand.module';
+import { AdminOverMoneyModule } from './admin-over-money/admin-over-money.module';
 const routes: Routes = [
     {
         path: 'register-detail',
@@ -191,6 +193,14 @@ const routes: Routes = [
     {
         path: 'send-demand',
         loadChildren: './send-demand/send-demand.module#SendDemandModule'
+    },
+    {
+        path: 'my-demand',
+        loadChildren: './my-demand/my-demand.module#MyDemandModule'
+    },
+    {
+        path: 'admin-over-money/:id',
+        loadChildren: './admin-over-money/admin-over-money.module#AdminOverMoneyModule'
     },
     {
         path: '',

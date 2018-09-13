@@ -1,11 +1,14 @@
-<title>动态 - 云屯务集</title>
+<title>我的动态 - 云屯务集</title>
 <div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
   <div class="add_demand posi_left" routerLink="/send-demand">
     <i class="material-icons">
       add
     </i>
   </div>
-  <span>动态</span>
+  <span>我的动态</span>
 </div>
 <div class="demand_div" *ngIf="show_sj && show_sj != ''">
   <div class="user_list" *ngIf="show_sj && show_sj == ''">
@@ -28,9 +31,9 @@
     <div class="demand_create_time">
       <span>{{ i?.create_time }}</span>
       <div class="demand_z">
-          <span style="padding-right:0.13rem">{{ i?.like }}</span>
-          <i (click)="zan_demand(i?.id,$event.currentTarget)" *ngIf="i?.you_like == 'false'" data-heart="false" class="fa fa-heart-o"></i>
-        <i data-heart="true" *ngIf="i?.you_like == 'true'" class="fa fa-heart"></i>
+        <span style="padding-right:0.13rem">{{ i?.like }}</span>
+        <i data-heart="false" class="fa fa-heart-o"></i>
+        <i (click)="del_demand(i?.id,i)" class="fa fa-trash-o" style="margin-left:0.3rem;font-size:0.32rem;color:red;"></i>
       </div>
     </div>
   </div>

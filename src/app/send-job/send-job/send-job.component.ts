@@ -98,7 +98,7 @@ export class SendJobComponent implements OnInit {
         $("[data-error]").html("");
         this.apise.send_job(a).subscribe(t => {
             this.scs_alert_do("兼职已提交审核",function(){
-                that.router.navigate(['/profile']);
+                // that.router.navigate(['/profile']);
                 close_dialog();
             });
         },error => {

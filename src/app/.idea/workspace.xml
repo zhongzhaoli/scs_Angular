@@ -26,119 +26,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="admin-over-money.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin-over-money/admin-over-money/admin-over-money.component.ts">
+      <file leaf-file-name="send-job.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/send-job/send-job/send-job.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="49" lean-forward="true" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../assets/js/base.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="713">
-              <caret line="49" column="26" lean-forward="false" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="26" />
+            <state relative-caret-position="460">
+              <caret line="80" column="43" lean-forward="true" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DemandController.php" pinned="false" current-in-tab="false">
-        <entry file="file://D:/xampp/htdocs/scs_Laravel/app/Http/Controllers/DemandController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="657">
-              <caret line="101" column="10" lean-forward="true" selection-start-line="101" selection-start-column="10" selection-end-line="101" selection-end-column="10" />
-              <folding>
-                <marker date="1536837939682" expanded="true" signature="767:819" ph="select * fro... demand" />
-                <marker date="1536837939682" expanded="true" signature="767:820" ph="select * fro... demand" />
-                <marker date="1536837939682" expanded="true" signature="767:833" ph="select * fro... demand" />
-                <marker date="1536837939682" expanded="true" signature="767:845" ph="select * fro... demand" />
-                <marker date="1536837939682" expanded="true" signature="767:846" ph="select * fro... users" />
-                <marker date="1536837939682" expanded="true" signature="767:1312" ph="select * fro... demand" />
-                <marker date="1536837939682" expanded="true" signature="1989:2025" ph="select * fro... demand" />
-                <marker date="1536837939682" expanded="true" signature="1989:2026" ph="select * fro... demand" />
-                <marker date="1536837939682" expanded="true" signature="1989:2096" ph="select * fro... demand" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JobController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="JobController.php" pinned="false" current-in-tab="true">
         <entry file="file://D:/xampp/htdocs/scs_Laravel/app/Http/Controllers/JobController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10">
-              <caret line="209" column="5" lean-forward="true" selection-start-line="209" selection-start-column="5" selection-end-line="209" selection-end-column="5" />
+            <state relative-caret-position="529">
+              <caret line="96" column="34" lean-forward="true" selection-start-line="96" selection-start-column="34" selection-end-line="96" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
-        <entry file="file://D:/xampp/htdocs/scs_Laravel/app/Http/Controllers/AdminController.php">
+      <file leaf-file-name="send-job.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/send-job/send-job/send-job.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="245" column="9" lean-forward="true" selection-start-line="245" selection-start-column="9" selection-end-line="245" selection-end-column="9" />
+            <state relative-caret-position="417">
+              <caret line="90" column="58" lean-forward="true" selection-start-line="90" selection-start-column="58" selection-end-line="90" selection-end-column="58" />
               <folding>
-                <element signature="e#40#68#0#PHP" expanded="true" />
-                <marker date="1536840166257" expanded="true" signature="2632:2921" ph="select * fro... personal_user" />
-                <marker date="1536840166257" expanded="true" signature="2972:3128" ph="select * fro... personal_user" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin-job.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin-job/admin-job/admin-job.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin-over-money.component.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin-over-money/admin-over-money/admin-over-money.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="14" column="86" lean-forward="false" selection-start-line="14" selection-start-column="86" selection-end-line="14" selection-end-column="86" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin-over-money.component.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin-over-money/admin-over-money/admin-over-money.component.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="828">
-              <caret line="36" column="35" lean-forward="true" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="992">
-              <caret line="313" column="20" lean-forward="false" selection-start-line="313" selection-start-column="4" selection-end-line="313" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin-job.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin-job/admin-job/admin-job.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="97" column="40" lean-forward="true" selection-start-line="97" selection-start-column="40" selection-end-line="97" selection-end-column="40" />
-              <folding>
-                <marker date="1536064834413" expanded="true" signature="1380:1389" ph="..." />
+                <element signature="e#0#50#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -189,8 +103,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/admin-list/admin-list/admin-list.component.html" />
-        <option value="$PROJECT_DIR$/demand/demand-routing.module.ts" />
         <option value="$PROJECT_DIR$/../../../滚动加载/index.html" />
         <option value="$PROJECT_DIR$/../../../滚动加载/jq221839.html" />
         <option value="$PROJECT_DIR$/demand/demand.module.ts" />
@@ -233,13 +145,15 @@
         <option value="$PROJECT_DIR$/admin-job/admin-job/admin-job.component.html" />
         <option value="$PROJECT_DIR$/app-routing.module.ts" />
         <option value="D:/xampp/htdocs/scs_Laravel/app/Http/Controllers/DemandController.php" />
-        <option value="D:/xampp/htdocs/scs_Laravel/app/Http/Controllers/JobController.php" />
         <option value="D:/xampp/htdocs/scs_Laravel/routes/web.php" />
         <option value="$PROJECT_DIR$/api.service.ts" />
         <option value="D:/xampp/htdocs/scs_Laravel/app/Http/Controllers/AdminController.php" />
         <option value="$PROJECT_DIR$/admin-over-money/admin-over-money/admin-over-money.component.css" />
         <option value="$PROJECT_DIR$/admin-over-money/admin-over-money/admin-over-money.component.ts" />
         <option value="$PROJECT_DIR$/admin-over-money/admin-over-money/admin-over-money.component.html" />
+        <option value="$PROJECT_DIR$/send-job/send-job/send-job.component.html" />
+        <option value="$PROJECT_DIR$/send-job/send-job/send-job.component.ts" />
+        <option value="D:/xampp/htdocs/scs_Laravel/app/Http/Controllers/JobController.php" />
       </list>
     </option>
   </component>
@@ -408,7 +322,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="239415000" />
+    <option name="totallyTimeSpent" value="240317000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -466,22 +380,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/xampp/htdocs/scs_Laravel/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3874">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/xampp/htdocs/scs_Laravel/app/Http/Controllers/PersonalController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="27" column="41" lean-forward="false" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-job/my-job/my-job.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -836,14 +734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../assets/js/base.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="49" column="26" lean-forward="false" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="992">
@@ -864,10 +754,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/xampp/htdocs/scs_Laravel/app/Http/Controllers/JobController.php">
+    <entry file="file://$PROJECT_DIR$/admin-over-money/admin-over-money/admin-over-money.component.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="209" column="5" lean-forward="true" selection-start-line="209" selection-start-column="5" selection-end-line="209" selection-end-column="5" />
+        <state relative-caret-position="828">
+          <caret line="36" column="35" lean-forward="true" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin-job/admin-job/admin-job.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="97" column="40" lean-forward="true" selection-start-line="97" selection-start-column="40" selection-end-line="97" selection-end-column="40" />
+          <folding>
+            <marker date="1536064834413" expanded="true" signature="1380:1389" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin-over-money/admin-over-money/admin-over-money.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="10" lean-forward="true" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin-job/admin-job/admin-job.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -890,46 +806,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin-over-money/admin-over-money/admin-over-money.component.css">
+    <entry file="file://$PROJECT_DIR$/../assets/js/base.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="36" column="35" lean-forward="true" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+        <state relative-caret-position="713">
+          <caret line="49" column="26" lean-forward="false" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="26" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin-job/admin-job/admin-job.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin-job/admin-job/admin-job.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="97" column="40" lean-forward="true" selection-start-line="97" selection-start-column="40" selection-end-line="97" selection-end-column="40" />
-          <folding>
-            <marker date="1536064834413" expanded="true" signature="1380:1389" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin-over-money/admin-over-money/admin-over-money.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="49" lean-forward="true" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+        <state relative-caret-position="299">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin-over-money/admin-over-money/admin-over-money.component.html">
+    <entry file="file://$PROJECT_DIR$/send-job/send-job/send-job.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="86" lean-forward="false" selection-start-line="14" selection-start-column="86" selection-end-line="14" selection-end-column="86" />
+        <state relative-caret-position="460">
+          <caret line="80" column="43" lean-forward="true" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/send-job/send-job/send-job.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="90" column="58" lean-forward="true" selection-start-line="90" selection-start-column="58" selection-end-line="90" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/xampp/htdocs/scs_Laravel/app/Http/Controllers/JobController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="96" column="34" lean-forward="true" selection-start-line="96" selection-start-column="34" selection-end-line="96" selection-end-column="34" />
           <folding />
         </state>
       </provider>

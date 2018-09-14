@@ -219,9 +219,9 @@ export class ApiService {
         var url = environment.url.comment + "/evaluate_detail/" + $id;
         return this.http.get(url);
     }
-    admin_over_job(job_id){
+    admin_over_job(job_id,user_ob,place,leader_user_id){
         var url = environment.url.comment + "/admin/over_job/" + job_id;
-        return this.http.post(url,{});
+        return this.http.post(url,{student: user_ob,place:place,leader_user_id:leader_user_id});
     }
     admin_treated(){
         var url = environment.url.comment + "/admin/treated";

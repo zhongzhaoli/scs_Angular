@@ -63,3 +63,9 @@
 hr{
     margin:0.15rem 0;
 }
+.evalute_student_no{
+    padding:0.2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

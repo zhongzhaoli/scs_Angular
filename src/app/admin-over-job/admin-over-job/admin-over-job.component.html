@@ -17,9 +17,17 @@
         <span>云务兼职</span>
         <span style="color:#3ee62c" *ngIf="i?.evaluate?.type == 'good'">好评</span>
         <span style="color:red" *ngIf="i?.evaluate?.type == 'bad'">差评</span>
+        <span style="color:#a6a6a6" *ngIf="i?.evaluate == ''">未评价</span>
       </div>
-      <p><span style="color:#777">评语：</span>{{ i?.evaluate?.text }}</p>
+      <p>
+        <span style="color:#777">评语：</span>
+        <span *ngIf="i?.evaluate != ''">{{ i?.evaluate?.text }}</span>
+        <span style="color:#a6a6a6" *ngIf="i?.evaluate == ''">未评价</span>
+      </p>
       <hr>
+      <div class="evalute_student_no" style="color:#a6a6a6" *ngIf="i?.user == ''">
+        还未进行评价
+      </div>
       <div class="evaluate_student" *ngFor="let j of i?.user">
         <span>{{ j?.user?.name }}</span>
         <span style="color:#3ee62c" *ngIf="j?.type == 'good'">好评</span>

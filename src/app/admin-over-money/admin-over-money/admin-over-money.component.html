@@ -9,6 +9,10 @@
   <p class="job_title">{{ sj?.job_title }}</p>
   <p class="admin_change_money">({{ sj?.admin_change_money }}元/小时)</p>
   <div class="student_div">
+    <select name="type" class="form-control">
+      <option value="线下领取">线下领取</option>
+      <option value="在线支付">在线支付</option>
+    </select>
     <div *ngFor="let i of sj?.student" class="student_div">
       <input type="text" class="form-control" disabled value="{{ i?.user?.name }}">
       <div class="input-group group_money">

@@ -1,0 +1,7 @@
+.get_money{
+    width:100%;
+    padding:0.25rem;
+}
+.get_money > div{
+    padding:0.2rem 0;
+}

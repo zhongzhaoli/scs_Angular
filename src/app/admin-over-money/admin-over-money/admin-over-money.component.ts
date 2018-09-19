@@ -51,7 +51,7 @@ export class AdminOverMoneyComponent implements OnInit {
       $("input[type='number']").map((val,item) => {
           this.user_money_arr[item.id] = item.value;
       });
-      this.apise.admin_over_job(this.job_id,this.user_money_arr,$(".place textarea").val(),leader_user_id).subscribe(t => {
+      this.apise.admin_over_job(this.job_id,this.user_money_arr,$(".place textarea").val(),leader_user_id,$("[name='type']").val()).subscribe(t => {
           scs_alert("完结成功");
       },error => {
           scs_alert(error.error.message);

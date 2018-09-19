@@ -1,0 +1,29 @@
+<title>领取薪酬方式 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>领取薪酬方式</span>
+</div>
+<div class="get_money" *ngIf="sj">
+  <div class="type">
+    <label for="">领取方式：</label>
+    <span>{{ sj?.type }}</span>
+  </div>
+  <div class="money">
+    <label for="">领取金额：</label>
+    <span>{{ sj?.money }}/元</span>
+  </div>
+  <div class="place">
+    <label for="">领取地点：</label>
+    <span>{{ sj?.place }}</span>
+  </div>
+  <div class="leader">
+    <label for="">负责人姓名：</label>
+    <span>{{ sj?.leader?.name }}</span>
+  </div>
+  <div class="leader">
+    <label for="">负责人电话：</label>
+    <span>{{ sj?.leader?.phone }}</span>
+  </div>
+</div>

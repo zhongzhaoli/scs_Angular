@@ -21,7 +21,7 @@
       </div>
     </div>
     <textarea name="" id="" cols="30" rows="10" class="form-control feedback_textarea" #value placeholder="尽情的说吧～"></textarea>
-    <p class="title_" *ngIf="student">对学生做出评价</p>
+    <p class="title_" *ngIf="student && student != ''">对学生做出评价</p>
     <div class="children_for" *ngFor="let i of student">
       <span>{{ i?.user?.name }}</span>
       <div class="type_div">
@@ -42,3 +42,4 @@
     <button class="feedback_button btn scs-btn" (click)="upload_text(value.value,job?.id)">提交评价</button>
   </div>
 </div>
+<div class="footer"></div>

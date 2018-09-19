@@ -219,9 +219,9 @@ export class ApiService {
         var url = environment.url.comment + "/evaluate_detail/" + $id;
         return this.http.get(url);
     }
-    admin_over_job(job_id,user_ob,place,leader_user_id){
+    admin_over_job(job_id,user_ob,place,leader_user_id,type){
         var url = environment.url.comment + "/admin/over_job/" + job_id;
-        return this.http.post(url,{student: user_ob,place:place,leader_user_id:leader_user_id});
+        return this.http.post(url,{student: user_ob,place:place,leader_user_id:leader_user_id,type:type});
     }
     admin_treated(){
         var url = environment.url.comment + "/admin/treated";
@@ -314,6 +314,18 @@ export class ApiService {
     admin_over_money(id){
         var url = environment.url.comment + "/admin/admin_over_money/" + id;
         return this.http.get(url);
+    }
+    user_get_money(id){
+        var url = environment.url.comment + "/my-job-money/" + id;
+        return this.http.get(url);
+    }
+    admin_phone_get_user(phone){
+        var url = environment.url.comment + "/admin/user/phone";
+        return this.http.post(url,{'phone':phone});
+    }
+    admin_send_user_numerical(arr,credit,integral,experience){
+        var url = environment.url.comment + "/admin/send-user-numerical";
+        return this.http.post(url,{"student":arr, "credit":credit, "integral":integral, "experience":experience});
     }
 }
 

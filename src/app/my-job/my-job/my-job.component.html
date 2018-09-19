@@ -28,6 +28,7 @@
     <div class="refuse_div kz_gn" *ngIf="i?.status == 'refuse'" (click)="refusal_ly_alert(i?.refusal)">查看拒绝理由</div>
     <div class="adopt_div kz_gn adopt_center" *ngIf="i?.status == 'adopt' && i?.over != 'over'" routerLink="/job-leader/{{ i?.job_id }}">查看负责人信息</div>
     <div class="adopt_div kz_gn" *ngIf="i?.status == 'adopt' && i?.over != 'over'" routerLink="/job-feedback/{{ i?.job_id }}">兼职反馈</div>
+    <div class="kz_gn" *ngIf="i?.over == 'over'" routerLink="/user-get-money/{{ i?.job_id }}">领取薪酬方式</div>
   </div>
 </div>
 <div class="footer"></div>

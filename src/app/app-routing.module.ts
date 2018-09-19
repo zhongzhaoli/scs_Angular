@@ -41,6 +41,8 @@ import { DemandModule } from './demand/demand.module';
 import { SendDemandModule } from './send-demand/send-demand.module';
 import { MyDemandModule } from './my-demand/my-demand.module';
 import { AdminOverMoneyModule } from './admin-over-money/admin-over-money.module';
+import { UserGetMoneyModule } from './user-get-money/user-get-money.module';
+import { AdminSendNumericalModule } from './admin-send-numerical/admin-send-numerical.module';
 const routes: Routes = [
     {
         path: 'register-detail',
@@ -201,6 +203,14 @@ const routes: Routes = [
     {
         path: 'admin-over-money/:id',
         loadChildren: './admin-over-money/admin-over-money.module#AdminOverMoneyModule'
+    },
+    {
+        path: 'user-get-money/:id',
+        loadChildren: './user-get-money/user-get-money.module#UserGetMoneyModule'
+    },
+    {
+        path: 'admin-send-numerical',
+        loadChildren: './admin-send-numerical/admin-send-numerical.module#AdminSendNumericalModule'
     },
     {
         path: '',

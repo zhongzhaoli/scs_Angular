@@ -1,0 +1,50 @@
+<title>给予积分信用经验 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>给予积分信用经验</span>
+</div>
+<div class="numerical">
+  <div class="user_phone">
+    <label for="">选择学生</label>
+    <input type="text" name="" (keyup)="phone_change($event.currentTarget)" placeholder="学生手机号码" class="form-control">
+  </div>
+  <div class="user_list">
+    <div class="no_sj" *ngIf="!user || user == ''">无数据</div>
+    <div class="sj" *ngFor="let i of user">
+      <div>{{ i?.name }}</div>
+      <div>{{ i?.phone }}</div>
+      <div>
+        <input type="checkbox" class="user_checkbox" (change)="user_arr_fun($event.currentTarget,i?.user_id)">
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="add_credit">
+    <div class="title">积分</div>
+    <div class="add">+</div>
+    <div>
+      <input type="number" data-integral class="form-control" value="0">
+    </div>
+    <div class="num">点</div>
+  </div>
+  <div class="add_credit">
+    <div class="title">信用</div>
+    <div class="add">+</div>
+    <div>
+      <input type="number" data-credit class="form-control" value="0">
+    </div>
+    <div class="num">点</div>
+  </div>
+  <div class="add_credit">
+    <div class="title">经验</div>
+    <div class="add">+</div>
+    <div>
+      <input type="number" data-experience class="form-control" value="0">
+    </div>
+    <div class="num">点</div>
+  </div>
+  <hr>
+  <button class="btn btn-success" style="width:100%;" (click)="upload()">提交</button>
+</div>

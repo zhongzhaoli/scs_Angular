@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { Router } from '@angular/router';
 
-declare var $, scs_loading, scs_alert: any;
+declare var $, scs_loading, scs_alert, getCookie: any;
 @Component({
   selector: 'app-admin-send-numerical',
   templateUrl: './admin-send-numerical.component.html',
@@ -14,8 +14,13 @@ export class AdminSendNumericalComponent implements OnInit {
 
   user: any;
   user_arr: any;
+  choose_user_arr: any;
   ngOnInit() {
+    if(getCookie('role') != 'admin'){
+      this.router.navigate(['/admin-login']);
+    }
     this.user_arr = [];
+    this.choose_user_arr = [];
   }
   back_to_history() {
       window.history.back();
@@ -28,13 +33,18 @@ export class AdminSendNumericalComponent implements OnInit {
       this.router.navigate(['/admin-login']);
     })
   }
-  user_arr_fun(i,user_id){
-    if(i.checked){
-      this.user_arr.push(user_id);
-    }
-    else{
-      this.user_arr.remove(user_id);
-    }
+  user_del_fun(i,user_id,a){
+    this.user_arr.remove(user_id);
+    this.choose_user_arr.remove(a);
+  }
+  user_arr_fun(i,user_id,a){
+      if(this.user_arr.indexOf(user_id) != -1){
+        scs_alert("不能添加同一个学生");
+      }
+      else {
+          this.user_arr.push(user_id);
+          this.choose_user_arr.push(a);
+      }
   }
   upload(){
       let credit = $("[data-credit]").val();

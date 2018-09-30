@@ -14,11 +14,6 @@
         <input type="text" class="form-control" [(ngModel)]="job_title" id="name" placeholder="兼职标题">
         <span class="error_text" data-error="job_title"></span>
       </div>
-      <div class="form-group">
-        <label for="">兼职简介</label>        
-        <input type="text" class="form-control" [(ngModel)]="job_introduce" id="introduce" placeholder="兼职简介">
-        <span class="error_text" data-error="job_introduce"></span>
-      </div>
     </div>
   </div>
   <div class="job_text content_div_last">
@@ -73,13 +68,20 @@
       <span class="error_text" data-error="job_start_time"></span>
     </div>
     <div class="form-group">
+      <label for="">兼职结束时间</label>
+      <input type="time" [(ngModel)]="job_end_time" class="form-control" id="end_time" placeholder="兼职结束时间">
+      <span class="error_text" data-error="job_end_time"></span>
+    </div>
+    <div class="form-group">
       <label for="">兼职结束日期</label>
       <input type="date" [(ngModel)]="job_end_date" class="form-control" id="end_date" placeholder="兼职结束日期">
       <span class="error_text" data-error="job_end_date"></span>
     </div>
     <div class="form-group">
-      <label for="">每天兼职时长(不包括休息时间)</label>
-      <select name="" [(ngModel)]="job_hour" id="" class="form-control">
+      <label for="">兼职中途休息时长</label>
+      <select name="" [(ngModel)]="job_rest" class="form-control">
+        <option value="0">0小时</option>
+        <option value="0.5">0.5小时</option>
         <option value="1">1小时</option>
         <option value="1.5">1.5小时</option>
         <option value="2">2小时</option>
@@ -88,25 +90,6 @@
         <option value="3.5">3.5小时</option>
         <option value="4">4小时</option>
         <option value="4.5">4.5小时</option>
-        <option value="5">5小时</option>
-        <option value="5.5">5.5小时</option>
-        <option value="6">6小时</option>
-        <option value="6.5">6.5小时</option>
-        <option value="7">7小时</option>
-        <option value="7.5">7.5小时</option>
-        <option value="8">8小时</option>
-        <option value="9">9小时</option>
-        <option value="10">10小时</option>
-      </select>
-      <span class="error_text" data-error="job_hour"></span>
-    </div>
-    <div class="form-group">
-      <label for="">兼职中途休息时长</label>
-      <select name="" [(ngModel)]="job_rest" class="form-control">
-        <option value="1">1小时</option>
-        <option value="2">2小时</option>
-        <option value="3">3小时</option>
-        <option value="4">4小时</option>
       </select>
       <span class="error_text" data-error="job_rest"></span>
     </div>
@@ -118,6 +101,11 @@
   
       </select>
       <span class="error_text" data-error="balance_type"></span>
+    </div>
+    <div class="form-group">
+      <label for="">兼职要求</label>
+      <textarea name="" [(ngModel)]="job_action" class="form-control" cols="30" rows="3" placeholder="兼职要求"></textarea>
+      <span class="error_text" data-error="job_action"></span>
     </div>
     <div class="form-group">
       <label for="">兼职时间详细规划（选填）</label>
@@ -140,7 +128,7 @@
       <span class="error_text" data-error="job_remarks"></span>
     </div>
     <div class="form-group">
-      <label for="">兼职<span style="color:red">每小时</span>工资</label>
+      <label for="">兼职工资</label>
       <div class="form-group">
         <div class="input-group">
           <input type="number" class="form-control" [(ngModel)]="job_money" placeholder="人名币">

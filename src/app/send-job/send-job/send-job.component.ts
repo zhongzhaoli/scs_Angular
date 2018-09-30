@@ -13,13 +13,13 @@ declare var jump_login, show_cj_div, $, close_dialog, closeTailor, scs_alert, sc
 export class SendJobComponent implements OnInit {
 
   job_title: any;
-  job_introduce: any;
+  job_action: any;
   job_num: any;
   job_type: any;
   job_start_date: any;
   job_start_time: any;
   job_end_date: any;
-  job_hour: any;
+  job_end_time: any;
   job_rest: any;
   job_money: number;
   job_detail_time: any;
@@ -53,7 +53,6 @@ export class SendJobComponent implements OnInit {
     }
     sj_init(){
         this.job_type = "礼仪/模特";
-        this.job_hour = "1";
         this.job_rest = "1";
         this.balance_type = "日结";
     }
@@ -77,7 +76,7 @@ export class SendJobComponent implements OnInit {
         scs_loading();
         var a = {
             "job_title": this.job_title,
-            "job_introduce": this.job_introduce,
+            "job_action": this.job_action,
             "job_num": this.job_num,
             "job_type": this.job_type,
             "job_place": $(".job_place").val(),
@@ -85,7 +84,7 @@ export class SendJobComponent implements OnInit {
             "job_start_time": this.job_start_time,
             "job_end_date": this.job_end_date,
             "job_rest":this.job_rest,
-            "job_hour": this.job_hour,
+            "job_end_time": this.job_end_time,
             "job_money": this.job_money,
             "job_detail_time": this.job_detail_time,
             "job_detail_content": this.job_detail_content,

@@ -8,7 +8,7 @@
 <div class="">
   <div class="job_header job_detail">
     <h3>{{ sj?.job_title }}</h3>
-    <h3 class="job_money">{{ sj?.admin_change_money * sj?.job_hour }}<span style="font-size:0.25rem;font-weight: normal;position: relative;bottom:1px;"> 元/天</span></h3>
+    <h3 class="job_money">{{ sj?.admin_change_money }}<span style="font-size:0.25rem;font-weight: normal;position: relative;bottom:1px;"> 元/天</span></h3>
     <div class="job_text_content">
       <span>{{ sj?.balance_type }}</span>
       <span>{{ sj?.job_num }}人</span>
@@ -20,18 +20,24 @@
     <div>
       <p>职位描述</p>
       <div class="job_detail_text">
-        <div>{{ sj?.job_introduce }}</div>
         <div>{{ (sj?.job_detail_content == "无") ? "" : sj?.job_detail_content }}</div>
         <div>{{ (sj?.job_detail_time == "无") ? "" : sj?.job_detail_time }}</div>
         <div>{{ (sj?.job_remarks == "无") ? "" : sj?.job_remarks }}</div>
-        <div>工作时间：{{ sj?.job_hour }}小时(不计休息),中途休息：{{ sj?.job_rest }}小时</div>
+        <div>工作时间：<span style="color:red;">{{ sj?.job_start_time }}</span> 至 <span style="color:red;">{{ sj?.job_end_time }}</span> 中途休息：<span style="color:red;">{{ sj?.job_rest }}小时</span></div>
+      </div>
+    </div>
+    <hr>
+    <div>
+      <p>兼职要求</p>
+      <div>
+        <div class="job_detail_text">{{ sj?.job_action }}</div>
       </div>
     </div>
     <hr>
     <div>
       <p>薪资福利</p>
       <div class="money_hhh">
-        {{ sj?.balance_type }}，{{ sj?.admin_change_money }}元/小时{{ (sj?.job_detail_subsidy == "无") ? "" : "，"  + sj?.job_detail_subsidy  }}
+        {{ sj?.balance_type }}：{{ sj?.admin_change_money }}元<br>{{ (sj?.job_detail_subsidy == "无") ? "" : sj?.job_detail_subsidy  }}
       </div>
     </div>
   </div>

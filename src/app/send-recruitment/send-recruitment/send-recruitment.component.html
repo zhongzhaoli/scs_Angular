@@ -1,0 +1,40 @@
+<title>发布 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>发布</span>
+</div>
+<div class="recruit_div main_div_height">
+  <div class="form-group">
+    <label for="">类型</label>
+    <select name="" [(ngModel)]="type" class="form-control">
+      <option value="1">我丢了东西</option>
+      <option value="2">我捡到了东西</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="">物品描述</label>
+    <textarea [(ngModel)]="text" name="" class="form-control" placeholder="颜色？大小？时间？" id="" cols="30" rows="7"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="">图片</label>
+    <div class="img_box">
+      <div class="img_div" *ngFor="let i of img_list">
+        <div class="del_div" (click)="del_img(i)">
+          <i class="material-icons">
+            add
+          </i>
+        </div>
+        <img src="{{ i }}" alt="">
+      </div>
+      <div class="recruit_add_img" (click)="add_img()" *ngIf="img_list.length < 4">
+        <i class="material-icons">
+          add
+        </i>
+      </div>
+    </div>
+  </div>
+  <button class="btn scs-btn wid_100" (click)="send_rec()">发布</button>
+  <input type="file" style="display: none;" (change)="file_change($event.currentTarget)">
+</div>

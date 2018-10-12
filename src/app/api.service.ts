@@ -327,5 +327,9 @@ export class ApiService {
         var url = environment.url.comment + "/admin/send-user-numerical";
         return this.http.post(url,{"student":arr, "credit":credit, "integral":integral, "experience":experience});
     }
+    send_recruit(text,type,img_list){
+        var url = environment.url.comment + "/recruitment/send";
+        return this.http.post(url,{"text":text, "type":type, 'img_list':img_list});
+    }
 }
 

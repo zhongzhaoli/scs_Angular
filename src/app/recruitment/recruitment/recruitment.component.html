@@ -10,3 +10,22 @@
   </div>
   <span>失物招领</span>
 </div>
+<div class="sj_div">
+  <div class="sj" *ngFor="let i of sj">
+    <div class="demand_header">
+      <img class="user_img" src="{{ i?.user?.user_img }}" alt="">
+      <span>{{ i?.user?.nickname }}</span>
+    </div>
+    <div class="text">
+      <span class="type_div type_1" *ngIf="i?.type == 1">丢失</span>
+      <span class="type_div type_2" *ngIf="i?.type == 2">捡到</span>
+      <span>{{ i?.text }}</span>
+    </div>
+    <div class="img_box">
+      <img src="{{ img }}" *ngFor="let img of i.img_list" alt="">
+    </div>
+    <div class="create_time">
+      {{ i?.create_time }}
+    </div>
+  </div>
+</div>

@@ -3,14 +3,14 @@ $(document).ready(function(){
       为了以后好算,比如，你测量的一个宽度是100px,就可以写为1rem,以及1px=0.01rem等等*/
     getRem(720,100);
     bind_foces();
-    //数组附加remove函数
-    Array.prototype.remove = function(val) {
-        var index = this.indexOf(val);
-        if (index > -1) {
-            this.splice(index, 1);
-        }
-    };
 });
+//数组附加remove函数
+Array.prototype.remove = function(val) {
+    var index = this.indexOf(val);
+    if (index > -1) {
+        this.splice(index, 1);
+    }
+};
 $(window).resize(function(){
     getRem(720,100)
     login_position();

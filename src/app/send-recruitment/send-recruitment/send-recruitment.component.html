@@ -6,19 +6,23 @@
   <span>发布</span>
 </div>
 <div class="recruit_div main_div_height">
-  <div class="form-group">
-    <label for="">类型</label>
-    <select name="" [(ngModel)]="type" class="form-control">
-      <option value="1">我丢了东西</option>
-      <option value="2">我捡到了东西</option>
-    </select>
+  <div class="type_div">
+    <div class="good active" (click)="qh_active('good',$event.currentTarget)">
+      <span>丢了东西</span>
+    </div>
+    <div class="bad" (click)="qh_active('bad',$event.currentTarget)">
+      <span>捡到东西</span>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="">物品描述</label>
-    <textarea [(ngModel)]="text" name="" class="form-control" placeholder="颜色？大小？时间？" id="" cols="30" rows="7"></textarea>
+  <div class="wp_text">
+    <div>描述：</div>
+    <textarea name="" [(ngModel)]="text" class="form-control" placeholder="请填写物品的描述以及丢失位置" id="" rows="3"></textarea>
   </div>
-  <div class="form-group">
-    <label for="">图片</label>
+  <div class="form-group img_box_div">
+    <div class="img_span_le">
+      <span class="img_span">上传图片方便您快速找回</span>
+      <span>{{ img_list.length }} / 3</span>
+    </div>
     <div class="img_box">
       <div class="img_div" *ngFor="let i of img_list">
         <div class="del_div" (click)="del_img(i)">
@@ -28,7 +32,7 @@
         </div>
         <img src="{{ i }}" alt="">
       </div>
-      <div class="recruit_add_img" (click)="add_img()" *ngIf="img_list.length < 4">
+      <div class="recruit_add_img" (click)="add_img()" *ngIf="img_list.length < 3">
         <i class="material-icons">
           add
         </i>

@@ -331,5 +331,9 @@ export class ApiService {
         var url = environment.url.comment + "/recruitment/send";
         return this.http.post(url,{"text":text, "type":type, 'img_list':img_list});
     }
+    get_recruit(){
+        var url = environment.url.comment + "/recruitment";
+        return this.http.get(url);
+    }
 }
 

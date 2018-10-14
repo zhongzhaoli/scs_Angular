@@ -10,18 +10,22 @@ declare var $, main_div_height, scs_alert, scs_loading, close_dialog: any;
 export class SendRecruitmentComponent implements OnInit {
 
   constructor(private apise: ApiService,private router: Router) { }
-  img_list = [];
+  img_list: any;
   type: any;
   text: any;
 
   ngOnInit() {
       main_div_height();
       this.type = 1;
+      this.img_list = [];
   }
   back_to_history() {
       window.history.back();
   }
   add_img(){
+    if(this.img_list.length >= 3){
+      return;
+    }
     $("input[type='file']").click();
   }
   file_change(a){
@@ -81,7 +85,30 @@ export class SendRecruitmentComponent implements OnInit {
           this.router.navigate(['/recruitment']);
       },error => {
           close_dialog();
-          scs_alert(error.error.message);
+          for(var i in error.error){
+              var error = error.error
+              scs_alert(error[i]);
+          }
       })
+  }
+  qh_active(type,i){
+      this.type = type;
+      this.type_qh(type,i)
+  }
+  type_qh(type,i){
+      if(type === "good"){
+          $(i).parent().find(".good").addClass("active");
+          $(i).parent().find(".bad").removeClass("active");
+          this.type = 1;
+          $("textarea").attr("placeholder","请填写物品的描述以及丢失位置");
+          $(".img_span").html("上传图片方便您快速找回");
+      }
+      else{
+          $(i).parent().find(".bad").addClass("active");
+          $(i).parent().find(".good").removeClass("active");
+          this.type = 2;
+          $("textarea").attr("placeholder","请填写物品的描述以及拾取位置");
+          $(".img_span").html("上传图片方便快速找到失主");
+      }
   }
 }

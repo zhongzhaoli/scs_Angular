@@ -335,5 +335,9 @@ export class ApiService {
         var url = environment.url.comment + "/recruitment";
         return this.http.get(url);
     }
+    job_delete(id){
+        var url = environment.url.comment + "/enterprise/delete/" + id;
+        return this.http.get(url);
+    }
 }
 

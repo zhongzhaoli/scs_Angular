@@ -14,6 +14,9 @@
 .job_message_div{
     padding:0.2rem;
 }
+.col_red{
+    color:red !important;
+}
 .job_title{
     font-size:0.35rem;
     margin-bottom:0.1rem;

@@ -18,7 +18,7 @@ export class JobLeaderComponent implements OnInit {
     this.job_id = location.hash.split("/job-leader/")[1];
     this.apise.my_job_leader(this.job_id).subscribe(t => {
       close_dialog();
-      this.sj = t;
+      this.sj = t[0];
     },error => {
       close_dialog();
       scs_alert(error.error.message);

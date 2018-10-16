@@ -56,6 +56,17 @@ export class EnterpriseJobComponent implements OnInit {
       })
     })
   }
+  del_job(a){
+    this.apise.job_delete(a.id).subscribe(t => {
+      let that = this;
+      this.scs_alert_do("删除成功",function(){
+        that.sj.remove(a);
+        close_dialog();
+      });
+    },error => {
+      scs_alert(error.error.message);
+    })
+  }
   scs_confirm(title,val,fun_a){
     $.DialogByZ.Confirm({Title: title, Content: val,FunL:fun_a,FunR:close_dialog()})
   }

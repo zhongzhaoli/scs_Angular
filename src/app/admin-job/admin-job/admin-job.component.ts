@@ -38,10 +38,10 @@ export class AdminJobComponent implements OnInit {
   examine(type,jobid,event,ii){
     var that = this;
     if(type == "ok"){
-      this.scs_alert_do("修改每小时薪酬","<input type='number' data-money class='form-control'>",function(){
+      this.scs_alert_do("修改每天薪酬","<input type='number' data-money class='form-control'>",function(){
         if(!isNaN($("[data-money]").val() / 2) && $("[data-money]").val() !=""){
             that.change_money = $("[data-money]").val();
-            that.scs_confirm_do("金额","确认以每小时<span style='color:red'>"+that.change_money+"</span>元发布此兼职吗？",function(){
+            that.scs_confirm_do("金额","确认以一天<span style='color:red'>"+that.change_money+"</span>元发布此兼职吗？",function(){
                 that.apise.admin_get_leader().subscribe(t => {
                     var a = "";
                     for(var i in t){

@@ -18,17 +18,38 @@
         <option value="other">其他</option>
       </select>
   </div>
-  <div *ngIf="job">
-    <div class="job_mes" *ngFor="let sj of job" routerLink="/job-detail/{{ sj.id }}">
+  <div *ngIf="job_adopt && job_over">
+    <div class="job_mes" *ngFor="let sj of job_adopt" routerLink="/job-detail/{{ sj.id }}">
       <div class="job_text_mes">
         <div class="job_text_div col-xs-12">
           <h4>
-            <span class="job_title">{{ sj.job_title }}</span>
-            <span class="job_money">￥{{ sj.admin_change_money }} / 天</span>
+            <span class="job_title">{{ sj?.job_title }}</span>
+            <span class="job_money" *ngIf="sj?.status == 'adopt'">￥{{ sj?.admin_change_money }} / 天</span>
+            <span class="is_over" *ngIf="sj?.status != 'adopt'">已结束</span>
           </h4>
-          <div class="job_introduce">{{ sj.job_place }}</div>
+          <div class="job_introduce">{{ sj?.job_place }}</div>
           <div class="job_number">
-            <span>报名人数：{{ sj.job_has_num }} / {{ sj.job_num }}</span>
+            <span>报名人数：{{ sj?.job_has_num }} / {{ sj?.job_num }}</span>
+            <div class="job_bz">
+              <span>企业认证</span>
+              <span>{{ sj?.balance_type }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 已结束的 -->
+    <div class="job_mes over_color" *ngFor="let sj of job_over">
+      <div class="job_text_mes">
+        <div class="job_text_div col-xs-12">
+          <h4>
+            <span class="job_title">{{ sj?.job_title }}</span>
+            <span class="job_money" *ngIf="sj?.status == 'adopt'">￥{{ sj?.admin_change_money }} / 天</span>
+            <span class="is_over" *ngIf="sj?.status != 'adopt'">已结束</span>
+          </h4>
+          <div class="job_introduce">{{ sj?.job_place }}</div>
+          <div class="job_number">
+            <span>报名人数：{{ sj?.job_num }} / {{ sj?.job_num }}</span>
             <div class="job_bz">
               <span>企业认证</span>
               <span>{{ sj?.balance_type }}</span>

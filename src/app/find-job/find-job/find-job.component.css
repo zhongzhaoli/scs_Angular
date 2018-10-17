@@ -44,6 +44,9 @@
     /* autoprefixer: on */
     overflow: hidden;
 }
+.over_color{
+    background:#f8f8f8;
+}
 .job_number{
     color:#9c9c9c;
     font-size:0.25rem;
@@ -67,11 +70,16 @@
     -webkit-box-orient: vertical;
     /* autoprefixer: on */
     overflow: hidden;
+    max-width:4.5rem;
 }
 .job_text_div > h4{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.is_over{
+    color:#777;
+    font-size:0.32rem;
 }
 .job_has_num{
     padding:0.2rem;

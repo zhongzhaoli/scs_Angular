@@ -12,6 +12,7 @@ export class RecruitmentComponent implements OnInit {
   constructor(private apise: ApiService) { }
 
   sj: any;
+  sj_length: any;
   ngOnInit() {
     this.get_sj();
   }
@@ -20,6 +21,9 @@ export class RecruitmentComponent implements OnInit {
     this.apise.get_recruit().subscribe(t => {
       close_dialog();
       this.sj = t;
+      if(this.sj.length == ""){
+        this.sj_length = 0;
+      }
       for(var i in this.sj) {
           if(i === "remove"){
             return;

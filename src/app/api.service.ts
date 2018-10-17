@@ -7,6 +7,7 @@ import { Role } from './entity/role';
 import { Leader } from './entity/Leader';
 import { Message } from './entity/Message';
 import { Demand } from './entity/Demand';
+import { Job } from './entity/Job';
 declare var getCookie:any;
 @Injectable({
   providedIn: 'root'
@@ -83,7 +84,7 @@ export class ApiService {
     }
     find_job(){
         var url = environment.url.comment + "/job";
-        return this.http.get(url);
+        return this.http.get<Job>(url);
     }
     find_type_job(type){
         var url = environment.url.comment + "/job/type";

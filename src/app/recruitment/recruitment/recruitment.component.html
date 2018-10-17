@@ -10,6 +10,9 @@
   </div>
   <span>失物招领</span>
 </div>
+<div class="user_list" *ngIf="sj && !sj_length">
+  <span>暂无数据</span>
+</div>
 <div class="sj_div">
   <div class="sj" *ngFor="let i of sj">
     <div class="demand_header">

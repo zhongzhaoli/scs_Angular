@@ -11,7 +11,8 @@ declare var jump_login, scs_alert, close_dialog, $, scs_loading: any;
 })
 export class FindJobComponent implements OnInit {
 
-  job: any;
+  job_adopt: any;
+  job_over: any;
   job_length: any;
 
   constructor(private apise: ApiService, private router: Router) { }
@@ -30,11 +31,15 @@ export class FindJobComponent implements OnInit {
   all_sj(){
       var that = this;
       scs_loading();
-      this.job = "";
+      this.job_adopt = [];
+      this.job_over = [];
       this.job_length = "";
       this.apise.find_job().subscribe(t => {
-          this.job = t;
-          this.job_length = (this.job.length) ? this.job.length : "none";
+          this.job_adopt = t.adopt;
+          this.job_over = t.over;
+          console.log(this.job_adopt);
+          let job_le = this.job_adopt.length + this.job_over.length;
+          this.job_length = (job_le >= 0) ? this.job_length = job_le : "none";
           close_dialog();
       },error => {
           scs_alert(error.error.message);

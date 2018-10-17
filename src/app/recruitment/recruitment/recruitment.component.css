@@ -57,3 +57,10 @@
     background:#f095f6;
     color:white;
 }
+.user_list{
+    margin-top: 0.25rem;
+    padding: 0.2rem;
+    text-align: center;
+    color: #777;
+    font-size: 0.25rem;
+}

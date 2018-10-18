@@ -340,5 +340,33 @@ export class ApiService {
         var url = environment.url.comment + "/enterprise/delete/" + id;
         return this.http.get(url);
     }
+    get_my_recruit(){
+        var url = environment.url.comment + "/my-recruitment";
+        return this.http.get(url);
+    }
+    del_my_recruit(id){
+        var url = environment.url.comment + "/recruitment/delete/" + id;
+        return this.http.get(url);
+    }
+    admin_my_recruit(){
+        var url = environment.url.comment + "/admin/recruitment";
+        return this.http.get(url);
+    }
+    admin_del_recruit(id){
+        var url = environment.url.comment + "/admin/recruitment/delete/" + id;
+        return this.http.get(url);
+    }
+    admin_to_scs(id){
+        var url = environment.url.comment + "/admin/recruitment/to_scs/" + id;
+        return this.http.post(url,{});
+    }
+    admin_over_recruit(id){
+        var url = environment.url.comment + "/admin/recruitment/over/" + id;
+        return this.http.post(url,{});
+    }
+    over_recruit(id){
+        var url = environment.url.comment + "/recruitment/over/" + id;
+        return this.http.post(url,{});
+    }
 }
 

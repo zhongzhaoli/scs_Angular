@@ -45,7 +45,7 @@ export class RecruitmentComponent implements OnInit {
     var items = [];
     $(i).parent().find("div").map((val,item) => {
       var nImg = new Image();
-      let obj = {};      
+      let obj = {w:null,h:null,src:null};      
       nImg.src = $(item).find("img").attr("src");
       obj.w = nImg.width;
       obj.h = nImg.height;
@@ -57,7 +57,10 @@ export class RecruitmentComponent implements OnInit {
     var options = {
         index: 0, // start at first slide,
     };
-    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+    var gallery = new PhotoSwipe( pswpElement, "", items, options);
     gallery.init();
+  }
+  call_me_alert(a){
+    scs_alert('手机号：' + a);
   }
 }

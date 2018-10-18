@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
-declare var $, scs_alert, close_dialog, scs_loading: any;
+declare var $, scs_alert, close_dialog, scs_loading, PhotoSwipe: any;
 
 @Component({
   selector: 'app-recruitment',
@@ -24,6 +24,9 @@ export class RecruitmentComponent implements OnInit {
       if(this.sj.length == ""){
         this.sj_length = 0;
       }
+      else{
+        this.sj_length = this.sj.length;
+      }
       for(var i in this.sj) {
           if(i === "remove"){
             return;
@@ -37,5 +40,24 @@ export class RecruitmentComponent implements OnInit {
   }
   back_to_history() {
       window.history.back();
+  }
+  asd(i){
+    var items = [];
+    $(i).parent().find("div").map((val,item) => {
+      var nImg = new Image();
+      let obj = {};      
+      nImg.src = $(item).find("img").attr("src");
+      obj.w = nImg.width;
+      obj.h = nImg.height;
+      obj.src = $(item).find("img").attr("src");
+      items.push(obj);
+    });
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+
+    var options = {
+        index: 0, // start at first slide,
+    };
+    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+    gallery.init();
   }
 }

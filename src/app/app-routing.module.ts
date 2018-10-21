@@ -220,6 +220,7 @@ const routes: Routes = [
         path: 'recruitment',
         loadChildren: './recruitment/recruitment.module#RecruitmentModule'
     },
+
     {
         path: 'send-recruitment',
         loadChildren: './send-recruitment/send-recruitment.module#SendRecruitmentModule'

@@ -51,7 +51,11 @@
 .pswp__button,
 .pswp__button--arrow--left:before,
 .pswp__button--arrow--right:before {
+<<<<<<< HEAD
   background: url(default-skin.png) 0 0 no-repeat;
+=======
+  background: url('../../../assets/css/default-skin/default-skin.png') 0 0 no-repeat;
+>>>>>>> a4d60023a00550415d7fdcd48e9839fdfd1aa846
   background-size: 264px 88px;
   width: 44px;
   height: 44px; }
@@ -61,7 +65,11 @@
   .pswp--svg .pswp__button,
   .pswp--svg .pswp__button--arrow--left:before,
   .pswp--svg .pswp__button--arrow--right:before {
+<<<<<<< HEAD
     background-image: url(default-skin.svg); }
+=======
+    background-image: url('../../../assets/css/default-skin/default-skin.svg'); }
+>>>>>>> a4d60023a00550415d7fdcd48e9839fdfd1aa846
   .pswp--svg .pswp__button--arrow--left,
   .pswp--svg .pswp__button--arrow--right {
     background: none; } }
@@ -467,7 +475,12 @@ a.pswp__share--download:hover {
 .pswp__ui--hidden .pswp__button--arrow--left,
 .pswp__ui--hidden .pswp__button--arrow--right {
   /* Force paint & create composition layer for controls. */
+<<<<<<< HEAD
   opacity: 0.001; }
+=======
+  opacity: 0.001; 
+}
+>>>>>>> a4d60023a00550415d7fdcd48e9839fdfd1aa846
 
 /* pswp__ui--one-slide class is added when there is just one item in gallery */
 .pswp__ui--one-slide .pswp__button--arrow--left,

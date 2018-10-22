@@ -108,3 +108,9 @@
     color:silver;
     margin:0.2rem 0;
 }
+.ps{
+    color:red;
+    font-size:0.2rem;
+    padding-top:0.1rem;
+    display: block;
+}

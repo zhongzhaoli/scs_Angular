@@ -3,11 +3,6 @@
   <div class="go_back_btn" (click)="back_to_history()">
     <i class="fa fa-angle-left posi_left"></i>
   </div>
-  <div class="add_demand posi_left" routerLink="/send-recruitment">
-    <i class="material-icons">
-      add
-    </i>
-  </div>
   <span>失物招领</span>
 </div>
 <div class="user_list" *ngIf="sj && !sj_length">
@@ -22,7 +17,6 @@
     <div class="text">
       <span class="type_div type_1" *ngIf="i?.type == 1">丢失</span>
       <span class="type_div type_2" *ngIf="i?.type == 2">捡到</span>
-      <span class="type_div type_3" *ngIf="i?.to_scs == 1">已转交至天工楼301</span>
       <span>{{ i?.text }}</span>
     </div>
     <div class="img_box">
@@ -32,7 +26,13 @@
     </div>
     <div class="create_time">
       <span>{{ i?.create_time }}</span>
-      <span class="call_me" (click)="call_me_alert(i?.user?.name)">联系我</span>
+      <div>
+        <span class="del" *ngIf="i?.over != 1" (click)="del(i?.id,i)">删除</span>
+        <span *ngIf="i?.to_scs == 0 && i?.type == 2" class="to_scs" (click)="to_scs(i?.id)">转交</span>
+        <span class="is_to" *ngIf="i?.to_scs == 1 && i?.over != 1">已转交</span>
+        <span class="over"  *ngIf="i?.over == 0" (click)="over(i?.id,i)">完成</span>
+        <span class="is_to" *ngIf="i?.over == 1">已完成</span>
+      </div>
     </div>
   </div>
 </div>

@@ -43,21 +43,35 @@ export class RecruitmentComponent implements OnInit {
   }
   asd(i){
     var items = [];
+    scs_loading();
     $(i).parent().find("div").map((val,item) => {
+      let obj = {w:null,h:null,src:null};      
       var nImg = new Image();
-      let obj = {};      
-      nImg.src = $(item).find("img").attr("src");
-      obj.w = nImg.width;
-      obj.h = nImg.height;
-      obj.src = $(item).find("img").attr("src");
-      items.push(obj);
-    });
-    var pswpElement = document.querySelectorAll('.pswp')[0];
+      nImg.onload = function(){
+        close_dialog();
+        nImg.src = $(item).find("img").attr("src");
+        obj.w = nImg.width;
+        obj.h = nImg.height;
+        obj.src = $(item).find("img").attr("src");
+        items.push(obj);
+        var pswpElement = document.querySelectorAll('.pswp')[0];
 
-    var options = {
-        index: 0, // start at first slide,
-    };
-    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-    gallery.init();
+        var options = {
+            index: 0,
+            fullscreenEl: false,
+            tapToClose: true,
+            closeOnScroll: false,
+            pinchToClose: true,
+        };
+        var gallery = new PhotoSwipe( pswpElement, "", items, options);
+        gallery.init();
+        
+      }
+      nImg.src = $(item).find("img").attr("src");
+    });
+
+  }
+  call_me_alert(a){
+    scs_alert('手机号：' + a);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 declare var $, main_div_height, scs_alert, scs_loading, close_dialog: any;
 @Component({
   selector: 'app-send-recruitment',
@@ -13,11 +14,13 @@ export class SendRecruitmentComponent implements OnInit {
   img_list: any;
   type: any;
   text: any;
+  url: any;
 
   ngOnInit() {
       main_div_height();
       this.type = 1;
       this.img_list = [];
+      this.url = environment.url.jump_login;
   }
   back_to_history() {
       window.history.back();
@@ -84,6 +87,9 @@ export class SendRecruitmentComponent implements OnInit {
           close_dialog();
           this.router.navigate(['/recruitment']);
       },error => {
+          if(error.error.message == "Unauthenticated."){
+            window.location.href = this.url;
+          }
           close_dialog();
           for(var i in error.error){
               var error = error.error

@@ -65,4 +65,7 @@ export class MyRecruitmentComponent implements OnInit {
       scs_alert(error.error.message);
     })
   }
+  asd(a){
+    $(a).parent().parent().viewer({"toolbar": false, "title": false, "navbar": false});
+  }
 }

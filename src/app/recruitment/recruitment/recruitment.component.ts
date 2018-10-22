@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
-declare var $, scs_alert, close_dialog, scs_loading, PhotoSwipe: any;
+declare var $, scs_alert, close_dialog, scs_loading: any;
 
 @Component({
   selector: 'app-recruitment',
@@ -41,37 +41,10 @@ export class RecruitmentComponent implements OnInit {
   back_to_history() {
       window.history.back();
   }
-  asd(i){
-    var items = [];
-    scs_loading();
-    $(i).parent().find("div").map((val,item) => {
-      let obj = {w:null,h:null,src:null};      
-      var nImg = new Image();
-      nImg.onload = function(){
-        close_dialog();
-        nImg.src = $(item).find("img").attr("src");
-        obj.w = nImg.width;
-        obj.h = nImg.height;
-        obj.src = $(item).find("img").attr("src");
-        items.push(obj);
-        var pswpElement = document.querySelectorAll('.pswp')[0];
-
-        var options = {
-            index: 0,
-            fullscreenEl: false,
-            tapToClose: true,
-            closeOnScroll: false,
-            pinchToClose: true,
-        };
-        var gallery = new PhotoSwipe( pswpElement, "", items, options);
-        gallery.init();
-        
-      }
-      nImg.src = $(item).find("img").attr("src");
-    });
-
-  }
   call_me_alert(a){
     scs_alert('手机号：' + a);
+  }
+  asd(a){
+    $(a).parent().parent().viewer({"toolbar": false, "title": false, "navbar": false, "movable": false, "transition": false});
   }
 }

@@ -83,4 +83,7 @@ export class AdminRecruitmentComponent implements OnInit {
   scs_confirm_do(title ,val, fun_a){
       $.DialogByZ.Confirm({Title: title, Content: val,FunL:fun_a,FunR:close_dialog()})
   }
+  asd(a){
+    $(a).parent().parent().viewer({"toolbar": false, "title": false, "navbar": false});
+  }
 }

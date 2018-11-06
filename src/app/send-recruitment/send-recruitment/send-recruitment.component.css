@@ -94,6 +94,12 @@
 .wp_text > div{
     flex:1;
 }
+.address{
+    border-top:none;
+}
+.address > div{
+    flex:2;
+}
 .wp_text textarea{
     border:none;
     padding:0;

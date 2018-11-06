@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service'
+import { environment } from '../../../environments/environment';
+import { Router } from '@angular/router';
 declare var $, main_div_height, scs_alert, scs_confirm, scs_loading, close_dialog: any;
 
 @Component({
@@ -9,12 +11,14 @@ declare var $, main_div_height, scs_alert, scs_confirm, scs_loading, close_dialo
 })
 export class AdminCustomerDetailComponent implements OnInit {
 
-  constructor(private apise: ApiService) { }
+  constructor(private apise: ApiService, private router: Router) { }
 
   sj: any;
   user_id: any;
+  jump_url: any;
   ngOnInit() {
     this.get_sj();
+    this.jump_url = environment.url.jump_login;
     main_div_height();
   }
   back_to_history() {
@@ -32,9 +36,10 @@ export class AdminCustomerDetailComponent implements OnInit {
         }, 0);
     },error => {
         if(error.status == 401) {
-            this.scs_alert_do("您还没登陆",function(){
-                window.location.href = this.jump_url;
-            })
+            window.location.href = this.jump_url;
+        }
+        else if(error.status == 412){
+            this.router.navigate(["/admin-login"])
         }
         else{
             scs_alert(error.error.message);
@@ -53,9 +58,10 @@ export class AdminCustomerDetailComponent implements OnInit {
         close_dialog();
     },error => {
         if(error.status == 401) {
-            this.scs_alert_do("您还没登陆",function(){
-                window.location.href = this.jump_url;
-            })
+            window.location.href = this.jump_url;
+        }
+        else if(error.status == 412){
+            this.router.navigate(["/admin-login"])
         }
         else{
             scs_alert(error.error.message);

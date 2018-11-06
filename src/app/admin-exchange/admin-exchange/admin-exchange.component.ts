@@ -35,11 +35,14 @@ export class AdminExchangeComponent implements OnInit {
         this.sj = t[0];
     },error => {
       close_dialog();
-      if(error.status == 401){
-         window.location.href = this.jump_url;
+      if(error.status == 401) {
+        window.location.href = this.jump_url;
+      }
+      else if(error.status == 412){
+          this.router.navigate(["/admin-login"])
       }
       else{
-         this.error_text = error.error.message;
+          scs_alert(error.error.message);
       }
     })
   }
@@ -50,8 +53,11 @@ export class AdminExchangeComponent implements OnInit {
         this.yz_code(vo_id,user_id);
     },error => {
         close_dialog();
-        if(error.status == 401){
+        if(error.status == 401) {
             window.location.href = this.jump_url;
+        }
+        else if(error.status == 412){
+            this.router.navigate(["/admin-login"])
         }
         else{
             scs_alert(error.error.message);
@@ -76,7 +82,15 @@ export class AdminExchangeComponent implements OnInit {
             });
         },error => {
             close_dialog();
-            scs_alert(error.error.message + "，两分钟内验证码不会改变");
+            if(error.status == 401) {
+                window.location.href = this.jump_url;
+            }
+            else if(error.status == 412){
+                this.router.navigate(["/admin-login"])
+            }
+            else{
+                scs_alert(error.error.message + "，两分钟内验证码不会改变");
+            }
         })
     })
   }

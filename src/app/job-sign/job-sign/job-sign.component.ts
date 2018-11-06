@@ -31,26 +31,27 @@ export class JobSignComponent implements OnInit {
         scs_alert(error.error.message);
     });
   }
-  student_job_sign(user_id,type,event) {
+  student_job_sign(i,user_id,type,event) {
       var that = this;
       scs_loading();
       var refuse_ly = "";
       if(type === "refuse"){
           this.scs_confirm_do("请输入拒绝理由","<input type='text' class='form-control refuse_ly'/>",function(){
               refuse_ly = $(".refuse_ly").val();
-              that.top_api_fun(user_id, type, refuse_ly);
+              that.top_api_fun(i,user_id, type, refuse_ly);
           });
       }
       else{
-          that.top_api_fun(user_id, type, refuse_ly);
+          that.top_api_fun(i,user_id, type, refuse_ly);
       }
 
   }
-  top_api_fun(user_id, type,refuse_ly){
+  top_api_fun(i,user_id, type,refuse_ly){
       this.apise.admin_adopt_student_sign_job(user_id, type, this.job_id,refuse_ly).subscribe(t => {
           close_dialog();
           (type === "adopt") ? scs_alert("已同意") : scs_alert("已拒绝");
-          $(event).parent().parent().remove();
+          this.sj.remove(i);
+          this.sj_num = this.sj_num - 1;
       },error => {
           close_dialog();
           scs_alert("未知错误");

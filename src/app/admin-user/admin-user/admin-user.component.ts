@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from '../../api.service';
 import {Router} from '@angular/router';
+import {environment} from '../../../environments/environment';
 
 declare var $,main_div_height,scs_alert,scs_confirm, close_dialog, scs_loading: any;
 
@@ -17,11 +18,13 @@ export class AdminUserComponent implements OnInit {
     show_btn_div: boolean;
     now_list_name: string;
     search_type: string;
+    jump_url: any;
 
     constructor(private apise: ApiService, private router: Router) {
     }
 
     ngOnInit() {
+        this.jump_url = environment.url.jump_login;
         main_div_height();
         this.all_sj();
         this.search_type = "all";
@@ -40,7 +43,15 @@ export class AdminUserComponent implements OnInit {
             $(".admin_main_div")[0].style.background = "#fff";
         }, error => {
             close_dialog();
-            this.router.navigate(['/admin-login']);
+            if(error.status == 401) {
+                window.location.href = this.jump_url;
+            }
+            else if(error.status == 412){
+                this.router.navigate(["/admin-login"])
+            }
+            else{
+                scs_alert(error.error.message);
+            }
         })
     }
 
@@ -64,7 +75,15 @@ export class AdminUserComponent implements OnInit {
                 this.show_num = this.show_num - 1;
             }, error => {
                 close_dialog();
-                scs_alert("审核出现问题，联系钟兆立");
+                if(error.status == 401) {
+                    window.location.href = this.jump_url;
+                }
+                else if(error.status == 412){
+                    this.router.navigate(["/admin-login"])
+                }
+                else{
+                    scs_alert(error.error.message);
+                }
             });
         }
         else {
@@ -76,7 +95,15 @@ export class AdminUserComponent implements OnInit {
                 this.show_num = this.show_num - 1;
             }, error => {
                 close_dialog();
-                scs_alert("审核出现问题，联系钟兆立");
+                if(error.status == 401) {
+                    window.location.href = this.jump_url;
+                }
+                else if(error.status == 412){
+                    this.router.navigate(["/admin-login"])
+                }
+                else{
+                    scs_alert(error.error.message);
+                }
             });
         }
     }
@@ -105,7 +132,15 @@ export class AdminUserComponent implements OnInit {
                 this.show_num = this.show.length;
                 close_dialog();
             }, error => {
-                this.router.navigate(['/admin-login']);
+                if(error.status == 401) {
+                    window.location.href = this.jump_url;
+                }
+                else if(error.status == 412){
+                    this.router.navigate(["/admin-login"])
+                }
+                else{
+                    scs_alert(error.error.message);
+                }
             })
         }
     }
@@ -119,7 +154,15 @@ export class AdminUserComponent implements OnInit {
             this.show_num = this.show.length;
             close_dialog();
         },error => {
-            scs_alert("搜索出现问题，联系钟兆立");
+            if(error.status == 401) {
+                window.location.href = this.jump_url;
+            }
+            else if(error.status == 412){
+                this.router.navigate(["/admin-login"])
+            }
+            else{
+                scs_alert(error.error.message);
+            }
             close_dialog();
         })
     }

@@ -41,7 +41,9 @@ export class ProfileComponent implements OnInit {
             jump_login(_this.url);
         })
     }
-
+    is_close(){
+        scs_alert("暂时关闭");
+    }
     get_profile() {
         if(getCookie("role") === "student" || getCookie("role") === "admin") {
             this.apise.find_examine_user().subscribe(t => {
@@ -51,10 +53,15 @@ export class ProfileComponent implements OnInit {
                 $(".myself_all").show();
                 this.is_write_user();
             }, error => {
-                jump_login(this.url);
+                if(error.status == 401){
+                   jump_login(this.url);
+                }
+                else{
+                    scs_alert(error.error.message);
+                }
             })
         }
-        else{
+        else if(getCookie("role") === "enterprise"){
             this.apise.find_enterprise_detail().subscribe(t => {
                 this.o_user = t.o_user;
                 this.user = t.user;
@@ -62,23 +69,36 @@ export class ProfileComponent implements OnInit {
                 $(".myself_all").show();
                 this.is_write_user();
             }, error => {
-                jump_login(this.url);
+                if(error.status == 401){
+                    jump_login(this.url);
+                 }
+                 else{
+                     scs_alert(error.error.message);
+                 }
             })
+        }
+        else{
+            jump_login(this.url);
         }
     }
 
     user_statue() {
-        var _this = this;
+        var that = this;
         $(".user_status > div").on("click", function (a) {
             var a = a.currentTarget;
             var now_class = a.className.split(" ")[0];
-            _this.apise.user_job_status(a.className.split("status_")[1]).subscribe(t => {
+            that.apise.user_job_status(a.className.split("status_")[1]).subscribe(t => {
                 $(".user_status > div").each(function (val, item) {
                     $(item).removeClass(item.className.split(" ")[0] + "_active");
                 });
                 $(a).addClass(now_class + "_active");
             }, error => {
-                scs_alert(error.error.message);
+                if(error.status == 401){
+                    jump_login(this.url);
+                }
+                else{
+                    scs_alert(error.error.message);
+                }
             });
         });
     }

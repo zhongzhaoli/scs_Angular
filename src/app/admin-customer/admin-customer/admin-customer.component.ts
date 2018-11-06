@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 import {Router} from '@angular/router';
+import { of } from 'rxjs';
 
 declare var $, scs_alert, scs_confirm, scs_loading, close_dialog: any;
 
@@ -21,7 +22,15 @@ export class AdminCustomerComponent implements OnInit {
       this.sj = t;
     },error => {
       close_dialog();
-      this.router.navigate(['/admin-login']);
+      if(error.status === 401){
+        
+      }
+      else if(error.status === 412){
+        this.router.navigate(['/admin-login']);
+      }
+      else{
+        scs_alert(error.error.message);
+      }
     });
   }
   back_to_history() {
@@ -29,18 +38,6 @@ export class AdminCustomerComponent implements OnInit {
   }
   show_text_div(a){
     $(a).parent().parent().find(".text_div").toggleClass("dis_none");
-  }
-  an_customer(text,qu_id){
-    scs_loading();
-    this.apise.admin_an_customer(text,qu_id).subscribe(t => {
-      close_dialog();
-      this.scs_alert("回答成功",function(){
-        window.location.reload();
-      });
-    },error => {
-      close_dialog();
-      scs_alert("回答失败");
-    })
   }
   alert_personal(a){
     scs_alert("联系人：" + a[0].name + "<br>手机号：" + a[0].phone);

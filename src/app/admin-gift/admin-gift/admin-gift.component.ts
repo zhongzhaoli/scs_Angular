@@ -12,7 +12,7 @@ declare var $, scs_loading, scs_alert, scs_confirm, close_dialog, main_div_heigh
 })
 export class AdminGiftComponent implements OnInit {
 
-  constructor(private apise: ApiService, private route: Router) { }
+  constructor(private apise: ApiService, private router: Router) { }
 
   name: any;
   integral: any;
@@ -32,7 +32,7 @@ export class AdminGiftComponent implements OnInit {
     ngOnInit() {
       let role = getCookie("role");
       if(role != "admin"){
-          this.route.navigate(['/admin-login']);
+          this.router.navigate(['/admin-login']);
       }
       main_div_height();
       this.model_init();
@@ -63,11 +63,14 @@ export class AdminGiftComponent implements OnInit {
       },error => {
           close_dialog();
           if(error.status == 401) {
-              window.location.href = this.jump_url;
-          }
-          else {
-              scs_alert(error.error.message);
-          }
+            window.location.href = this.jump_url;
+        }
+        else if(error.status == 412){
+            this.router.navigate(["/admin-login"])
+        }
+        else{
+            scs_alert(error.error.message);
+        }
       })
     });
   }
@@ -189,12 +192,15 @@ export class AdminGiftComponent implements OnInit {
           this.show_gift = this.gift_type_1;
       },error => {
           close_dialog();
-          if(error.status == 401) {
-              window.location.href = this.jump_url;
-          }
-          else {
-              this.route.navigate(['/admin-login'])
-          }
+        if(error.status == 401) {
+            window.location.href = this.jump_url;
+        }
+        else if(error.status == 412){
+            this.router.navigate(["/admin-login"])
+        }
+        else{
+            scs_alert(error.error.message);
+        }
       })
   }
    sj_classify(sj){
@@ -221,8 +227,11 @@ export class AdminGiftComponent implements OnInit {
             if(error.status == 401) {
                 window.location.href = this.jump_url;
             }
-            else {
-                this.route.navigate(['/admin-login'])
+            else if(error.status == 412){
+                this.router.navigate(["/admin-login"])
+            }
+            else{
+                scs_alert(error.error.message);
             }
         });
    }

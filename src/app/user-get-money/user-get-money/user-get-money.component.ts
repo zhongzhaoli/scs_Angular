@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
+import { environment } from 'src/environments/environment';
 
 declare var $, scs_loading, scs_alert, close_dialog: any;
 @Component({
@@ -13,9 +14,11 @@ export class UserGetMoneyComponent implements OnInit {
 
   sj:any;
   job_id: any;
+  jump_url: any;
   ngOnInit() {
       this.job_id = window.location.hash.split("/user-get-money/")[1];
       this.get_sj();
+      this.jump_url = environment.url.jump_login;
   }
   back_to_history() {
       window.history.back();
@@ -27,7 +30,12 @@ export class UserGetMoneyComponent implements OnInit {
         close_dialog();
     },error => {
         close_dialog();
-        scs_alert(error.error.message);
+        if(error.status === 401){
+            window.location.href = this.jump_url;
+        }
+        else{
+            scs_alert(error.error.message);
+        }
     })
   }
 }

@@ -8,6 +8,7 @@ import { Leader } from './entity/Leader';
 import { Message } from './entity/Message';
 import { Demand } from './entity/Demand';
 import { Job } from './entity/Job';
+import { Key } from 'protractor';
 declare var getCookie:any;
 @Injectable({
   providedIn: 'root'
@@ -328,9 +329,9 @@ export class ApiService {
         var url = environment.url.comment + "/admin/send-user-numerical";
         return this.http.post(url,{"student":arr, "credit":credit, "integral":integral, "experience":experience});
     }
-    send_recruit(text,type,img_list){
+    send_recruit(text,type,img_list,address){
         var url = environment.url.comment + "/recruitment/send";
-        return this.http.post(url,{"text":text, "type":type, 'img_list':img_list});
+        return this.http.post(url,{"text":text, "type":type, 'img_list':img_list,"find_address":address});
     }
     get_recruit(){
         var url = environment.url.comment + "/recruitment";
@@ -367,6 +368,22 @@ export class ApiService {
     over_recruit(id){
         var url = environment.url.comment + "/recruitment/over/" + id;
         return this.http.post(url,{});
+    }
+    admin_job_cancel(id){
+        var url = environment.url.comment + "/admin/job/cancel/" + id;
+        return this.http.post(url,{});
+    }
+    admin_scs_num(){
+        var url = environment.url.comment + "/admin/scs-num";
+        return this.http.get(url);
+    }
+    is_login(){
+        var url = environment.url.comment + "/is_login";
+        return this.http.get(url);
+    }
+    admin_job_like(key, type){
+        var url = environment.url.comment + "/admin/job/key";
+        return this.http.post(url,{"key": key, "type": type});
     }
 }
 

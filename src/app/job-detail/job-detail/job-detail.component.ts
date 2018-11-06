@@ -3,7 +3,7 @@ import { ApiService } from '../../api.service';
 import {environment} from "../../../environments/environment";
 
 
-declare var main_div_height, scs_loading, close_dialog, $, doLocate, scs_alert, scs_confirm: any;
+declare var main_div_height, scs_loading, close_dialog, $, doLocate, scs_alert, scs_confirm, wx_friend_fx, wx_pengyou_fx: any;
 @Component({
   selector: 'app-job-detail',
   templateUrl: './job-detail.component.html',
@@ -24,9 +24,11 @@ export class JobDetailComponent implements OnInit {
       $(".job_detail").hide();
       scs_loading();
     this.apise.find_id_job(location.hash.split("/job-detail/")[1]).subscribe(t => {
+        this.sj = t[0];
+        wx_friend_fx("云屯务集-兼职详细",this.sj.job_title);
+        wx_pengyou_fx("云屯务集-" + this.sj.job_title);
         $(".job_detail").show();
         close_dialog();
-        this.sj = t[0];
         var latitude_longitude = this.sj.latitude_longitude;
         doLocate(latitude_longitude.split(",")[0],latitude_longitude.split(",")[1],this.sj.job_place,this.sj.job_detail_place);        
     });

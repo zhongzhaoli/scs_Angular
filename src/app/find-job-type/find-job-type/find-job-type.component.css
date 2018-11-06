@@ -67,6 +67,7 @@
     -webkit-box-orient: vertical;
     /* autoprefixer: on */
     overflow: hidden;
+    max-width: 4.5rem;
 }
 .job_text_div > h4{
     display: flex;

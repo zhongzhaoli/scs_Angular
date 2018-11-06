@@ -30,6 +30,7 @@ export class RegisterDetailComponent implements OnInit {
     o_user: any;
 
     jump_url: any;
+    school: any;
 
     constructor(private apise: ApiService, private router: Router) {
     }
@@ -39,6 +40,7 @@ export class RegisterDetailComponent implements OnInit {
         bind_foces();
         this.get_user();
         this.jump_url = environment.url.jump_login;
+        this.school = "深圳技师学院"
     }
     checkbox_change(a){
         if(a.checked){
@@ -182,7 +184,8 @@ export class RegisterDetailComponent implements OnInit {
             "sex": this.sex,
             "intention": this.intention.toString(),
             "prove": this.prove,
-            "wechat": this.wechat
+            "wechat": this.wechat,
+            "school": this.school
         }
         this.apise.upload_personal(a).subscribe(t => {
             this.scs_alert_do("已提交审核,请耐心等待",function(){

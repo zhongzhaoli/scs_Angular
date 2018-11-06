@@ -18,6 +18,10 @@
     <div>描述：</div>
     <textarea name="" [(ngModel)]="text" class="form-control" placeholder="请填写物品的描述以及丢失位置" id="" rows="3"></textarea>
   </div>
+  <div class="wp_text address" *ngIf="type == 2">
+    <div>领取地址：</div>
+    <textarea name="" [(ngModel)]="address" class="form-control" placeholder="请填写物品领取地址" id="" rows="3"></textarea>
+  </div>
   <div class="form-group img_box_div">
     <div class="img_span_le">
       <span class="img_span">上传图片方便您快速找回</span>
@@ -30,7 +34,7 @@
             add
           </i>
         </div>
-        <img src="{{ i }}" alt="">
+        <img src="{{ i }}">
       </div>
       <div class="recruit_add_img" (click)="add_img()" *ngIf="img_list.length < 3">
         <i class="material-icons">

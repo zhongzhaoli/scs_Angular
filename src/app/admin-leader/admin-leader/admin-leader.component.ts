@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { Router } from '@angular/router';
+import {environment} from '../../../environments/environment';
 
 declare var $, main_div_height, scs_loading, close_dialog, scs_alert, scs_loading: any;
 
@@ -13,11 +14,13 @@ export class AdminLeaderComponent implements OnInit {
 
   sj: any;
   want_add_sj :any;
+  jump_url: any;
   constructor(private apise: ApiService, private router: Router) { }
 
   ngOnInit() {
       main_div_height();
       this.get_leader();
+      this.jump_url = environment.url.jump_login;
   }
   get_leader(){
       scs_loading();
@@ -26,7 +29,15 @@ export class AdminLeaderComponent implements OnInit {
           close_dialog();
       },error => {
           close_dialog();
-          this.router.navigate(['/admin-login']);
+          if(error.status == 401) {
+            window.location.href = this.jump_url;
+          }
+          else if(error.status == 412){
+            this.router.navigate(["/admin-login"])
+          }
+          else{
+            scs_alert(error.error.message);
+          }
       });
   }
   add_leader(){
@@ -47,12 +58,28 @@ export class AdminLeaderComponent implements OnInit {
                       that.sj.push(a);
                       console.log(that.sj);
                   },error => {
-                      close_dialog();
-                      scs_alert("添加失败");
+                    close_dialog();
+                    if(error.status == 401) {
+                        window.location.href = that.jump_url;
+                    }
+                    else if(error.status == 412){
+                        that.router.navigate(["/admin-login"])
+                    }
+                    else{
+                        scs_alert(error.error.message);
+                    }
                   })
               });
           },error => {
-              scs_alert("没有对应的用户，或者对方没有填写个人信息。");
+            if(error.status == 401) {
+                window.location.href = that.jump_url;
+            }
+            else if(error.status == 412){
+                that.router.navigate(["/admin-login"])
+            }
+            else{
+                scs_alert(error.error.message);
+            }
           })
       });
   }

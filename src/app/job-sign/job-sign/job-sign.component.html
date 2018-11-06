@@ -37,8 +37,8 @@
         <img src="{{ i.user.prove }}" alt="">
       </div>
       <div class="do_btn" *ngIf="show_btn_div">
-        <button type="button" (click)="student_job_sign([ i.user_id ],'adopt',$event.currentTarget)" class="btn btn-success">同意</button>
-        <button type="button" (click)="student_job_sign([ i.user_id ],'refuse',$event.currentTarget)" class="btn btn-danger">拒绝</button>
+        <button type="button" (click)="student_job_sign(i,[ i.user_id ],'adopt',$event.currentTarget)" class="btn btn-success">同意</button>
+        <button type="button" (click)="student_job_sign(i,[ i.user_id ],'refuse',$event.currentTarget)" class="btn btn-danger">拒绝</button>
       </div>
     </div>
   </div>

@@ -10,6 +10,13 @@
   <div class="enterprise_introduce_div content_div">
     <div class="enterprise_text">
       <div class="form-group">
+        <label for="">兼职时间类型</label>
+        <select name="time_type" class="form-control" [(ngModel)]="time_type" id="" (change)="time_type_change($event.currentTarget)">
+          <option value="short">短期</option>
+          <option value="long">长期</option>
+        </select>
+      </div>
+      <div class="form-group">
         <label for="">兼职标题</label>        
         <input type="text" class="form-control" [(ngModel)]="job_title" id="name" placeholder="兼职标题">
         <span class="error_text" data-error="job_title"></span>
@@ -72,7 +79,7 @@
       <input type="time" [(ngModel)]="job_end_time" class="form-control" id="end_time" placeholder="兼职结束时间">
       <span class="error_text" data-error="job_end_time"></span>
     </div>
-    <div class="form-group">
+    <div class="form-group" *ngIf="time_type == 'short'">
       <label for="">兼职结束日期</label>
       <input type="date" [(ngModel)]="job_end_date" class="form-control" id="end_date" placeholder="兼职结束日期">
       <span class="error_text" data-error="job_end_date"></span>
@@ -129,11 +136,14 @@
     </div>
     <div class="form-group">
       <label for="">兼职工资</label>
-      <div class="form-group">
-        <div class="input-group">
+      <div class="form-group map_place_search_input">
           <input type="number" class="form-control" [(ngModel)]="job_money" placeholder="人名币">
-          <div class="input-group-addon">元</div>
-        </div>
+          <select [(ngModel)]="money_type" class="form-control money_type" id="">
+            <option value="天">元/天</option>
+            <option value="小时">元/小时</option>
+            <option value="次">元/次</option>
+            <option value="个">元/个</option>
+          </select>
         <span class="error_text" data-error="job_money"></span>
       </div>
     </div>

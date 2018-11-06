@@ -12,7 +12,7 @@
             <span class="glyphicon glyphicon-briefcase"></span>
             <span>兼职</span>
         </li>
-        <li *ngIf="!role">
+        <li *ngIf="!role" (click)="to_router('find-job')">
             <span class="glyphicon glyphicon-briefcase"></span>
             <span>兼职</span>
         </li>

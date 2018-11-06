@@ -47,6 +47,7 @@ import { RecruitmentModule } from './recruitment/recruitment.module';
 import { SendRecruitmentModule } from './send-recruitment/send-recruitment.module';
 import { MyRecruitmentModule } from './my-recruitment/my-recruitment.module';
 import { AdminRecruitmentModule } from './admin-recruitment/admin-recruitment.module';
+import { ScsNumModule } from './scs-num/scs-num.module';
 const routes: Routes = [
     {
         path: 'register-detail',
@@ -192,18 +193,18 @@ const routes: Routes = [
         path: 'admin-exchange/:vouid/user/:id',
         loadChildren: './admin-exchange/admin-exchange.module#AdminExchangeModule'
     },
-    {
-        path: 'demand',
-        loadChildren: './demand/demand.module#DemandModule'
-    },
-    {
-        path: 'send-demand',
-        loadChildren: './send-demand/send-demand.module#SendDemandModule'
-    },
-    {
-        path: 'my-demand',
-        loadChildren: './my-demand/my-demand.module#MyDemandModule'
-    },
+    // {
+    //     path: 'demand',
+    //     loadChildren: './demand/demand.module#DemandModule'
+    // },
+    // {
+    //     path: 'send-demand',
+    //     loadChildren: './send-demand/send-demand.module#SendDemandModule'
+    // },
+    // {
+    //     path: 'my-demand',
+    //     loadChildren: './my-demand/my-demand.module#MyDemandModule'
+    // },
     {
         path: 'admin-over-money/:id',
         loadChildren: './admin-over-money/admin-over-money.module#AdminOverMoneyModule'
@@ -232,6 +233,10 @@ const routes: Routes = [
     {
         path: 'admin-recruitment',
         loadChildren: './admin-recruitment/admin-recruitment.module#AdminRecruitmentModule'
+    },
+    {
+        path: 'scs-num',
+        loadChildren: './scs-num/scs-num.module#ScsNumModule'
     },
     {
         path: '',

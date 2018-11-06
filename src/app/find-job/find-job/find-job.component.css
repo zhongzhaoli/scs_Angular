@@ -115,6 +115,14 @@
     justify-content: center;
     align-items: center;
 }
+.long_color{
+    color:#ffc107 !important;
+    border:1px #ffc107 solid !important;
+}
+.short_color{
+    color:#1eb126 !important;
+    border: 1px #1eb126 solid !important;
+}
 .job_bz > span{
     font-size: 0.2rem !important;
     border: 1px #2ebdea solid;
@@ -125,6 +133,7 @@
     align-items: center;
     color:#2ebdea;
 }
+
 .job_bz > span:not(:last-child){
     margin-right:0.1rem;    
 }

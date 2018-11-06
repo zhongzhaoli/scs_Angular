@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 declare var $, scs_loading, close_dialog, scs_alert: any;
 
 @Component({
@@ -14,9 +15,11 @@ export class AdminRecruitmentComponent implements OnInit {
 
   sj:any;
   sj_length: any;
+  jump_url: any;
 
   ngOnInit() {
     this.get_sj();
+    this.jump_url = environment.url.jump_login;
   }
   back_to_history() {
     window.history.back();
@@ -40,7 +43,15 @@ export class AdminRecruitmentComponent implements OnInit {
       }
     },error => {
       close_dialog();
-      this.router.navigate(['/admin-login']);
+      if(error.status == 401) {
+        window.location.href = this.jump_url;
+      }
+      else if(error.status == 412){
+          this.router.navigate(["/admin-login"])
+      }
+      else{
+          scs_alert(error.error.message);
+      }
     })
   }
   del(id,a){
@@ -51,7 +62,15 @@ export class AdminRecruitmentComponent implements OnInit {
       this.sj.remove(a);
     },error => {
       close_dialog();
-      scs_alert(error.error.message);
+      if(error.status == 401) {
+        window.location.href = this.jump_url;
+      }
+      else if(error.status == 412){
+          this.router.navigate(["/admin-login"])
+      }
+      else{
+          scs_alert(error.error.message);
+      }
     })
   }
   to_scs(id){
@@ -63,7 +82,15 @@ export class AdminRecruitmentComponent implements OnInit {
           scs_alert("已转交");
         },error => {
           close_dialog();
-          scs_alert(error.error.message);
+          if(error.status == 401) {
+            window.location.href = this.jump_url;
+          }
+          else if(error.status == 412){
+              this.router.navigate(["/admin-login"])
+          }
+          else{
+              scs_alert(error.error.message);
+          }
         })
      })
   }
@@ -74,7 +101,15 @@ export class AdminRecruitmentComponent implements OnInit {
       scs_alert("已成功");
     },error => {
       close_dialog();
-      scs_alert(error.error.message);  
+      if(error.status == 401) {
+        window.location.href = this.jump_url;
+      }
+      else if(error.status == 412){
+          this.router.navigate(["/admin-login"])
+      }
+      else{
+          scs_alert(error.error.message);
+      }
     })
   }
   scs_alert_do(title_v ,val, fun_a){

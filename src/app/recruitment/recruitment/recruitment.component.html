@@ -10,6 +10,7 @@
   </div>
   <span>失物招领</span>
 </div>
+<img src="../../../assets/images/loading_2.gif" (load)="loading_2_load()" style="display: none" alt="">
 <div class="user_list" *ngIf="sj && !sj_length">
   <span>暂无数据</span>
 </div>
@@ -25,14 +26,20 @@
       <span class="type_div type_3" *ngIf="i?.to_scs == 1">已转交至天工楼301</span>
       <span>{{ i?.text }}</span>
     </div>
-    <div class="img_box">
+    <div class="img_box" *ngIf="i?.img_list.length">
       <div *ngFor="let img of i?.img_list">
-        <img src="{{ img }}" alt="" (click)="asd($event.currentTarget)">
+        <img data-load="0" id = "{{ img }}" src="../../../assets/images/loading_2.gif" (load)="img_onload($event.currentTarget)" (click)="asd($event.currentTarget)">
       </div>
+    </div>
+    <div class="find_address" *ngIf="i?.to_scs != 1 && i?.type != 1">
+      <span>领取地址：{{ i?.find_address }}</span>
     </div>
     <div class="create_time">
       <span>{{ i?.create_time }}</span>
-      <span class="call_me" (click)="call_me_alert(i?.user?.name)">联系我</span>
+      <div>
+        <span class="call_me" (click)="call_me_alert(i?.user?.name)">联系我</span>
+        <span class="over">完成</span>
+      </div>
     </div>
   </div>
 </div>

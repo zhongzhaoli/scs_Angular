@@ -42,7 +42,6 @@ export class MyRecruitmentComponent implements OnInit {
       }
     },error => {
       close_dialog();
-      window.location.href = this.url + "/#/login";
     })
   }
   del_sj(id, i){

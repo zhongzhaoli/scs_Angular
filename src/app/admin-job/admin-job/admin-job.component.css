@@ -4,7 +4,49 @@
 }
 .btn_div{
     padding:0.15rem 0.25rem;
+    padding-bottom:0;
     overflow: hidden;
+}
+.admin_text{
+    padding:0.15rem 0.35rem 0.35rem 0.35rem;
+    min-height:100%;
+    position: relative;
+}
+.search_div > select{
+    padding:0 0.2rem;
+    background-color:transparent;
+    border-color:transparent;
+    -webkit-appearance: none;
+    outline: none;
+    box-sizing:border-box;
+    border-right:1px #eaeaea solid;
+    border-radius: 0;
+}
+.search_div{
+    background: white;
+    padding: 0.2rem 0 0.2rem 0;
+    border: 1px #eaeaea solid;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+}
+.search_div > input{
+    border:none;
+    outline: none;
+    width:calc(100% - 0.8rem);
+    font-size:0.25rem;
+    text-indent:0.2rem;
+}
+.search_div > div{
+    width:0.8rem;
+    border-left:1px #eaeaea solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search_div > div > span{
+    font-size:0.3rem;
+    color:#979797;
 }
 .btn_div > div{
     margin:0.1rem;
@@ -68,10 +110,9 @@
 }
 .do_btn{
     text-align: center;
-    margin-top:0.2rem;
 }
 .do_btn > button{
-    margin:0 0.1rem;
+    margin:0.2rem 0.1rem 0 0.1rem;
 }
 .user_list{
     background:white;

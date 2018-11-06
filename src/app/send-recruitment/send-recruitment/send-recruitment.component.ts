@@ -15,11 +15,13 @@ export class SendRecruitmentComponent implements OnInit {
   type: any;
   text: any;
   url: any;
+  address: any;
 
   ngOnInit() {
       main_div_height();
       this.type = 1;
       this.img_list = [];
+      this.address = "";
       this.url = environment.url.jump_login;
   }
   back_to_history() {
@@ -34,12 +36,18 @@ export class SendRecruitmentComponent implements OnInit {
   file_change(a){
       let that = this;
       var read = new FileReader();
-      read.readAsDataURL(a.files[0]);
-      read.onload = function () {
-         var s = this.result;
-         that.canvasDataURL(s, {"width": 500})
-         a.value = "";
-      };
+      if(a.files[0].size / 1024 / 1024 >= 8){
+          scs_alert("图片大小不能超过8MB");
+          return;
+      }else{
+        that.img_list.push(location.origin + "/assets/images/loading_2.gif");
+        read.readAsDataURL(a.files[0]);
+        read.onload = function () {
+            var s = this.result;
+            that.canvasDataURL(s, {"width": 800})
+            a.value = "";
+        };
+      }
   }
   del_img(a){
     this.img_list.remove(a);
@@ -57,7 +65,7 @@ export class SendRecruitmentComponent implements OnInit {
                scale = w / h;
            w = obj.width || w;
            h = obj.height || (w / scale);
-           var quality = 0.9;  // 默认图片质量为0.7
+           var quality = 1;  // 默认图片质量为0.7
            //生成canvas
            var canvas = document.createElement('canvas');
            var ctx = canvas.getContext('2d');
@@ -70,24 +78,21 @@ export class SendRecruitmentComponent implements OnInit {
            canvas.setAttributeNode(anw);
            canvas.setAttributeNode(anh);
            ctx.drawImage(img, 0, 0, w, h);
-           // 图像质量
-           if (obj.quality && obj.quality <= 1 && obj.quality > 0) {
-               quality = obj.quality;
-           }
            // quality值越小，所绘制出的图像越模糊
            var base64 = canvas.toDataURL('image/jpeg', quality);
            // 回调函数返回base64的值
-           close_dialog();
            _this.img_list.push(base64);
+           _this.img_list.remove(location.origin + "/assets/images/loading_2.gif");
+           close_dialog();
        }
    }
   send_rec(){
       scs_loading();
-      this.apise.send_recruit(this.text,this.type,this.img_list).subscribe(t => {
+      this.apise.send_recruit(this.text,this.type,this.img_list,this.address).subscribe(t => {
           close_dialog();
           this.router.navigate(['/recruitment']);
       },error => {
-          if(error.error.message == "Unauthenticated."){
+          if(error.status === 401){
             window.location.href = this.url;
           }
           close_dialog();

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 import {Router} from '@angular/router';
 
-declare var jump_login, scs_alert, close_dialog, $, scs_loading: any;
+declare var jump_login, scs_alert, close_dialog, $, scs_loading, wx_friend_fx, wx_pengyou_fx: any;
 
 @Component({
   selector: 'app-find-job-type',
@@ -46,6 +46,8 @@ export class FindJobTypeComponent implements OnInit {
       this.apise.find_type_job(type).subscribe(t => {
           this.job = t;
           this.job_length = (this.job.length) ? this.job.length : "none";
+          wx_friend_fx("云屯务集-兼职列表","在这里你可以找到适合自己的兼职。");
+          wx_pengyou_fx("云屯务集-兼职列表");
           close_dialog();
       },error => {
           scs_alert(error.error.message);

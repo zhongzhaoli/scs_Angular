@@ -11,6 +11,14 @@
     <div class="refuse_btn" (click)="sj_show('adopt',$event.currentTarget)">通过</div>
     <div class="refuse_btn" (click)="sj_show('refuse',$event.currentTarget)">不通过</div>
   </div>
+  <div class="admin_text">
+    <div class="search_div" *ngIf="sj">
+      <input type="text" #search_input placeholder="输入你要查找的数据">
+      <div (click)="search_click_btn(search_input.value)">
+        <span class="glyphicon glyphicon-search"></span>
+      </div>
+    </div>
+  </div>
   <div class="job_list">
     <div class="user_list have_sj_div" *ngIf="sj">
       <p *ngIf="show != ''">一共 <span style="color:red">{{ sj_num }}</span> 条数据</p>
@@ -18,6 +26,7 @@
     </div>
     <div class="job" *ngFor="let i of sj">
       <div class="job_body_text">
+        <div><b>兼职时间类型：</b>{{ (i.time_type == "short") ? "短期" : "长期" }}</div>
         <div><b>兼职标题：</b>{{ i.job_title }}</div>
         <div><b>兼职要求：</b>{{ i.job_action }}</div>
         <div><b>人数：</b>{{ i.job_num }}</div>
@@ -25,10 +34,10 @@
         <div><b>地点：</b>{{ i.job_place }}</div>
         <div><b>开始日期：</b>{{ i.job_start_date }}</div>
         <div><b>开始时间：</b>{{ i.job_start_time }}</div>
-        <div><b>结束时间</b>{{ i.job_end_time }}</div>
+        <div><b>结束时间：</b>{{ i.job_end_time }}</div>
         <div><b>休息时间：</b>{{ i.job_rest }}小时</div>
-        <div><b>结束日期：</b>{{ i.job_end_date }}</div>
-        <div><b>薪酬：</b>{{ i.job_money }}元</div>
+        <div *ngIf="i?.time_type == 'short'"><b>结束日期：</b>{{ i.job_end_date }}</div>
+        <div><b>薪酬：</b>{{ i.job_money }} <span style="color:red;">元/{{ i.money_type }}</span></div>
         <div><b>时间详细规划：</b>{{ i.job_detail_time }}</div>
         <div><b>内容介绍：</b>{{ i.job_detail_content }}</div>
         <div><b>补贴介绍：</b>{{ i.job_detail_subsidy }}</div>
@@ -43,6 +52,7 @@
       <div class="do_btn" *ngIf="show_btn_div == 1">
         <button type="button" class="btn scs-btn" routerLink = "/job-sign/{{ i?.id }}">查看报名学生</button>
         <button type="button" class="btn scs-btn" routerLink="/admin-over-money/{{ i?.id }}">兼职完结</button>
+        <button type="button" class="btn btn-danger" *ngIf="i?.status != 'admin_over'" (click)="del_job(i,i?.id)">取消兼职</button>
         <div *ngIf="i?.status == 'over'" class="enterprise_over_text">企业已完结此兼职</div>
       </div>
     </div>

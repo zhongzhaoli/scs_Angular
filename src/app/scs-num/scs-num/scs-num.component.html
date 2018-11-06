@@ -1,0 +1,45 @@
+<title>平台数据 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>平台数据</span>
+</div>
+<div class="sj_div" *ngIf="sj">
+  <div class="form-group">
+    <span>注册量：</span>
+    <span class="color_red">{{ sj?.register_num }}</span>
+  </div>
+  <div class="form-group">
+    <span>注册没信息：</span>
+    <span class="color_red">{{ sj?.register_no_personal }}</span>
+  </div>
+  <div class="form-group">
+    <span>注册有信息：</span>
+    <span class="color_red">{{ sj?.register_has_personal }}</span>
+  </div>
+  <div class="form-group">
+    <span>信息没注册：</span>
+    <span class="color_red">{{ sj?.personal_no_register }}</span>
+  </div>
+  <div class="form-group">
+    <span>评价数量：</span>
+    <span class="color_red">{{ sj?.evaluate }}</span>
+  </div>
+  <div class="form-group">
+    <span>完结兼职数量：</span>
+    <span class="color_red">{{ sj?.over_job_num }}</span>
+  </div>
+  <div class="form-group">
+    <span>失物招领数量：</span>
+    <span class="color_red">{{ sj?.recruitment }}</span>
+  </div>
+  <div class="form-group">
+    <span>失物招领完成数量：</span>
+    <span class="color_red">{{ sj?.recruitment_over }}</span>
+  </div>
+  <div class="form-group">
+      <span>学生信息通过审核总量：</span>
+      <span class="color_red">{{ sj?.personal_num }}</span>
+    </div>
+</div>

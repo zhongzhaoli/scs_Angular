@@ -27,7 +27,12 @@ export class MyJobComponent implements OnInit {
             window.location.href = this.jump_url;
         }
         else {
+          if(error.status == 401) {
+            window.location.href = this.jump_url;
+          }
+          else{
             scs_alert(error.error.message);
+          }
         }
     });
   }

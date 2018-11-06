@@ -8,8 +8,9 @@
 <div class="">
   <div class="job_header job_detail">
     <h3>{{ sj?.job_title }}</h3>
-    <h3 class="job_money">{{ sj?.admin_change_money }}<span style="font-size:0.25rem;font-weight: normal;position: relative;bottom:1px;"> 元/天</span></h3>
+    <h3 class="job_money">{{ sj?.admin_change_money }}<span style="font-size:0.25rem;font-weight: normal;position: relative;bottom:1px;"> 元/{{ sj?.money_type }}</span></h3>
     <div class="job_text_content">
+      <span>{{ (sj?.time_type == 'short') ? "短期" : "长期" }}</span>
       <span>{{ sj?.balance_type }}</span>
       <span>{{ sj?.job_num }}人</span>
       <span>{{ sj?.job_type }}</span>
@@ -53,7 +54,7 @@
       <span style="display: none;"></span>
       <span class="time_detail_all">每天{{ sj?.job_start_time }}开始工作{{ (sj?.job_detail_time == "无") ? "" : "，" + sj?.job_detail_time }}</span>
     </div>
-    <div class="job_start_end_date">
+    <div class="job_start_end_date" *ngIf="sj?.time_type == 'short'">
       <span>结束日期</span>
       <span></span>
       <span>{{ sj?.job_end_date }}</span>

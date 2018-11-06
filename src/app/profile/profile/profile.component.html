@@ -67,7 +67,7 @@
       <img src="../../../assets/images/parttime_job.png" alt="">
       <span>我的兼职</span>
     </div>
-    <div class="myself_list" *ngIf="o_user?.role != 'enterprise'" routerLink="/integral-shop">
+    <div class="myself_list" *ngIf="o_user?.role != 'enterprise'" (click)="is_close()">
       <img src="../../../assets/images/integral.png" alt="">
       <span>积分商城</span>
     </div>
@@ -83,10 +83,10 @@
       <img src="../../../assets/images/bill.png" alt="">
       <span>我的账单</span>
     </div>
-    <div class="myself_list" routerLink="/my-demand">
+    <!-- <div class="myself_list" routerLink="/my-demand">
       <img src="../../../assets/images/dynamic.png" alt="">
       <span>我的动态</span>
-    </div>
+    </div> -->
     <div class="myself_list" (click)="to_reset()">
       <img src="../../../assets/images/password.png" alt="">
       <span>修改密码</span>

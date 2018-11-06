@@ -28,9 +28,11 @@ export class SendJobComponent implements OnInit {
   job_remarks:any;
   balance_type: string;
   job_detail_place: string;
+  money_type: any;
+  time_type: any;
 
   role: string;
-  url: any;
+  jump_url: any;
   constructor(private apise: ApiService,private router: Router) { }
 
     ngOnInit() {
@@ -39,6 +41,7 @@ export class SendJobComponent implements OnInit {
       this.sj_init();
       this.get_role();
       $(".send_div").hide();
+      this.jump_url = environment.url.jump_login;
       scs_loading();
     }
 
@@ -48,13 +51,21 @@ export class SendJobComponent implements OnInit {
             close_dialog();
             this.role = t.role;
         },error => {
-            this.router.navigate(['/login']);
+            if(error.status == 401) {
+                window.location.href = this.jump_url;
+            }
+            else{
+                scs_alert(error.error.message);
+            }
         });
     }
     sj_init(){
         this.job_type = "礼仪/模特";
         this.job_rest = "1";
         this.balance_type = "日结";
+        this.money_type = "天";
+        this.time_type = "short";
+        this.time_type_change($("[name='time_type']")[0]);
     }
 
     get_now_date_time(){
@@ -70,6 +81,14 @@ export class SendJobComponent implements OnInit {
         this.job_start_date = date_;
         this.job_end_date = date_;
         this.job_start_time = time_;
+    }
+    time_type_change(i){
+        if(i.value == "long"){
+            this.job_end_date = "2099-12-31"
+        }
+        else{
+            this.get_now_date_time();
+        }
     }
     send_job(){
         var that = this;
@@ -93,6 +112,9 @@ export class SendJobComponent implements OnInit {
             "balance_type": this.balance_type,
             "job_detail_place": this.job_detail_place,
             "latitude_longitude": $(".jwd").val(),
+            "money_type": this.money_type,
+            "time_type": this.time_type,
+
         }
         $("[data-error]").html("");
         this.apise.send_job(a).subscribe(t => {

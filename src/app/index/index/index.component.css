@@ -32,8 +32,17 @@
     -webkit-align-items: center;
     align-items: center;
 }
-.job_type_div{
+.job_type_div, .pengan{
     background:white;
+}
+.pengan_img{
+    text-align: center;
+}
+.pengan_img > button{
+    margin-top:0.2rem;
+}
+.pengan_img > img{
+    width:100%;
 }
 .job_type_content{
     padding:0.25rem;
@@ -65,6 +74,7 @@
 }
 .now_job_content{
     padding:0.25rem;
+    margin-top:0.25rem;
     border-bottom:1px #eaeaea solid;
 }
 .now_job_title{

@@ -11,7 +11,7 @@
       <p>暂时没人提出问题</p>
     </div>
     <div class="my_customer" *ngFor="let i of sj" routerLink="/admin-customer-detail/{{ i?.user_id }}">
-       <div class="customer_title">来自 <span style="color:red">{{ i?.user?.name }}</span> 的提问</div>
+       <div class="customer_title">来自 <span style="color:red">{{ i?.user?.nickname }}</span> 的提问</div>
        <div class="customer_status">
          <span *ngIf="i?.last?.status == 'qu'" style="color:#ffb328">未处理</span>
          <span *ngIf="i?.last?.status == 'an'" style="color:#2ebdea">已处理</span>

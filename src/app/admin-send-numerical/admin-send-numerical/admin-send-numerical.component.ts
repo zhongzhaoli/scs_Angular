@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 declare var $, scs_loading, scs_alert, getCookie: any;
 @Component({
@@ -15,7 +16,9 @@ export class AdminSendNumericalComponent implements OnInit {
   user: any;
   user_arr: any;
   choose_user_arr: any;
+  jump_url: any;
   ngOnInit() {
+    this.jump_url = environment.url.jump_login;
     if(getCookie('role') != 'admin'){
       this.router.navigate(['/admin-login']);
     }
@@ -53,7 +56,15 @@ export class AdminSendNumericalComponent implements OnInit {
       this.apise.admin_send_user_numerical(this.user_arr,credit,integral,experience).subscribe(t => {
         scs_alert("提交成功");
       },error => {
-        scs_alert("失败");
+        if(error.status == 401) {
+          window.location.href = this.jump_url;
+        }
+        else if(error.status == 412){
+            this.router.navigate(["/admin-login"])
+        }
+        else{
+            scs_alert(error.error.message);
+        }
       })
   }
 }

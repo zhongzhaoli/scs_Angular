@@ -84,7 +84,7 @@
           <img src="../../../assets/images/loading.gif" alt="">
         </div>
         <div class="swiper-slide cg_card" *ngFor="let i of evaluate_sj">
-          <img class="cg_photo_img" src="{{ i?.user?.user_img }}" alt="">
+          <img class="cg_photo_img" :src="{{ i?.user?.user_img }}" alt="">
           <h5 class="cg_name">{{ i?.user?.name }}</h5>
           <span class="cg_pl">{{ i?.evaluate?.text }}</span>
           <button class="btn btn-success" routerLink="/evaluate-detail/{{ i?.evaluate_id }}">查看详细</button>

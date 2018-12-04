@@ -6,7 +6,7 @@
     "jump_login":"http://login.yuntunwj.com"
   },
   "url_dev": {
-    "comment":"http://10.105.34.172/public",
-    "jump_login":"http://10.105.34.172:9995"
+    "comment":"http://10.1.53.149/public",
+    "jump_login":"http://10.1.53.149:9995"
   }
 }

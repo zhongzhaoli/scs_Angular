@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
+import { promise } from 'protractor';
 
 declare var Swiper, $, wx_friend_fx, scs_alert, wx_pengyou_fx: any;
 @Component({
@@ -17,6 +18,7 @@ export class IndexComponent implements OnInit {
       this.job_index();
       this.evaluate_index();
       this.swiper_onload();
+      this.event();
       wx_friend_fx("云屯务集","云屯务集——为深圳市乃至珠三角的中小型企业提供商务、技术服务；为大学生提供优质有保障的兼职，形成整合式、系统式、现代化的一站式综合服务平台。");
       wx_pengyou_fx("云屯务集");
   }
@@ -59,5 +61,21 @@ export class IndexComponent implements OnInit {
           observer:true,//修改swiper自己或子元素时，自动初始化swiper
           observeParents:true,//修改swiper的父元素时，自动初始化swiper
       });
+  }
+  //活动
+  event(){
+      var promise = new Promise(function(resolve,reject){
+        this.apise.event_garden().subscribe(t => {
+            this.scs_confirm("你有一份游园晚会礼包！",function(){
+                resolve();
+            },error => {
+                reject();
+            });
+        });
+      });
+
+  }
+  scs_confirm(val,fun_a){
+    $.DialogByZ.Confirm({Title: "提示", Content: val,BtnL:"开心领取",BtnR:"任性拒绝",FunL:fun_a,FunR:close_dialog()})
   }
 }

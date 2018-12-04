@@ -385,5 +385,9 @@ export class ApiService {
         var url = environment.url.comment + "/admin/job/key";
         return this.http.post(url,{"key": key, "type": type});
     }
+    event_garden(){
+        var url = environment.url.comment + "/event_garden";
+        return this.http.get(url);;
+    }
 }
 

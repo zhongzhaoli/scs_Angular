@@ -10,7 +10,7 @@ var wxdata={
 		let that = this;
 		$.ajax({
 			type:"GET",
-            url:"http://api.yuntunwj.com/scs/public/wx/conf",
+            url:"https://api.yuntunwj.com/scs/public/wx/conf",
             data:"",
 			success:function(msg){
 				if(msg.errcode==0){

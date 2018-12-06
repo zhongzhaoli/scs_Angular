@@ -1,0 +1,19 @@
+<title>游园活动 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>游园活动</span>
+</div>
+<div class="event_garden">
+  <div class="gift_one">
+    <div class="gift_text">
+          <span class="small_text">平台注册送考红薯</span>
+    </div>
+    <div class="gift_integral">
+      <span class="need_integral">免费</span>
+      <div class="plane_btn" *ngIf="state === 'no'">领取</div>
+      <div class="plane_btn cant_click" *ngIf="state === ''">使用</div>
+    </div>
+  </div>
+</div>

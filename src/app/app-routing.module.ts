@@ -48,6 +48,7 @@ import { SendRecruitmentModule } from './send-recruitment/send-recruitment.modul
 import { MyRecruitmentModule } from './my-recruitment/my-recruitment.module';
 import { AdminRecruitmentModule } from './admin-recruitment/admin-recruitment.module';
 import { ScsNumModule } from './scs-num/scs-num.module';
+import { EventGardenModule } from './event-garden/event-garden.module';
 const routes: Routes = [
     {
         path: 'register-detail',
@@ -237,6 +238,10 @@ const routes: Routes = [
     {
         path: 'scs-num',
         loadChildren: './scs-num/scs-num.module#ScsNumModule'
+    },
+    {
+        path: 'event-garden',
+        loadChildren: './event-garden/event-garden.module#EventGardenModule'
     },
     {
         path: '',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
-import { promise } from 'protractor';
+import { Router } from '@angular/router';
 
 declare var Swiper, $, wx_friend_fx, scs_alert, wx_pengyou_fx: any;
 @Component({
@@ -10,7 +10,7 @@ declare var Swiper, $, wx_friend_fx, scs_alert, wx_pengyou_fx: any;
 })
 export class IndexComponent implements OnInit {
 
-  constructor(private apise: ApiService) { }
+  constructor(private apise: ApiService, private router: Router) { }
 
   job_index_sj: any;
   evaluate_sj: any;
@@ -64,16 +64,21 @@ export class IndexComponent implements OnInit {
   }
   //活动
   event(){
+      let that = this;
       var promise = new Promise(function(resolve,reject){
-        this.apise.event_garden().subscribe(t => {
-            this.scs_confirm("你有一份游园晚会礼包！",function(){
-                resolve();
-            },error => {
-                reject();
-            });
+        that.apise.event_garden().subscribe(t => {
+            resolve();
+        },error => {
+            reject();
         });
       });
-
+      promise.then(function(resolve,reject) {
+          that.scs_confirm("你有一份游园晚会礼包！", function () {
+              that.router.navigate(['/event-garden']);
+              close_dialog();
+          })
+          return this;
+      })
   }
   scs_confirm(val,fun_a){
     $.DialogByZ.Confirm({Title: "提示", Content: val,BtnL:"开心领取",BtnR:"任性拒绝",FunL:fun_a,FunR:close_dialog()})

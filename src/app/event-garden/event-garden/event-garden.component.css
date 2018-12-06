@@ -1,0 +1,86 @@
+.event_garden{
+    padding:0.25rem;
+}
+.gift_list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px #eaeaea solid;
+}
+.gift_list > div{
+    width:33.33333334%;
+    text-align: center;
+    height:0.8rem;
+    display: flex;
+    justify-content: center;
+    line-height: 0.8rem;
+    border-bottom:2px transparent solid;
+    transition: all .1s;
+}
+.gift_list .active{
+    border-bottom:2px #2ebdea solid;
+    color:#2ebdea;
+}
+.gift_all{
+    background:white;
+    padding:0.35rem 0.25rem;
+    overflow: hidden;
+}
+.gift_all_big{
+    background:white;
+    padding:0.15rem 0.25rem;
+    overflow: hidden;
+}
+.gift_one{
+    border: 1px #eaeaea solid;
+    padding:0.15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:white;
+}
+.gift_text{
+    font-size:0.3rem;
+    flex:1;
+    border-right:1px #eaeaea dashed;
+    text-indent: 15px;
+    padding:0.06rem 0.2rem 0.06rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.gift_integral{
+    flex:1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.06rem 0.09rem 0.06rem 0.2rem;
+}
+.small_text{
+    font-size:0.25rem;
+}
+.need_integral{
+    color:#777;
+    font-size:0.23rem;
+}
+.plane_btn{
+    color:white;
+    display: flex;
+    background:#2ebade;
+    font-size:0.25rem;
+    padding:0.07rem 0.17rem;
+    cursor: pointer;
+}
+.plane_btn_big{
+    color:white;
+    display: inline-block;
+    background:#2ebade;
+    font-size:0.25rem;
+    padding:0.07rem 0.17rem;
+    cursor: pointer;
+    position: relative;
+    top:0.05rem;
+}
+.gift_one:not(:first-child) {
+    margin-top: 0.2rem;
+}

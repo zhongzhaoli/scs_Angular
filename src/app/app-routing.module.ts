@@ -49,6 +49,7 @@ import { MyRecruitmentModule } from './my-recruitment/my-recruitment.module';
 import { AdminRecruitmentModule } from './admin-recruitment/admin-recruitment.module';
 import { ScsNumModule } from './scs-num/scs-num.module';
 import { EventGardenModule } from './event-garden/event-garden.module';
+import { AdminEventGardenModule } from './admin-event-garden/admin-event-garden.module';
 const routes: Routes = [
     {
         path: 'register-detail',
@@ -242,6 +243,10 @@ const routes: Routes = [
     {
         path: 'event-garden',
         loadChildren: './event-garden/event-garden.module#EventGardenModule'
+    },
+    {
+        path: 'admin-event-garden/:id/user/:userid',
+        loadChildren: './admin-event-garden/admin-event-garden.module#AdminEventGardenModule'
     },
     {
         path: '',

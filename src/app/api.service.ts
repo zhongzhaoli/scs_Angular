@@ -389,5 +389,13 @@ export class ApiService {
         var url = environment.url.comment + "/event_garden";
         return this.http.get(url);;
     }
+    admin_event_garden(event_id, user_id){
+        var url = environment.url.comment + "/admin/event_garden/" + event_id + "/user/" + user_id;
+        return this.http.get(url);
+    }
+    event_garden_q(){
+        var url = environment.url.comment + "/event_garden/get_q";
+        return this.http.get(url);
+    }
 }
 

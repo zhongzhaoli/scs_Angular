@@ -1,0 +1,11 @@
+<title>票券确认 - 云屯务集</title>
+<div class="header">
+  <span>票券确认</span>
+</div>
+<div class="admin_event_garden">
+  <img src="../../../assets/images/success.png" *ngIf="status === 'ok'" alt="">
+  <img src="../../../assets/images/help_or.png" *ngIf="status === 'no' || status === 'use'" alt="">
+  <h3 *ngIf="status === 'no'">查不到此券</h3>
+  <h3 *ngIf="status === 'use'">已经使用过了</h3>
+  <h3 *ngIf="status === 'ok'">领取成功</h3>
+</div>

@@ -78,13 +78,13 @@ export class MyVoucherComponent implements OnInit {
       scs_loading();
       $("#qrcode").html("");
       this.apise.find_examine_user().subscribe(t => {
-          close_dialog();
+              close_dialog();
           this.user_id = t.o_user.id;
           let qrcode = new QRCode(document.getElementById("qrcode"), {
               width : 100,
               height : 100
           });
-          qrcode.makeCode("http://www.yuntunwj.com/#/admin-exchange/" + vou_id + "/user/" + this.user_id);
+          qrcode.makeCode("https://www.yuntunwj.com/#/admin-exchange/" + vou_id + "/user/" + this.user_id);
           setTimeout(() => {
             let base64 = $("#qrcode").find("img")[0].src;
             this.scs_alert("<span>请持二维码到（深圳技师学院）天工楼301领取</span>","<img src="+ base64 +">");

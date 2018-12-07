@@ -84,3 +84,6 @@
 .gift_one:not(:first-child) {
     margin-top: 0.2rem;
 }
+.cant_click{
+    background: #a3a3a3 !important;
+}

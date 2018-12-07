@@ -5,15 +5,17 @@
   </div>
   <span>游园活动</span>
 </div>
-<div class="event_garden">
+<div class="event_garden" *ngIf="state">
   <div class="gift_one">
     <div class="gift_text">
           <span class="small_text">平台注册送考红薯</span>
     </div>
     <div class="gift_integral">
       <span class="need_integral">免费</span>
-      <div class="plane_btn" *ngIf="state === 'no'">领取</div>
-      <div class="plane_btn cant_click" *ngIf="state === ''">使用</div>
+      <div class="plane_btn" *ngIf="state === 'no'" (click)="get_q()">领取</div>
+      <div class="plane_btn" *ngIf="state === 'has'" (click)="qrcode()">使用</div>
+      <div class="plane_btn cant_click" *ngIf="state === 'use'">已使用</div>
     </div>
   </div>
 </div>
+<div id="qrcode" style="display: none;"></div>

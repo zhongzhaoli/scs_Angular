@@ -67,17 +67,19 @@ export class IndexComponent implements OnInit {
       let that = this;
       var promise = new Promise(function(resolve,reject){
         that.apise.event_garden().subscribe(t => {
-            resolve();
+            resolve(t);
         },error => {
-            reject();
+            reject(error);
         });
       });
       promise.then(function(resolve,reject) {
-          that.scs_confirm("你有一份游园晚会礼包！", function () {
-              that.router.navigate(['/event-garden']);
-              close_dialog();
-          })
-          return this;
+      }).catch(function(error){
+          if(error.error.message == 'no') {
+              that.scs_confirm("你有一份游园晚会礼包！", function () {
+                  that.router.navigate(['/event-garden']);
+                  close_dialog();
+              })
+          }
       })
   }
   scs_confirm(val,fun_a){

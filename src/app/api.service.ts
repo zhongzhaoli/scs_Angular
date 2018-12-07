@@ -9,6 +9,7 @@ import { Message } from './entity/Message';
 import { Demand } from './entity/Demand';
 import { Job } from './entity/Job';
 import { Key } from 'protractor';
+import { event_garden } from './entity/event_garden';
 declare var getCookie:any;
 @Injectable({
   providedIn: 'root'
@@ -387,15 +388,15 @@ export class ApiService {
     }
     event_garden(){
         var url = environment.url.comment + "/event_garden";
-        return this.http.get(url);;
+        return this.http.get<event_garden>(url);;
     }
     admin_event_garden(event_id, user_id){
         var url = environment.url.comment + "/admin/event_garden/" + event_id + "/user/" + user_id;
-        return this.http.get(url);
+        return this.http.get<event_garden>(url);
     }
     event_garden_q(){
         var url = environment.url.comment + "/event_garden/get_q";
-        return this.http.get(url);
+        return this.http.get<event_garden>(url);
     }
 }
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { Router } from '@angular/router';
 
-declare var Swiper, $, wx_friend_fx, scs_alert, wx_pengyou_fx: any;
+declare var Swiper, $, wx_friend_fx, scs_alert, wx_pengyou_fx, close_dialog: any;
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -72,8 +72,7 @@ export class IndexComponent implements OnInit {
             reject(error);
         });
       });
-      promise.then(function(resolve,reject) {
-      }).catch(function(error){
+      promise.catch(function(error){
           if(error.error.message == 'no') {
               that.scs_confirm("你有一份游园晚会礼包！", function () {
                   that.router.navigate(['/event-garden']);

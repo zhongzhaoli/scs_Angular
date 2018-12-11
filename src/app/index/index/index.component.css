@@ -76,6 +76,7 @@
     padding:0.25rem;
     margin-top:0.25rem;
     border-bottom:1px #eaeaea solid;
+    border-top:1px #eaeaea solid;
 }
 .now_job_title{
     font-size:0.38rem;
@@ -266,4 +267,16 @@
 }
 .evaluate_sj_loading{
     min-height:4.3rem;
+}
+.event_garden_img{
+    width:100%;
+    height:2rem;
+    background: url("../../../assets/images/event_garden.png");
+}
+.event_garden_img{
+    width:100%;
+    height:1.3rem;
+    background-size: cover;
+    background-position: center;
+    margin-top:0.25rem;
 }

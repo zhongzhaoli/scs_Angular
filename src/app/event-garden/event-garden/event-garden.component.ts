@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
+import { environment } from "../../../environments/environment";
+import { from } from 'rxjs';
 
 declare var $ , main_div_height, scs_alert, scs_loading, close_dialog, QRCode:any;
 
@@ -16,9 +18,11 @@ export class EventGardenComponent implements OnInit {
   state: string;
   user_id: string;
   event_id: string;
+  jump_login: any;
 
   ngOnInit() {
     this.get_event_state();
+    this.jump_login = environment.url.jump_login;
   }
   back_to_history() {
       window.history.back();
@@ -34,6 +38,9 @@ export class EventGardenComponent implements OnInit {
         close_dialog();
         if(error.error.message === "no"){
             this.state = "no"
+        }
+        else if(error.status === 401){
+            // window.location.href = this.jump_login;
         }
         else if(error.error.message === "use"){
             this.state = "use";

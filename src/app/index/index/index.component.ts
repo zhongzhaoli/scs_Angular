@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 declare var Swiper, $, wx_friend_fx, scs_alert, wx_pengyou_fx, close_dialog: any;
 @Component({
@@ -14,11 +15,13 @@ export class IndexComponent implements OnInit {
 
   job_index_sj: any;
   evaluate_sj: any;
+  jump_url: any;
   ngOnInit() {
       this.job_index();
       this.evaluate_index();
       this.swiper_onload();
       this.event();
+      this.jump_url = environment.url.jump_login;
       wx_friend_fx("云屯务集","云屯务集——为深圳市乃至珠三角的中小型企业提供商务、技术服务；为大学生提供优质有保障的兼职，形成整合式、系统式、现代化的一站式综合服务平台。");
       wx_pengyou_fx("云屯务集");
   }
@@ -73,11 +76,19 @@ export class IndexComponent implements OnInit {
         });
       });
       promise.catch(function(error){
-          if(error.error.message == 'no') {
-              that.scs_confirm("你有一份游园晚会礼包！", function () {
-                  that.router.navigate(['/event-garden']);
-                  close_dialog();
-              })
+          if(error.status === 401){
+            that.scs_confirm("你有一份游园晚会礼包！", function () {
+                window.location.href = that.jump_url;
+                close_dialog();
+            })
+          }
+          else{
+            if(error.error.message == 'no') {
+                that.scs_confirm("你有一份游园晚会礼包！", function () {
+                    that.router.navigate(['/event-garden']);
+                    close_dialog();
+                })
+            }
           }
       })
   }

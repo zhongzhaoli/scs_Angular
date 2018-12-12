@@ -330,9 +330,9 @@ export class ApiService {
         var url = environment.url.comment + "/admin/send-user-numerical";
         return this.http.post(url,{"student":arr, "credit":credit, "integral":integral, "experience":experience});
     }
-    send_recruit(text,type,img_list,address){
+    send_recruit(text,type,img_list,address,classify){
         var url = environment.url.comment + "/recruitment/send";
-        return this.http.post(url,{"text":text, "type":type, 'img_list':img_list,"find_address":address});
+        return this.http.post(url,{"text":text, "type":type, 'img_list':img_list,"find_address":address,"classify": classify});
     }
     get_recruit(){
         var url = environment.url.comment + "/recruitment";
@@ -397,6 +397,10 @@ export class ApiService {
     event_garden_q(){
         var url = environment.url.comment + "/event_garden/get_q";
         return this.http.get<event_garden>(url);
+    }
+    recruitment_condition(classify){
+        var url = environment.url.comment + "/recruitment/condition";
+        return this.http.post(url,{"classify": classify});
     }
 }
 

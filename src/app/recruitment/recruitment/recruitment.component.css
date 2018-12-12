@@ -100,3 +100,63 @@
     color:#777;
     font-size:0.25rem;
 }
+.custom-select {
+    position: relative;
+    background:white;
+    padding:0.1rem 0;
+}
+.custom-select select {
+    width:100%;
+    margin:0;
+    background:none;
+    border: 1px solid transparent;
+    outline: none;
+    /* Prefixed box-sizing rules necessary for older browsers */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* Remove select styling */
+    appearance: none;
+    -webkit-appearance: none;
+    /* Font size must the 16px or larger to prevent iOS page zoom on focus */
+    /* General select styles: change as needed */
+    font-family: helvetica, sans-serif;
+    font-weight: bold;
+    color: #444;
+    padding: .6em 1.9em .5em .8em;
+    line-height:1.3;
+    background:white;
+}
+.custom-select::after {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: 50%;
+    right: 8px;
+    margin-top:-4px;
+    border:8px solid #929497;
+    border-width: 8px 5px 8px;
+    border-color: #929497 transparent transparent transparent;
+    z-index: 2;
+    pointer-events:none;
+}
+.custom-select option {
+    font-weight:normal;
+}
+x:-o-prefocus, .custom-select::after {
+    display:none;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .custom-select select::-ms-expand {
+        display: none;
+    }
+    .custom-select select:focus::-ms-value {
+        background: transparent;
+        color: #222;
+    }
+}
+.custom-select select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}

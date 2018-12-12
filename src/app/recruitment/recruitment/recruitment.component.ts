@@ -80,4 +80,23 @@ export class RecruitmentComponent implements OnInit {
   scs_alert_do(title_v ,val, fun_a){
     $.DialogByZ.Alert({Title: title_v, Content: val,BtnL:"确定",FunL:fun_a});
   }
+  type_change(a){
+    scs_loading();
+    this.apise.recruitment_condition(a.value).subscribe(t => {
+      close_dialog();
+      this.sj = t;
+      if(this.sj.length == ""){
+        this.sj_length = 0;
+      }
+      else{
+        this.sj_length = this.sj.length;
+      }
+      for(var i in this.sj) {
+          if(i === "remove"){
+            return;
+          }
+          this.sj[i].img_list = JSON.parse(this.sj[i].img_list);
+      }
+    });
+  }
 }

@@ -16,6 +16,7 @@ export class SendRecruitmentComponent implements OnInit {
   text: any;
   url: any;
   address: any;
+  classify: any;
 
   ngOnInit() {
       main_div_height();
@@ -23,6 +24,7 @@ export class SendRecruitmentComponent implements OnInit {
       this.img_list = [];
       this.address = "";
       this.url = environment.url.jump_login;
+      this.classify = "饭卡"
   }
   back_to_history() {
       window.history.back();
@@ -88,7 +90,7 @@ export class SendRecruitmentComponent implements OnInit {
    }
   send_rec(){
       scs_loading();
-      this.apise.send_recruit(this.text,this.type,this.img_list,this.address).subscribe(t => {
+      this.apise.send_recruit(this.text,this.type,this.img_list,this.address,this.classify).subscribe(t => {
           close_dialog();
           this.router.navigate(['/recruitment']);
       },error => {

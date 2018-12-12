@@ -89,9 +89,12 @@
     border-top:1px #eaeaea solid;
     border-bottom:1px #eaeaea solid;
     padding:0.25rem 0;
+
+}
+.wp_text > .wp_text_div{
     display: flex;
 }
-.wp_text > div{
+.wp_text > .wp_text_div > div{
     flex:1;
 }
 .address{
@@ -106,6 +109,10 @@
     flex:7;
     font-size:12px;
 }
+.wp_text select{
+    border:1px #eaeaea solid;
+    margin-top:0.2rem;
+}
 .img_span_le{
     display: flex;
     justify-content: space-between;
@@ -119,4 +126,13 @@
     font-size:0.2rem;
     padding-top:0.1rem;
     display: block;
+}
+.wp_type{
+    padding:0.15rem 0;
+    margin-bottom:0.25rem;
+}
+.small_text{
+    font-size: 12px;
+    color: silver;
+    margin: 0.2rem 0;
 }

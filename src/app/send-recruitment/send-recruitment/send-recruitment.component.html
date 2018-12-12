@@ -15,8 +15,15 @@
     </div>
   </div>
   <div class="wp_text">
-    <div>描述：</div>
-    <textarea name="" [(ngModel)]="text" class="form-control" placeholder="请填写物品的描述以及丢失位置" id="" rows="3"></textarea>
+    <div class="wp_text_div">
+      <div>描述：</div>
+      <textarea name="" [(ngModel)]="text" class="form-control" placeholder="请填写物品的描述以及丢失位置" id="" rows="4"></textarea>
+    </div>
+    <select name="" class="form-control" id="" [(ngModel)]="classify">
+      <option value="饭卡">饭卡</option>
+      <option value="U盘">U盘</option>
+      <option value="其他物品">其他物品</option>
+    </select>
   </div>
   <div class="wp_text address" *ngIf="type == 2">
     <div>领取地址：</div>

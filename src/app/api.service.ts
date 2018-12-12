@@ -402,5 +402,9 @@ export class ApiService {
         var url = environment.url.comment + "/recruitment/condition";
         return this.http.post(url,{"classify": classify});
     }
+    admin_job_sign(){
+        var url = environment.url.comment + "/admin/job-sign";
+        return this.http.get(url);
+    }
 }
 

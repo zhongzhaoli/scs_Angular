@@ -50,6 +50,7 @@ import { AdminRecruitmentModule } from './admin-recruitment/admin-recruitment.mo
 import { ScsNumModule } from './scs-num/scs-num.module';
 import { EventGardenModule } from './event-garden/event-garden.module';
 import { AdminEventGardenModule } from './admin-event-garden/admin-event-garden.module';
+import { AdminJobSignModule } from './admin-job-sign/admin-job-sign.module';
 const routes: Routes = [
     {
         path: 'register-detail',
@@ -247,6 +248,10 @@ const routes: Routes = [
     {
         path: 'admin-event-garden/:id/user/:userid',
         loadChildren: './admin-event-garden/admin-event-garden.module#AdminEventGardenModule'
+    },
+    {
+        path: 'admin-job-sign',
+        loadChildren: './admin-job-sign/admin-job-sign.module#AdminJobSignModule'
     },
     {
         path: '',

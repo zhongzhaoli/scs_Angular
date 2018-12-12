@@ -1,0 +1,12 @@
+<title>后台 - 云屯务集</title>
+<div class="header">
+  <div class="go_back_btn" (click)="back_to_history()">
+    <i class="fa fa-angle-left posi_left"></i>
+  </div>
+  <span>兼职信报名管理</span>
+</div>
+<div class="admin_job_sign"> 
+  <div class="job_sign_div" *ngFor="let i of sj" routerLink="/job-sign/{{ i.job_id }}">
+      <span>{{ i?.job?.job_title }}</span>
+  </div>
+</div>

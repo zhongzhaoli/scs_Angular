@@ -1,0 +1,14 @@
+.admin_job_sign{
+    width:100%;
+    padding:0.25rem;
+}
+.job_sign_div{
+    width: 100%;
+    padding: 0.2rem;
+    background: white;
+    border-radius: 3px;
+    border: 1px #eaeaea solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

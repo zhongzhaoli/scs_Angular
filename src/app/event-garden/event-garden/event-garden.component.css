@@ -1,5 +1,7 @@
 .event_garden{
-    padding:0.25rem;
+    padding: 0.25rem 0.25rem 0 0.25rem;
+    background:white;
+    overflow: hidden;
 }
 .gift_list{
     display: flex;
@@ -58,6 +60,7 @@
 }
 .small_text{
     font-size:0.25rem;
+    letter-spacing: 1px;
 }
 .need_integral{
     color:#777;
@@ -86,4 +89,41 @@
 }
 .cant_click{
     background: #a3a3a3 !important;
+}
+.event_text{
+    text-align: center;
+    padding: 0.25rem 0.25rem;
+    background:white;
+}
+.event_text h3{
+    margin-bottom:0.25rem;
+}
+hr{
+    margin: 0.25rem 0;
+    background:white;
+}
+.event_text div{
+    line-height: 30px;
+}
+.border_div{
+    border: 1px #000 solid;
+    margin: 0.35rem 0;
+    padding: 0 0.2rem;
+}
+.event_text img{
+    width:100%;
+    margin: 0.35rem 0;
+}
+.black_bg{
+    background:black;
+    color:white;
+    display: inline-block;
+    padding: 0 15px;
+    margin-bottom: 0.25rem;
+}
+.small_img{
+    max-width: 50%;
+}
+.left_border_div > div{
+    text-align: left;
 }

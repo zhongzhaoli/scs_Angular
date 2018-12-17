@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { environment } from "../../../environments/environment";
-import { from } from 'rxjs';
 
 declare var $ , main_div_height, scs_alert, scs_loading, close_dialog, QRCode:any;
 
@@ -23,6 +22,7 @@ export class EventGardenComponent implements OnInit {
   ngOnInit() {
     this.get_event_state();
     this.jump_login = environment.url.jump_login;
+    this.event();
   }
   back_to_history() {
       window.history.back();
@@ -58,6 +58,9 @@ export class EventGardenComponent implements OnInit {
       this.event_id = t.event_id;
     });
   }
+  to_top(){
+    document.documentElement.scrollTop = 0;
+  }
   qrcode(){
     let that = this;
     let qrcode = new QRCode(document.getElementById("qrcode"), {
@@ -69,6 +72,15 @@ export class EventGardenComponent implements OnInit {
         let base64 = $("#qrcode").find("img")[0].src;
         that.scs_alert("请到摊位领取","<img src="+ base64 +">");
     },0)
+  }
+  //活动
+  event(){
+    this.apise.event_garden().subscribe(t => {
+    },error => {
+      if(error.status === 401){
+        window.location.href = this.jump_login;
+      }
+    });
   }
   scs_alert(title,val){
       $.DialogByZ.Alert({Title: title, Content: val,BtnL:"确定",FunL:close_dialog()});

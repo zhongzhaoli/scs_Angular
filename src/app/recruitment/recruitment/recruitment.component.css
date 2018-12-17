@@ -147,6 +147,9 @@
 x:-o-prefocus, .custom-select::after {
     display:none;
 }
+.to_top{
+    font-size: 0.3rem;
+}
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .custom-select select::-ms-expand {
         display: none;

@@ -67,6 +67,7 @@
   <div class="job_detail job_bm_btn_div">
     <button class="scs-btn btn" *ngIf="sj?.job_num > sj?.job_has_num" (click) = "job_sign(sj?.id)">报名（剩下<span style="padding:0 5px;">{{ sj?.job_num - sj?.job_has_num }}</span>个名额）</button>
     <button class="btn btn-danger" *ngIf="sj?.job_num == sj?.job_has_num">人数已满</button>
+    <a href="#"><span class="follow_text">关注公众号获取更多兼职资源</span></a>
   </div>
 </div>
 <div class="footer"></div>

@@ -83,7 +83,16 @@
 }
 .job_bm_btn_div{
     background:white;
+    text-align: center;
 }
 .job_bm_btn_div button{
     width:100%;
+}
+.follow_text{
+    width: 100%;
+    font-size: 0.25rem;
+    letter-spacing: 0.01rem;
+    padding-top: 5px;
+    line-height: 0.7rem;
+    cursor: pointer;
 }

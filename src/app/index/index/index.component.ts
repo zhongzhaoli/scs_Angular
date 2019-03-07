@@ -76,20 +76,12 @@ export class IndexComponent implements OnInit {
         });
       });
       promise.catch(function(error){
-          if(error.status === 401){
+        if(error.error.message == 'no') {
             that.scs_confirm("你有一份游园晚会礼包！", function () {
-                window.location.href = that.jump_url;
+                that.router.navigate(['/event-garden']);
                 close_dialog();
             })
-          }
-          else{
-            if(error.error.message == 'no') {
-                that.scs_confirm("你有一份游园晚会礼包！", function () {
-                    that.router.navigate(['/event-garden']);
-                    close_dialog();
-                })
-            }
-          }
+        }
       })
   }
   scs_confirm(val,fun_a){
